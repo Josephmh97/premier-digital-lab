@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Digital Lab — Premium Digital Subscriptions</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#080c18;color:#fff;min-height:100vh}
+  a{text-decoration:none;color:inherit}
+
+  /* NAV */
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:#0b1020;border-bottom:1px solid rgba(255,255,255,0.07);position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo img{height:46px;width:auto}
+  .logo-text{font-size:15px;font-weight:600;letter-spacing:0.4px;line-height:1.2}
+  .logo-text span{color:#3b82f6}
+  .logo-handle{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.5px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:rgba(255,255,255,0.55);font-size:13px;transition:color 0.2s}
+  .nav-links a:hover{color:#3b82f6}
+  .nav-wa{background:#25d366;color:#fff !important;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500}
+  .nav-wa:hover{background:#1db954 !important;color:#fff !important}
+
+  /* HERO */
+  .hero{text-align:center;padding:60px 24px 44px;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,0.18),transparent 65%)}
+  .hero-badge{display:inline-block;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.35);color:#7fb3ff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:18px}
+  .hero h1{font-size:38px;font-weight:700;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px}
+  .hero h1 span{color:#3b82f6}
+  .hero p{color:rgba(255,255,255,0.5);font-size:15px;max-width:480px;margin:0 auto 28px;line-height:1.6}
+  .stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat-num{font-size:22px;font-weight:700;color:#3b82f6}
+  .stat-label{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;text-transform:uppercase;letter-spacing:0.8px}
+
+  /* MAIN */
+  .main{max-width:1100px;margin:0 auto;padding:0 24px 60px}
+
+  /* TABS */
+  .tabs-wrap{margin:36px 0 28px}
+  .tabs{display:flex;gap:4px;background:rgba(255,255,255,0.05);border-radius:12px;padding:5px;max-width:500px}
+  .tab-btn{flex:1;padding:11px 16px;border:none;background:transparent;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;border-radius:9px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+  .tab-btn.active{background:#1e40af;color:#fff;box-shadow:0 2px 8px rgba(30,64,175,0.4)}
+
+  .tab-content{display:none}
+  .tab-content.active{display:block}
+
+  /* SECTION LABEL */
+  .section-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
+
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px}
+
+  /* CARDS */
+  .card{background:#0f1628;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;position:relative;transition:border-color 0.25s,transform 0.2s}
+  .card:hover{border-color:rgba(59,130,246,0.45);transform:translateY(-2px)}
+  .card.featured{border-color:rgba(59,130,246,0.4);background:#101a32}
+  .pop-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#1e40af;color:#fff;font-size:10px;font-weight:600;padding:3px 14px;border-radius:0 0 9px 9px;white-space:nowrap;letter-spacing:0.5px}
+  .card-brand{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#3b82f6;margin-bottom:5px}
+  .card-name{font-size:16px;font-weight:600;color:#fff;margin-bottom:5px}
+  .card-sub{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:12px;line-height:1.4}
+  .tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+  .tag{font-size:10px;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.08)}
+  
+  /* PLAN BUTTONS */
+  .plan-list{display:flex;flex-direction:column;gap:6px;margin-bottom:4px}
+  .plan-btn{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:9px;text-decoration:none;color:#fff;transition:all 0.2s;cursor:pointer}
+  .plan-btn:hover{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.3);transform:translateX(3px)}
+  .plan-btn.hot{background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.35)}
+  .plan-btn.hot:hover{background:rgba(59,130,246,0.2)}
+  .plan-dur{font-size:12px;color:rgba(255,255,255,0.5)}
+  .plan-price{font-size:14px;font-weight:700;color:#7fb3ff}
+  .plan-btn.hot .plan-price{color:#60a5fa}
+  .plan-order{font-size:11px;color:#25d366;font-weight:500;background:rgba(37,211,102,0.1);padding:3px 10px;border-radius:5px;transition:all 0.2s}
+  .plan-btn:hover .plan-order{background:rgba(37,211,102,0.2)}
+
+  /* PAYMENT */
+  .payment-bar{background:#0b1020;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 22px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .pay-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap}
+  .pay-pills{display:flex;gap:10px;flex-wrap:wrap}
+  .pay-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 14px;font-size:12px;color:rgba(255,255,255,0.65);font-weight:500}
+  .pay-logo{height:18px;width:auto;vertical-align:middle;margin-right:8px;}
+ 
+  /* CTA */
+  .cta-box{text-align:center;padding:36px 24px;background:#0b1020;border:1px solid rgba(255,255,255,0.07);border-radius:16px;margin-bottom:20px}
+  .cta-box h3{font-size:18px;font-weight:600;margin-bottom:8px}
+  .cta-box p{color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:20px}
+  .wa-big{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 32px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:background 0.2s}
+  .wa-big:hover{background:#1db954}
+  .wa-big svg{width:20px;height:20px;fill:#fff}
+
+  /* FOOTER */
+  footer{text-align:center;padding:28px 24px;border-top:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.3);font-size:12px;line-height:1.8}
+  footer span{color:rgba(255,255,255,0.5)}
+
+  @media(max-width:600px){
+    nav{padding:12px 16px}
+    .nav-links{gap:14px}
+    .hero h1{font-size:26px}
+    .stats{gap:20px}
+    .grid{grid-template-columns:1fr 1fr}
+    .tabs{max-width:100%}
+    .tab-btn{font-size:12px;padding:9px 10px}
+    .payment-bar{flex-direction:column;align-items:flex-start}
+    .plan-btn{padding:8px 10px}
+    .plan-price{font-size:13px}
+  }
+  @media(max-width:400px){
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="https://images2.imgbox.com/6e/86/l0501Aip_o.png" alt="Premier Digital Lab Logo">
+    <div>
+      <div class="logo-text"><span>Premier</span> Digital Lab</div>
+      <div class="logo-handle">@PremierDigitalLab</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#iptv">IPTV</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/213654083898" class="nav-wa" target="_blank">💬 WhatsApp</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">🚀 Official Reseller · Algeria & Europe</div>
+  <h1>Premium <span>Digital</span><br>Subscriptions</h1>
+  <p>Your trusted source for premium IPTV plans. Fast delivery, 24/7 support, and the best prices in the market.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">IPTV Brands</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
+    <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Uptime</div></div>
+    <div class="stat"><div class="stat-num">4K</div><div class="stat-label">Quality</div></div>
+  </div>
+</div>
+
+<div class="main" id="iptv">
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('dz',this)">🇩🇿 Algeria Market (DZA)</button>
+      <button class="tab-btn" onclick="switchTab('eu',this)">🇪🇺 Europe Market (EUR)</button>
+    </div>
+  </div>
+
+  <!-- ===== DZA TAB ===== -->
+  <div id="tab-dz" class="tab-content active">
+    <div class="section-label">IPTV Subscriptions — Algerian Dinar (DZA)</div>
+
+    <div class="grid">
+
+      <!-- LYNX IPTV -->
+      <div class="card">
+        <div class="card-brand">Lynx IPTV</div>
+        <div class="card-name">Lynx IPTV</div>
+        <img src="https://images2.imgbox.com/c0/8f/a1mqn3mM_o.png" alt="Lynx IPTV" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">2000+ Ch · 4K UHD · VOD Library · No Buffering</div>
+        <div class="tags"><span class="tag">2K+ Ch</span><span class="tag">4K UHD</span><span class="tag">Multi-Device</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Lynx%20IPTV%20-%203%20Months%20(900%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">900 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Lynx%20IPTV%20-%206%20Months%20(1500%20DZ)" target="_blank" class="plan-btn hot">
+            <span class="plan-dur">6 Months</span>
+            <span class="plan-price">1500 DZ</span>
+            <span class="plan-order">⭐ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Lynx%20IPTV%20-%2012%20Months%20(2500%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">12 Months</span>
+            <span class="plan-price">2500 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- IRON TV MAX DZA -->
+      <div class="card">
+        <div class="card-brand">Iron TV Max</div>
+        <div class="card-name">Iron TV Max FHD</div>
+        <img src="https://images2.imgbox.com/fb/33/CPgmEsH0_o.jpg" alt="Iron TV Max FHD" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe</div>
+        <div class="tags"><span class="tag">FHD</span><span class="tag">Football Live</span><span class="tag">Arabe</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%203%20Months%20(1500%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">1500 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%206%20Months%20(2000%20DZ)" target="_blank" class="plan-btn hot">
+            <span class="plan-dur">6 Months</span>
+            <span class="plan-price">2000 DZ</span>
+            <span class="plan-order">⭐ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%2012%20Months%20(3000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">12 Months</span>
+            <span class="plan-price">3000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- DAR PLAYER DZA -->
+      <div class="card">
+        <div class="card-brand">Dar Player</div>
+        <div class="card-name">Dar Player IPTV</div>
+        <img src="https://images2.imgbox.com/af/cc/ONdhUMjO_o.jpg" alt="Dar Player IPTV" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">Unlimited Entertainment at Your Fingertips. 5000+ channels</div>
+        <div class="tags"><span class="tag">4K HD</span><span class="tag">5k+ Ch</span><span class="tag">Multi-Device</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Dar%20Player%20IPTV%20-%203%20Months%20(2000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">2000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Dar%20Player%20IPTV%20-%206%20Months%20(2800%20DZ)" target="_blank" class="plan-btn hot">
+            <span class="plan-dur">6 Months</span>
+            <span class="plan-price">2800 DZ</span>
+            <span class="plan-order">⭐ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Dar%20Player%20IPTV%20-%2012%20Months%20(4200%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">12 Months</span>
+            <span class="plan-price">4200 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- NEO 4K DZA -->
+      <div class="card">
+        <div class="card-brand">Neo 4K</div>
+        <div class="card-name">Neo 4K IPTV</div>
+        <img src="https://images2.imgbox.com/9d/df/eVCARigP_o.jpg" alt="NEO 4K IPTV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">Ultra 4K quality. 99% Up-Time, Fast Stream</div>
+        <div class="tags"><span class="tag">4K FHD</span><span class="tag">99% Up-Time</span><span class="tag">Fast Stream</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%203%20Months%20(2000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">2000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%206%20Months%20(2800%20DZ)" target="_blank" class="plan-btn hot">
+            <span class="plan-dur">6 Months</span>
+            <span class="plan-price">2800 DZ</span>
+            <span class="plan-order">⭐ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%2012%20Months%20(4500%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">12 Months</span>
+            <span class="plan-price">4500 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- KING 365 TV DZA -->
+      <div class="card featured">
+        <div class="pop-badge">⭐ POPULAIRE</div>
+        <div class="card-brand">King 365 TV</div>
+        <div class="card-name">King 365 TV</div>
+        <img src="https://images2.imgbox.com/15/45/Fpzm6tJD_o.jpg" alt="King 365 TV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">Votre divertissement. Sans limites. Football, Films, Arabe</div>
+        <div class="tags"><span class="tag">Football Live</span><span class="tag">Arabe</span><span class="tag">4K</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%203%20Months%20(4000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">4000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%206%20Months%20(5000%20DZ)" target="_blank" class="plan-btn hot">
+            <span class="plan-dur">6 Months</span>
+            <span class="plan-price">5000 DZ</span>
+            <span class="plan-order">⭐ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%2012%20Months%20(8000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">12 Months</span>
+            <span class="plan-price">8000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- STRONG 8K DZA -->
+      <div class="card featured">
+        <div class="pop-badge">⭐ PREMIUM</div>
+        <div class="card-brand">Strong 8K</div>
+        <div class="card-name">Strong 8K IPTV</div>
+        <img src="https://images2.imgbox.com/cc/a2/N4hY9vjB_o.jpg" alt="Strong 8K" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen</div>
+        <div class="tags"><span class="tag">8K Quality</span><span class="tag">5000+ Ch</span><span class="tag">Multi-Screen</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%203%20Months%20(4000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">4000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%206%20Months%20(5000%20DZ)" target="_blank" class="plan-btn hot">
+            <span class="plan-dur">6 Months</span>
+            <span class="plan-price">5000 DZ</span>
+            <span class="plan-order">⭐ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%2012%20Months%20(8000%20DZ)" target="_blank" class="plan-btn">
+            <span class="plan-dur">12 Months</span>
+            <span class="plan-price">8000 DZ</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="payment-bar">
+      <span class="pay-label">Payment Methods</span>
+      <div class="pay-pills">
+        <span class="pay-pill">
+          <img src="https://images.seeklogo.com/logo-png/27/1/poste-algerie-logo-png_seeklogo-272140.png" alt="Algérie Poste" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">Algérie Poste (Baridi Mob)
+        </span>
+        <span class="pay-pill">
+          <img src="https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png" alt="PayPal" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">PayPal
+        </span>
+        <span class="pay-pill">
+          <img src="https://www.redotpay.one/wp-content/uploads/2025/10/logo-redotpay-348-94.png" alt="RedotPay" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">RedotPay
+        </span>
+        <span class="pay-pill">
+          <img src="https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png" alt="Binance" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">Binance
+        </span>
+      </div>
+    </div>
+
+    <div class="cta-box" id="contact">
+      <h3>Ready to subscribe?</h3>
+      <p>Contact us on WhatsApp for instant activation and support</p>
+      <a href="https://wa.me/213654083898" target="_blank" class="wa-big">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.072 23.927l6.218-1.432A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.798 9.798 0 01-4.932-1.327l-.354-.21-3.692.85.876-3.595-.23-.369A9.791 9.791 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.423 0 9.818 4.396 9.818 9.818 0 5.423-4.395 9.818-9.818 9.818z"/></svg>
+        Order on WhatsApp · +213 654 083 898
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== EUR TAB ===== -->
+  <div id="tab-eu" class="tab-content">
+    <div class="section-label">IPTV Subscriptions — Euro (EUR) · Europe Market</div>
+
+    <div class="grid">
+
+      <!-- IRON TV MAX EUR -->
+      <div class="card">
+        <div class="card-brand">Iron TV Max</div>
+        <div class="card-name">Iron TV Max FHD</div>
+        <img src="https://images2.imgbox.com/c5/e5/AKLOezHz_o.jpg" alt="Iron TV Max FHD" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
+        <div class="card-sub">Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe</div>
+        <div class="tags"><span class="tag">FHD</span><span class="tag">Football Live</span><span class="tag">Arabe</span></div>
+        <div class="plan-list">
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%203%20Months%20(€9.99)" target="_blank" class="plan-btn">
+            <span class="plan-dur">3 Months</span>
+            <span class="plan-price">€9.99</span>
+            <span class="plan-order">→ Order</span>
+          </a>
+          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%
