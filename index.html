@@ -1155,18 +1155,18 @@
       const payList = document.getElementById('modalPaymentList');
       payList.innerHTML = '';
 
-      // Different payment options for DZ vs EU
+      // Different payment options for DZ vs EU using transparent official WebP/PNG logos
       const availablePayments = prod.id.endsWith('-dz') 
         ? [
-            { id: 'baridimob', name: i18n[currentLang].payBaridiMob, desc: 'التحويل السريع عبر تطبيق بريدي موب', icon: 'credit-card', color: 'bg-red-600' },
-            { id: 'ccp', name: i18n[currentLang].payCcp, desc: 'الدفع المباشر في مركز البريد CCP', icon: 'mail', color: 'bg-amber-500' },
-            { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Secure Checkout via PayPal Invoice', icon: 'external-link', color: 'bg-blue-600' },
-            { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Pay instantly using BNB/USDT', icon: 'coins', color: 'bg-yellow-500' }
+            { id: 'baridimob', name: i18n[currentLang].payBaridiMob, desc: 'التحويل السريع عبر تطبيق بريدي موب', logo: 'https://logowik.com/content/uploads/images/baridimob-logo-vector-1719990518.webp' },
+            { id: 'ccp', name: i18n[currentLang].payCcp, desc: 'الدفع المباشر في مركز البريد CCP', logo: 'https://logowik.com/content/uploads/images/algerie-poste9001.logowik.com.webp' },
+            { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Secure Checkout via PayPal Invoice', logo: 'https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png' },
+            { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Pay instantly using BNB/USDT', logo: 'https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png' }
           ]
         : [
-            { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Safe PayPal Card or Balance Checkout', icon: 'credit-card', color: 'bg-blue-600' },
-            { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Fast Crypto transaction Binance Pay', icon: 'coins', color: 'bg-yellow-500' },
-            { id: 'redotpay', name: i18n[currentLang].payRedotPay, desc: 'Modern digital card checkout', icon: 'wallet', color: 'bg-rose-500' }
+            { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Safe PayPal Card or Balance Checkout', logo: 'https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png' },
+            { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Fast Crypto transaction Binance Pay', logo: 'https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png' },
+            { id: 'redotpay', name: i18n[currentLang].payRedotPay, desc: 'Modern digital card checkout', logo: 'https://www.redotpay.one/wp-content/uploads/2025/10/logo-redotpay-348-94.png' }
           ];
 
       availablePayments.forEach(pay => {
@@ -1174,7 +1174,10 @@
         const payCard = `
           <button onclick="setModalPayment('${pay.id}')" id="payCard-${pay.id}" class="w-full p-3 rounded-xl border flex items-center justify-between transition-all text-left ${isSelected ? 'border-blue-500 bg-blue-500/10 text-white font-bold' : 'border-slate-800 bg-slate-950/80 text-gray-400 hover:border-slate-700'}">
             <div class="flex items-center gap-3">
-              <div class="w-8 h-8 rounded-lg ${pay.color} flex items-center justify-center text-white"><i data-lucide="${pay.icon}" class="w-4 h-4"></i></div>
+              <!-- Rounded logo container -->
+              <div class="w-9 h-9 rounded-lg bg-slate-950 flex items-center justify-center border border-white/[0.06] p-1.5 overflow-hidden shrink-0">
+                <img src="${pay.logo}" alt="${pay.name}" class="max-w-full max-h-full object-contain">
+              </div>
               <div>
                 <span class="text-xs block font-bold leading-tight">${pay.name}</span>
                 <span class="text-[10px] text-slate-500 leading-none">${pay.desc}</span>
@@ -1202,7 +1205,7 @@
       lucide.createIcons();
     }
 
-    // Modal duration click handling
+    // Modal duration selection click handling
     function setModalDuration(index) {
       selectedDurationIndex = index;
 
