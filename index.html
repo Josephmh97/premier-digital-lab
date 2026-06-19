@@ -1,504 +1,1382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premier Digital Lab — Premium Digital Subscriptions</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',system-ui,sans-serif;background:#080c18;color:#fff;min-height:100vh}
-  a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Digital Lab — Premium IPTV & Digital Subscriptions</title>
 
-  /* NAV */
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:#0b1020;border-bottom:1px solid rgba(255,255,255,0.07);position:sticky;top:0;z-index:100}
-  .logo{display:flex;align-items:center;gap:12px}
-  .logo img{height:46px;width:auto}
-  .logo-text{font-size:15px;font-weight:600;letter-spacing:0.4px;line-height:1.2}
-  .logo-text span{color:#3b82f6}
-  .logo-handle{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.5px}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{color:rgba(255,255,255,0.55);font-size:13px;transition:color 0.2s}
-  .nav-links a:hover{color:#3b82f6}
-  .nav-wa{background:#25d366;color:#fff !important;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500}
-  .nav-wa:hover{background:#1db954 !important;color:#fff !important}
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official reseller of premium IPTV plans (Lynx, Iron TV Max, Dar Player, Neo, King 365, Strong 8K) in Algeria and Europe. 24/7 support, instant activation, and the lowest prices.">
+  <meta name="keywords" content="IPTV Algeria, IPTV Europe, Lynx IPTV, Iron TV, Neo 4K, King 365, Strong 8K, BaridiMob, CCP, Baridi Mob, Algérie IPTV">
 
-  /* HERO */
-  .hero{text-align:center;padding:60px 24px 44px;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,0.18),transparent 65%)}
-  .hero-badge{display:inline-block;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.35);color:#7fb3ff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:18px}
-  .hero h1{font-size:38px;font-weight:700;line-height:1.2;margin-bottom:14px;letter-spacing:-0.5px}
-  .hero h1 span{color:#3b82f6}
-  .hero p{color:rgba(255,255,255,0.5);font-size:15px;max-width:480px;margin:0 auto 28px;line-height:1.6}
-  .stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
-  .stat{text-align:center}
-  .stat-num{font-size:22px;font-weight:700;color:#3b82f6}
-  .stat-label{font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;text-transform:uppercase;letter-spacing:0.8px}
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://josephmh97.github.io/premier-digital-lab/">
+  <meta property="og:title" content="Premier Digital Lab — Premium IPTV & Digital Subscriptions">
+  <meta property="og:description" content="Enjoy high-quality streaming without buffering. Official reseller in Algeria & Europe. Support 24/7.">
+  <meta property="og:image" content="https://images2.imgbox.com/6e/86/l0501Aip_o.png">
 
-  /* MAIN */
-  .main{max-width:1100px;margin:0 auto;padding:0 24px 60px}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  /* TABS */
-  .tabs-wrap{margin:36px 0 28px}
-  .tabs{display:flex;gap:4px;background:rgba(255,255,255,0.05);border-radius:12px;padding:5px;max-width:500px}
-  .tab-btn{flex:1;padding:11px 16px;border:none;background:transparent;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;border-radius:9px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
-  .tab-btn.active{background:#1e40af;color:#fff;box-shadow:0 2px 8px rgba(30,64,175,0.4)}
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#060813',
+            brandCard: '#0e1224',
+            brandBlue: '#3b82f6',
+            brandGreen: '#25d366',
+            brandGold: '#f59e0b',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Cairo', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
-  .tab-content{display:none}
-  .tab-content.active{display:block}
+  <!-- Lucide Icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-  /* SECTION LABEL */
-  .section-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin:32px 0 16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.06)}
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060813;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3b82f6;
+    }
 
-  /* GRID */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;margin-bottom:32px}
+    /* Glow Effects */
+    .glow-blue {
+      box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.4);
+    }
+    .glow-gold {
+      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.45);
+    }
 
-  /* CARDS */
-  .card{background:#0f1628;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;position:relative;transition:border-color 0.25s,transform 0.2s}
-  .card:hover{border-color:rgba(59,130,246,0.45);transform:translateY(-2px)}
-  .card.featured{border-color:rgba(59,130,246,0.4);background:#101a32}
-  .pop-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#1e40af;color:#fff;font-size:10px;font-weight:600;padding:3px 14px;border-radius:0 0 9px 9px;white-space:nowrap;letter-spacing:0.5px}
-  .card-brand{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#3b82f6;margin-bottom:5px}
-  .card-name{font-size:16px;font-weight:600;color:#fff;margin-bottom:5px}
-  .card-sub{font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:12px;line-height:1.4}
-  .tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
-  .tag{font-size:10px;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.08)}
-  
-  /* PLAN BUTTONS */
-  .plan-list{display:flex;flex-direction:column;gap:6px;margin-bottom:4px}
-  .plan-btn{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:9px;text-decoration:none;color:#fff;transition:all 0.2s;cursor:pointer}
-  .plan-btn:hover{background:rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.3);transform:translateX(3px)}
-  .plan-btn.hot{background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.35)}
-  .plan-btn.hot:hover{background:rgba(59,130,246,0.2)}
-  .plan-dur{font-size:12px;color:rgba(255,255,255,0.5)}
-  .plan-price{font-size:14px;font-weight:700;color:#7fb3ff}
-  .plan-btn.hot .plan-price{color:#60a5fa}
-  .plan-order{font-size:11px;color:#25d366;font-weight:500;background:rgba(37,211,102,0.1);padding:3px 10px;border-radius:5px;transition:all 0.2s}
-  .plan-btn:hover .plan-order{background:rgba(37,211,102,0.2)}
+    /* Active tab style overlay */
+    .tab-active {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: #ffffff !important;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+    }
 
-  /* PAYMENT */
-  .payment-bar{background:#0b1020;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:18px 22px;margin-bottom:28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-  .pay-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap}
-  .pay-pills{display:flex;gap:10px;flex-wrap:wrap}
-  .pay-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:6px 14px;font-size:12px;color:rgba(255,255,255,0.65);font-weight:500}
-  .pay-logo{height:18px;width:auto;vertical-align:middle;margin-right:8px;}
- 
-  /* CTA */
-  .cta-box{text-align:center;padding:36px 24px;background:#0b1020;border:1px solid rgba(255,255,255,0.07);border-radius:16px;margin-bottom:20px}
-  .cta-box h3{font-size:18px;font-weight:600;margin-bottom:8px}
-  .cta-box p{color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:20px}
-  .wa-big{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 32px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:none;text-decoration:none;transition:background 0.2s}
-  .wa-big:hover{background:#1db954}
-  .wa-big svg{width:20px;height:20px;fill:#fff}
-
-  /* FOOTER */
-  footer{text-align:center;padding:28px 24px;border-top:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.3);font-size:12px;line-height:1.8}
-  footer span{color:rgba(255,255,255,0.5)}
-
-  @media(max-width:600px){
-    nav{padding:12px 16px}
-    .nav-links{gap:14px}
-    .hero h1{font-size:26px}
-    .stats{gap:20px}
-    .grid{grid-template-columns:1fr 1fr}
-    .tabs{max-width:100%}
-    .tab-btn{font-size:12px;padding:9px 10px}
-    .payment-bar{flex-direction:column;align-items:flex-start}
-    .plan-btn{padding:8px 10px}
-    .plan-price{font-size:13px}
-  }
-  @media(max-width:400px){
-    .grid{grid-template-columns:1fr}
-  }
-</style>
+    /* Floating WhatsApp Button Animation */
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    .wa-pulse {
+      animation: pulse-green 2s infinite;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-brandDark text-gray-100 font-sans min-height-screen relative overflow-x-hidden selection:bg-blue-500 selection:text-white">
 
-<nav>
-  <div class="logo">
-    <img src="https://images2.imgbox.com/6e/86/l0501Aip_o.png" alt="Premier Digital Lab Logo">
-    <div>
-      <div class="logo-text"><span>Premier</span> Digital Lab</div>
-      <div class="logo-handle">@PremierDigitalLab</div>
+  <!-- Radial Background Glow -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.15),_transparent_60%)] pointer-events-none z-0"></div>
+
+  <!-- STICKY HEADER -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-brandDark/80 border-b border-white/[0.06] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative">
+          <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+          <img src="https://images2.imgbox.com/6e/86/l0501Aip_o.png" alt="Premier Digital Lab Logo" class="relative h-12 w-auto object-contain rounded-lg">
+        </div>
+        <div>
+          <div class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white leading-tight">
+            <span class="text-blue-500">Premier</span> Digital Lab
+          </div>
+          <div class="text-xs text-gray-400 font-medium tracking-wider">@PremierDigitalLab</div>
+        </div>
+      </a>
+
+      <!-- Right Nav controls -->
+      <div class="flex items-center gap-3 sm:gap-6">
+        <!-- Language Switcher Dropdown -->
+        <div class="relative inline-block text-left">
+          <button onclick="toggleLangDropdown()" id="langBtn" class="flex items-center gap-1.5 bg-slate-800/80 border border-slate-700 hover:border-blue-500 text-gray-200 hover:text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
+            <i data-lucide="languages" class="w-4 h-4"></i>
+            <span id="currentLangLabel">English</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </button>
+          <div id="langDropdown" class="hidden absolute right-0 mt-2 w-36 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-1.5 z-50">
+            <button onclick="setLanguage('en')" class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-lg hover:bg-blue-600 hover:text-white font-medium flex items-center justify-between transition-all">
+              <span>English</span>
+              <span class="text-xs text-gray-400">EN</span>
+            </button>
+            <button onclick="setLanguage('fr')" class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-lg hover:bg-blue-600 hover:text-white font-medium flex items-center justify-between transition-all">
+              <span>Français</span>
+              <span class="text-xs text-gray-400">FR</span>
+            </button>
+            <button onclick="setLanguage('ar')" class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-lg hover:bg-blue-600 hover:text-white font-medium flex items-center justify-between transition-all">
+              <span class="font-bold">العربية</span>
+              <span class="text-xs text-gray-400">AR</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- WhatsApp Link -->
+        <a href="https://wa.me/213654083898" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-lg transition-all duration-300">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span data-i18n="navWa">WhatsApp Chat</span>
+        </a>
+      </div>
     </div>
-  </div>
-  <div class="nav-links">
-    <a href="#iptv">IPTV</a>
-    <a href="#contact">Contact</a>
-    <a href="https://wa.me/213654083898" class="nav-wa" target="_blank">💬 WhatsApp</a>
-  </div>
-</nav>
+  </nav>
 
-<div class="hero">
-  <div class="hero-badge">🚀 Official Reseller · Algeria & Europe</div>
-  <h1>Premium <span>Digital</span><br>Subscriptions</h1>
-  <p>Your trusted source for premium IPTV plans. Fast delivery, 24/7 support, and the best prices in the market.</p>
-  <div class="stats">
-    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">IPTV Brands</div></div>
-    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Support</div></div>
-    <div class="stat"><div class="stat-num">99%</div><div class="stat-label">Uptime</div></div>
-    <div class="stat"><div class="stat-num">4K</div><div class="stat-label">Quality</div></div>
-  </div>
-</div>
-
-<div class="main" id="iptv">
-  <div class="tabs-wrap">
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('dz',this)">🇩🇿 Algeria Market (DZA)</button>
-      <button class="tab-btn" onclick="switchTab('eu',this)">🇪🇺 Europe Market (EUR)</button>
-    </div>
-  </div>
-
-  <!-- ===== DZA TAB ===== -->
-  <div id="tab-dz" class="tab-content active">
-    <div class="section-label">IPTV Subscriptions — Algerian Dinar (DZA)</div>
-
-    <div class="grid">
-
-      <!-- LYNX IPTV -->
-      <div class="card">
-        <div class="card-brand">Lynx IPTV</div>
-        <div class="card-name">Lynx IPTV</div>
-        <img src="https://images2.imgbox.com/c0/8f/a1mqn3mM_o.png" alt="Lynx IPTV" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">2000+ Ch · 4K UHD · VOD Library · No Buffering</div>
-        <div class="tags"><span class="tag">2K+ Ch</span><span class="tag">4K UHD</span><span class="tag">Multi-Device</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Lynx%20IPTV%20-%203%20Months%20(900%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">900 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Lynx%20IPTV%20-%206%20Months%20(1500%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">1500 DZ</span>
-            <span class="plan-order">→ Order</span>
-            
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Lynx%20IPTV%20-%2012%20Months%20(2500%20DZ)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">2500 DZ</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- IRON TV MAX DZA -->
-      <div class="card">
-        <div class="card-brand">Iron TV Max</div>
-        <div class="card-name">Iron TV Max FHD</div>
-        <img src="https://images2.imgbox.com/fb/33/CPgmEsH0_o.jpg" alt="Iron TV Max FHD" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe</div>
-        <div class="tags"><span class="tag">FHD</span><span class="tag">Football Live</span><span class="tag">Arabe</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%203%20Months%20(1500%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">1500 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%206%20Months%20(2000%20DZ)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">2000 DZ</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%2012%20Months%20(3000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">3000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- DAR PLAYER DZA -->
-      <div class="card">
-        <div class="card-brand">Dar Player</div>
-        <div class="card-name">Dar Player IPTV</div>
-        <img src="https://images2.imgbox.com/af/cc/ONdhUMjO_o.jpg" alt="Dar Player IPTV" style="width:100%;height:120px;object-fit:cover;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Unlimited Entertainment at Your Fingertips. 5000+ channels</div>
-        <div class="tags"><span class="tag">4K HD</span><span class="tag">5k+ Ch</span><span class="tag">Multi-Device</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Dar%20Player%20IPTV%20-%203%20Months%20(2000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">2000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Dar%20Player%20IPTV%20-%206%20Months%20(2800%20DZ)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">2800 DZ</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Dar%20Player%20IPTV%20-%2012%20Months%20(4200%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">4200 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- NEO 4K DZA -->
-      <div class="card">
-        <div class="card-brand">Neo 4K</div>
-        <div class="pop-badge">⭐ POPULAIRE</div>
-        <div class="card-name">Neo 4K IPTV</div>
-        <img src="https://images2.imgbox.com/9d/df/eVCARigP_o.jpg" alt="NEO 4K IPTV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Ultra 4K quality. 99% Up-Time, Fast Stream</div>
-        <div class="tags"><span class="tag">4K FHD</span><span class="tag">99% Up-Time</span><span class="tag">Fast Stream</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%203%20Months%20(2000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">2000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%206%20Months%20(2800%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">2800 DZ</span>
-           <span class="plan-order">→ Order</span>
-           
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%2012%20Months%20(4500%20DZ)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">4500 DZ</span>
-            <span class="plan-order">⭐ Order</span>
-            
-          </a>
-        </div>
-      </div>
-
-      <!-- KING 365 TV DZA -->
-      <div class="card featured">
-        <div class="pop-badge">⭐ PREMIUM</div>
-        <div class="card-brand">King 365 TV</div>
-        <div class="card-name">King 365 TV</div>
-        <img src="https://images2.imgbox.com/15/45/Fpzm6tJD_o.jpg" alt="King 365 TV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Votre divertissement. Sans limites. Football, Films, Arabe</div>
-        <div class="tags"><span class="tag">Football Live</span><span class="tag">Arabe</span><span class="tag">4K</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%203%20Months%20(4000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">4000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%206%20Months%20(5000%20DZ)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">5000 DZ</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%2012%20Months%20(8000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">8000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- STRONG 8K DZA -->
-      <div class="card featured">
-        <div class="pop-badge">⭐ PREMIUM</div>
-        <div class="card-brand">Strong 8K</div>
-        <div class="card-name">Strong 8K IPTV</div>
-        <img src="https://images2.imgbox.com/cc/a2/N4hY9vjB_o.jpg" alt="Strong 8K" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen</div>
-        <div class="tags"><span class="tag">8K Quality</span><span class="tag">5000+ Ch</span><span class="tag">Multi-Screen</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%203%20Months%20(4000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">4000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%206%20Months%20(5000%20DZ)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">5000 DZ</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%2012%20Months%20(8000%20DZ)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">8000 DZ</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
-      </div>
-
+  <!-- HERO SECTION -->
+  <section class="relative max-w-5xl mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-center z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
+      <span class="flex h-2 w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+      </span>
+      <span data-i18n="badgeReseller">🚀 Official Reseller • Algeria & Europe</span>
     </div>
 
-    <div class="payment-bar">
-      <span class="pay-label">Payment Methods</span>
-      <div class="pay-pills">
-        <span class="pay-pill">
-          <img src="https://images.seeklogo.com/logo-png/27/1/poste-algerie-logo-png_seeklogo-272140.png" alt="Algérie Poste" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">Algérie Poste (Baridi Mob)
+    <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight text-white mb-6 leading-[1.1]" data-i18n="heroTitle">
+      Premium <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Digital</span> Subscriptions
+    </h1>
+
+    <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light" data-i18n="heroDesc">
+      Your trusted source for premium IPTV plans. Fast delivery, 24/7 support, and the best prices in the market.
+    </p>
+
+    <!-- Stat Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm hover:border-blue-500/30 transition-all group">
+        <div class="text-blue-500 mb-2 flex justify-center"><i data-lucide="tv" class="w-6 h-6 group-hover:scale-110 transition-transform"></i></div>
+        <div class="text-2xl sm:text-3xl font-display font-extrabold text-white mb-1">5+</div>
+        <div class="text-xs sm:text-sm text-gray-400 font-medium" data-i18n="statBrands">IPTV Brands</div>
+      </div>
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm hover:border-blue-500/30 transition-all group">
+        <div class="text-blue-500 mb-2 flex justify-center"><i data-lucide="headset" class="w-6 h-6 group-hover:scale-110 transition-transform"></i></div>
+        <div class="text-2xl sm:text-3xl font-display font-extrabold text-white mb-1">24/7</div>
+        <div class="text-xs sm:text-sm text-gray-400 font-medium" data-i18n="statSupport">Support 24/7</div>
+      </div>
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm hover:border-blue-500/30 transition-all group">
+        <div class="text-blue-500 mb-2 flex justify-center"><i data-lucide="activity" class="w-6 h-6 group-hover:scale-110 transition-transform"></i></div>
+        <div class="text-2xl sm:text-3xl font-display font-extrabold text-white mb-1">99%</div>
+        <div class="text-xs sm:text-sm text-gray-400 font-medium" data-i18n="statUptime">Uptime Guarantee</div>
+      </div>
+      <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm hover:border-blue-500/30 transition-all group">
+        <div class="text-blue-500 mb-2 flex justify-center"><i data-lucide="sparkles" class="w-6 h-6 group-hover:scale-110 transition-transform"></i></div>
+        <div class="text-2xl sm:text-3xl font-display font-extrabold text-white mb-1">4K/8K</div>
+        <div class="text-xs sm:text-sm text-gray-400 font-medium" data-i18n="statQuality">4K/8K Quality</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CATALOG AREA -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 z-10 relative" id="iptv">
+
+    <!-- Tab Controls & Search Bar container -->
+    <div class="flex flex-col md:flex-row gap-6 items-center justify-between mb-10 bg-slate-900/40 p-4 sm:p-5 rounded-3xl border border-slate-800/60 backdrop-blur-sm">
+
+      <!-- Tabs Switcher -->
+      <div class="flex p-1.5 bg-slate-950/80 rounded-2xl border border-slate-800/60 w-full md:w-auto relative">
+        <button onclick="switchTab('dz')" id="tabBtn-dz" class="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:text-white transition-all">
+          <span>🇩🇿</span>
+          <span data-i18n="secLabelDz">Algerian Market (DZA)</span>
+        </button>
+        <button onclick="switchTab('eu')" id="tabBtn-eu" class="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:text-white transition-all">
+          <span>🇪🇺</span>
+          <span data-i18n="secLabelEu">Europe Market (EUR)</span>
+        </button>
+      </div>
+
+      <!-- Search and Filters -->
+      <div class="relative w-full md:w-80 flex items-center">
+        <span class="absolute left-4 text-slate-500">
+          <i data-lucide="search" class="w-4 h-4"></i>
         </span>
-        <span class="pay-pill">
-          <img src="https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png" alt="PayPal" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">PayPal
-        </span>
-        <span class="pay-pill">
-          <img src="https://www.redotpay.one/wp-content/uploads/2025/10/logo-redotpay-348-94.png" alt="RedotPay" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">
-        </span>
-        <span class="pay-pill">
-          <img src="https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png" alt="Binance" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">Binance
-        </span>
+        <input type="text" id="searchInput" oninput="handleSearch()" data-i18n-placeholder="searchPlaceholder" placeholder="Search for IPTV brands, tags, qualities..." class="w-full pl-11 pr-4 py-3 text-xs sm:text-sm bg-slate-950/80 border border-slate-800/80 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-inner">
+        <!-- Clear button -->
+        <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-4 text-slate-500 hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
       </div>
     </div>
 
-    <div class="cta-box" id="contact">
-      <h3>Ready to subscribe?</h3>
-      <p>Contact us on WhatsApp for instant activation and support</p>
-      <a href="https://wa.me/213654083898" target="_blank" class="wa-big">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.072 23.927l6.218-1.432A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.798 9.798 0 01-4.932-1.327l-.354-.21-3.692.85.876-3.595-.23-.369A9.791 9.791 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.423 0 9.818 4.396 9.818 9.818 0 5.423-4.395 9.818-9.818 9.818z"/></svg>
-        Order on WhatsApp · +213 654 083 898
+    <!-- Active Filter Badges -->
+    <div id="filterSection" class="flex flex-wrap gap-2 mb-8 items-center">
+      <span class="text-xs text-slate-500 font-semibold mr-2 uppercase tracking-wide" id="filterLabel">Filter By:</span>
+      <button onclick="setFilterTag('all')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white border border-blue-500 shadow-md hover:scale-105 transition-all" id="filter-all" data-i18n="filterAll">All</button>
+      <button onclick="setFilterTag('4k')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-4k" data-i18n="filter4k">4K/8K Quality</button>
+      <button onclick="setFilterTag('multi')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-multi" data-i18n="filterMulti">Multi-Screen</button>
+      <button onclick="setFilterTag('live')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-live" data-i18n="filterLive">Live Sports</button>
+      <button onclick="setFilterTag('arabic')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-arabic" data-i18n="filterArabic">Arabic Channels</button>
+    </div>
+
+    <!-- PRODUCT CATALOG GRID -->
+    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Generated Dynamically by JS -->
+    </div>
+
+    <!-- Empty search notice -->
+    <div id="noResults" class="hidden text-center py-16 bg-slate-900/20 rounded-3xl border border-slate-800/50">
+      <i data-lucide="alert-triangle" class="w-12 h-12 text-yellow-500 mx-auto mb-4"></i>
+      <h3 class="text-lg font-bold text-white mb-2" id="noResultsTitle">No Brands Found</h3>
+      <p class="text-gray-400 text-sm max-w-sm mx-auto" id="noResultsText">Try adjusting your search terms or filter selections to find what you are looking for.</p>
+    </div>
+
+    <!-- ALGERIAN BARIDIMOB & PAYMENTS DECK -->
+    <div class="mt-20 bg-gradient-to-b from-slate-900/60 to-slate-950/80 border border-slate-800/80 p-6 sm:p-8 rounded-3xl backdrop-blur-sm">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-display font-extrabold text-white mb-2 flex items-center gap-2">
+            <i data-lucide="credit-card" class="text-blue-500"></i>
+            <span data-i18n="modalSelectPayment">Preferred Payment Methods</span>
+          </h3>
+          <p class="text-gray-400 text-sm max-w-2xl leading-relaxed" id="paymentBarDesc">
+            We accept simple and fast payment systems for both local customers in Algeria and worldwide users. Instant validation upon verification.
+          </p>
+        </div>
+
+        <!-- Payment Badges (Clean SVG layouts) -->
+        <div class="flex flex-wrap gap-3 items-center w-full md:w-auto">
+
+          <!-- BaridiMob Badge -->
+          <div class="flex items-center gap-2 bg-gradient-to-r from-red-600/10 to-red-600/20 border border-red-500/20 px-4 py-2.5 rounded-xl shadow-lg">
+            <div class="w-7 h-7 rounded-lg bg-red-600 flex items-center justify-center font-bold text-white text-xs tracking-wider">BM</div>
+            <div class="text-left">
+              <div class="text-[10px] text-gray-400 font-bold leading-tight uppercase">Algeria local</div>
+              <div class="text-xs font-extrabold text-white leading-tight">BaridiMob</div>
+            </div>
+          </div>
+
+          <!-- CCP Post Badge -->
+          <div class="flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-amber-500/20 border border-amber-500/20 px-4 py-2.5 rounded-xl shadow-lg">
+            <div class="w-7 h-7 rounded-lg bg-amber-500 flex items-center justify-center font-bold text-brandDark text-xs"><i data-lucide="mail" class="w-4 h-4"></i></div>
+            <div class="text-left">
+              <div class="text-[10px] text-gray-400 font-bold leading-tight uppercase">Algerian Post</div>
+              <div class="text-xs font-extrabold text-white leading-tight">CCP Transfer</div>
+            </div>
+          </div>
+
+          <!-- Paypal -->
+          <div class="flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 px-4 py-2.5 rounded-xl">
+            <img src="https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png" alt="PayPal" class="h-4 w-auto object-contain">
+            <span class="text-xs font-extrabold text-white leading-tight">PayPal</span>
+          </div>
+
+          <!-- Binance -->
+          <div class="flex items-center gap-2 bg-slate-800/40 border border-slate-700/60 px-4 py-2.5 rounded-xl">
+            <img src="https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png" alt="Binance" class="h-4.5 w-auto object-contain">
+            <span class="text-xs font-extrabold text-white leading-tight">Binance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEVICE COMPATIBILITY GUIDE -->
+    <section class="mt-24 text-center">
+      <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3" data-i18n="compatTitle">Device Compatibility</h3>
+      <p class="text-gray-400 text-sm max-w-xl mx-auto mb-12" data-i18n="compatSubtitle">Our subscriptions work flawlessly on all modern platforms and devices.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="monitor" class="w-6 h-6"></i></div>
+          <h4 class="text-sm font-bold text-white mb-1">Smart TV</h4>
+          <span class="text-[10px] text-gray-500 uppercase">Samsung, LG, Sony</span>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="smartphone" class="w-6 h-6"></i></div>
+          <h4 class="text-sm font-bold text-white mb-1">Mobile / Tablet</h4>
+          <span class="text-[10px] text-gray-500 uppercase">Android, Apple iOS</span>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="laptop" class="w-6 h-6"></i></div>
+          <h4 class="text-sm font-bold text-white mb-1">PC / Mac</h4>
+          <span class="text-[10px] text-gray-500 uppercase">VLC Player, WebPlayer</span>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="cpu" class="w-6 h-6"></i></div>
+          <h4 class="text-sm font-bold text-white mb-1">Android Box</h4>
+          <span class="text-[10px] text-gray-500 uppercase">Xiaomi, Beelink, etc.</span>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="flame" class="w-6 h-6"></i></div>
+          <h4 class="text-sm font-bold text-white mb-1">FireStick</h4>
+          <span class="text-[10px] text-gray-500 uppercase">Amazon Fire TV</span>
+        </div>
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="layers" class="w-6 h-6"></i></div>
+          <h4 class="text-sm font-bold text-white mb-1">MAG / STB</h4>
+          <span class="text-[10px] text-gray-500 uppercase">Dedicated Portals</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="mt-28">
+      <h3 class="font-display font-bold text-2xl sm:text-3xl text-center text-white mb-10" data-i18n="reviewsTitle">What Our Customers Say</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+            </div>
+            <p class="text-gray-300 text-sm italic leading-relaxed">
+              "لقد جربت Strong 8K وهو خرافة بكل معنى الكلمة، ثبات عجيب في مباريات كاس العالم وجودة فائقة. تعامل راقي وتفعيل في أقل من 5 دقائق عبر بريدي موب."
+            </p>
+          </div>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center text-xs">SB</div>
+            <div>
+              <h5 class="text-sm font-bold text-white">Sofiane B.</h5>
+              <span class="text-[10px] text-gray-500">Algiers, Algeria</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+            </div>
+            <p class="text-gray-300 text-sm italic leading-relaxed">
+              "Best IPTV service I've ever bought. Support guided me step by step on setting up my smart TV with IPTV Smarters. Strongly recommended!"
+            </p>
+          </div>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center text-xs">ML</div>
+            <div>
+              <h5 class="text-sm font-bold text-white">Marc-Antoine L.</h5>
+              <span class="text-[10px] text-gray-500">Paris, France</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+            </div>
+            <p class="text-gray-300 text-sm italic leading-relaxed">
+              "اشتراك Neo 4K ممتاز جدا وسعره منافس جدا مقارنة بالسوق. الدعم الفني متجاوب وسريع جدا على الواتساب."
+            </p>
+          </div>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center text-xs">KY</div>
+            <div>
+              <h5 class="text-sm font-bold text-white">Kamal Y.</h5>
+              <span class="text-[10px] text-gray-500">Oran, Algeria</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS ACCORDION SECTION -->
+    <section class="mt-28 max-w-4xl mx-auto" id="faq">
+      <h3 class="font-display font-bold text-2xl sm:text-3xl text-center text-white mb-10" data-i18n="faqTitle">Frequently Asked Questions</h3>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
+          <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
+            <span data-i18n="faq1Q">How do I install the subscription?</span>
+            <i data-lucide="chevron-down" id="faq-chevron-1" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-answer-1" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq1A">
+            Installation is simple! We support all devices (Smart TVs, Firestick, Android, iOS, MAG). Once you order, we will guide you step-by-step and recommend the best apps like IPTV Smarters Pro, ibo Player, or dedicated brand apps.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
+          <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
+            <span data-i18n="faq2Q">Do you offer a free trial?</span>
+            <i data-lucide="chevron-down" id="faq-chevron-2" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-answer-2" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq2A">
+            Yes! We offer 24-hour test lines so you can check the channel list and stream quality before purchasing. Contact us on WhatsApp to get yours instantly.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
+          <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
+            <span data-i18n="faq3Q">How long does activation take?</span>
+            <i data-lucide="chevron-down" id="faq-chevron-3" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-answer-3" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq3A">
+            Activation is immediate! Once payment is verified, our team will send your subscription codes and installation guide on WhatsApp within 5 to 15 minutes.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
+          <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
+            <span data-i18n="faq4Q">What payment methods do you accept?</span>
+            <i data-lucide="chevron-down" id="faq-chevron-4" class="w-5 h-5 text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-answer-4" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq4A">
+            For Algerian customers, we accept BaridiMob and CCP transfers. For international and European customers, we accept PayPal, Binance Pay, and RedotPay.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION BOX -->
+    <div class="mt-28 bg-gradient-to-br from-blue-600 to-indigo-800 p-8 sm:p-12 rounded-3xl text-center shadow-xl relative overflow-hidden group">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.1),_transparent_50%)] pointer-events-none"></div>
+      <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white mb-4" id="ctaTitle">Ready to experience lag-free streaming?</h3>
+      <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto mb-8" id="ctaDesc">Get in touch with us on WhatsApp for a custom package or instant free test line. We're online and happy to help!</p>
+
+      <a href="https://wa.me/213654083898" target="_blank" class="inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-blue-700 font-bold text-sm sm:text-base px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95 duration-200">
+        <i data-lucide="message-circle" class="w-5 h-5 text-blue-600 fill-blue-600"></i>
+        <span>Chat on WhatsApp</span>
       </a>
     </div>
-  </div>
 
-  <!-- ===== EUR TAB ===== -->
-  <div id="tab-eu" class="tab-content">
-    <div class="section-label">IPTV Subscriptions — Euro (EUR) · Europe Market</div>
+  </main>
 
-    <div class="grid">
+  <!-- INTERACTIVE CONFIGURATION MODAL -->
+  <div id="orderModal" class="hidden fixed inset-0 bg-brandDark/85 backdrop-blur-md z-50 flex items-center justify-center p-4">
+    <div class="bg-brandCard border border-slate-800 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative animate-scale-up max-h-[90vh] flex flex-col">
 
-      <!-- IRON TV MAX EUR -->
-      <div class="card">
-        <div class="card-brand">Iron TV Max</div>
-        <div class="card-name">Iron TV Max FHD</div>
-        <img src="https://images2.imgbox.com/c5/e5/AKLOezHz_o.jpg" alt="Iron TV Max FHD" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe</div>
-        <div class="tags"><span class="tag">FHD</span><span class="tag">Football Live</span><span class="tag">Arabe</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%203%20Months%20(€9.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">€9.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%206%20Months%20(€14.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">€14.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Iron%20TV%20Max%20FHD%20-%2012%20Months%20(€24.99)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">€24.99</span>
-           <span class="plan-order">⭐ Order</span>
-            
-          </a>
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-800/60 flex items-center justify-between bg-slate-900/50">
+        <div class="flex items-center gap-3">
+          <img id="modalProductImg" class="w-10 h-10 rounded-lg object-cover border border-white/10" src="" alt="Product logo">
+          <div>
+            <h4 class="font-display font-extrabold text-white text-base" id="modalProductName">Configure Order</h4>
+            <span class="text-xs text-blue-400 font-semibold" id="modalProductCategory">Algeria Market</span>
+          </div>
+        </div>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Scrollable content -->
+      <div class="p-6 overflow-y-auto space-y-6 flex-1 text-xs sm:text-sm">
+
+        <!-- Duration selection -->
+        <div>
+          <label class="block text-gray-300 font-bold mb-3" data-i18n="modalSelectDuration">1. Select Duration</label>
+          <div class="grid grid-cols-3 gap-3" id="modalDurationGrid">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Payment Method selection -->
+        <div>
+          <label class="block text-gray-300 font-bold mb-3" data-i18n="modalSelectPayment">2. Select Payment Method</label>
+          <div class="space-y-2.5" id="modalPaymentList">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- Custom notes input -->
+        <div>
+          <label class="block text-gray-300 font-bold mb-1.5" id="modalNotesLabel">Notes or Questions (Optional)</label>
+          <textarea id="modalNotes" placeholder="Type here if you have any questions, devices you use, etc..." class="w-full bg-slate-950/80 border border-slate-800 text-white rounded-xl p-3 text-xs focus:outline-none focus:border-blue-500 transition-all placeholder-slate-500 h-20 resize-none"></textarea>
+        </div>
+
+        <!-- Order pricing display summary -->
+        <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex items-center justify-between">
+          <div>
+            <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider block" id="modalSumTotal">Total Price</span>
+            <span class="text-2xl font-display font-black text-white" id="modalDisplayPrice">900 DZ</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xs text-slate-500 font-semibold block" id="modalSumPayment">Payment via</span>
+            <span class="text-xs font-extrabold text-blue-400" id="modalDisplayPayment">BaridiMob</span>
+          </div>
         </div>
       </div>
 
-      <!-- NEO 4K EUR -->
-      <div class="card">
-       <div class="pop-badge">⭐ POPULAIRE</div>
-        <div class="card-brand">Neo 4K</div>
-        <div class="card-name">Neo 4K IPTV</div>
-        <img src="https://images2.imgbox.com/85/66/rMiW03GE_o.jpg" alt="NEO 4K IPTV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Ultra 4K quality. 99% Up-Time, Fast Stream</div>
-        <div class="tags"><span class="tag">4K FHD</span><span class="tag">99% Up-Time</span><span class="tag">Fast Stream</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%203%20Months%20(€14.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">€14.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%206%20Months%20(€24.99)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">€24.99</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Neo%204K%20IPTV%20-%2012%20Months%20(€31.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">€31.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
+      <!-- Modal Actions (Sticky Footer) -->
+      <div class="p-6 border-t border-slate-800/60 bg-slate-900/30 flex gap-3">
+        <button onclick="closeModal()" class="flex-1 py-3.5 bg-slate-800 hover:bg-slate-700 text-gray-300 hover:text-white font-bold rounded-xl transition-colors text-xs uppercase" id="modalBtnCancel">Cancel</button>
+        <button onclick="sendOrderWhatsApp()" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg hover:shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all text-xs uppercase">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span data-i18n="modalSendWa">Order on WhatsApp</span>
+        </button>
       </div>
 
-      <!-- KING 365 TV EUR -->
-      <div class="card featured">
-        <div class="card-brand">King 365 TV</div>
-        <div class="card-name">King 365 TV</div>
-        <img src="https://images2.imgbox.com/31/84/L86T2F6a_o.jpg" alt="King 365 TV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Votre divertissement. Sans limites. Football, Films, Arabe</div>
-        <div class="tags"><span class="tag">Football Live</span><span class="tag">Arabe</span><span class="tag">4K</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%203%20Months%20(€25)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">€24.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%206%20Months%20(€31.99)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">€31.99</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20King%20365%20TV%20-%2012%20Months%20(€49.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">€49.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- STRONG 8K EUR -->
-      <div class="card featured">
-        <div class="pop-badge">⭐ PREMIUM</div>
-        <div class="card-brand">Strong 8K</div>
-        <div class="card-name">Strong 8K IPTV</div>
-        <img src="https://images2.imgbox.com/aa/f1/GTrx8B5h_o.jpg" alt="Strong 8K IPTV" style="width:100%;height:120px;object-fit:cover;object-position:top;border-radius:10px;margin:8px 0 12px;border:1px solid rgba(255,255,255,0.08);">
-        <div class="card-sub">Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen</div>
-        <div class="tags"><span class="tag">8K Quality</span><span class="tag">5000+ Ch</span><span class="tag">Multi-Screen</span></div>
-        <div class="plan-list">
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%203%20Months%20(€24.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">3 Months</span>
-            <span class="plan-price">€24.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%206%20Months%20(€34.99)" target="_blank" class="plan-btn hot">
-            <span class="plan-dur">6 Months</span>
-            <span class="plan-price">€34.99</span>
-            <span class="plan-order">⭐ Order</span>
-          </a>
-          <a href="https://wa.me/213654083898?text=Hello!%20I%20want%20to%20order%3A%20Strong%208K%20IPTV%20-%2012%20Months%20(€49.99)" target="_blank" class="plan-btn">
-            <span class="plan-dur">12 Months</span>
-            <span class="plan-price">€49.99</span>
-            <span class="plan-order">→ Order</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="payment-bar">
-      <span class="pay-label">Payment Methods</span>
-      <div class="pay-pills">
-        <span class="pay-pill">
-          <img src="https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png" alt="PayPal" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">PayPal
-        </span>
-        <span class="pay-pill">
-          <img src="https://www.redotpay.one/wp-content/uploads/2025/10/logo-redotpay-348-94.png" alt="RedotPay" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">
-        </span>
-        <span class="pay-pill">
-          <img src="https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png" alt="Binance" style="height:18px;width:auto;vertical-align:middle;margin-right:8px;">Binance
-        </span>
-      </div>
-    </div>
-
-    <div class="cta-box">
-      <h3>Ready to subscribe?</h3>
-      <p>Contact us on WhatsApp for instant activation and support</p>
-      <a href="https://wa.me/213654083898" target="_blank" class="wa-big">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.072 23.927l6.218-1.432A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.798 9.798 0 01-4.932-1.327l-.354-.21-3.692.85.876-3.595-.23-.369A9.791 9.791 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.423 0 9.818 4.396 9.818 9.818 0 5.423-4.395 9.818-9.818 9.818z"/></svg>
-        Order on WhatsApp · +213 654 083 898
-      </a>
     </div>
   </div>
 
-</div>
+  <!-- STICKY FLOATING WHATSAPP CHAT BUTTON (Mobile-friendly) -->
+  <a href="https://wa.me/213654083898" target="_blank" class="fixed bottom-6 right-6 z-40 p-4 bg-brandGreen text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all wa-pulse duration-200 hover:bg-emerald-500 flex items-center justify-center" aria-label="WhatsApp Chat">
+    <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.072 23.927l6.218-1.432A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.798 9.798 0 01-4.932-1.327l-.354-.21-3.692.85.876-3.595-.23-.369A9.791 9.791 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.423 0 9.818 4.396 9.818 9.818 0 5.423-4.395 9.818-9.818 9.818z"/></svg>
+  </a>
 
-<footer>
-  <div>© 2024 <span>Premier Digital Lab</span> · All rights reserved</div>
-  <div>📍 Algeria · <span>@PremierDigitalLab</span> · WhatsApp: <span>+213 654 083 898</span></div>
-</footer>
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-12 px-4 text-center text-slate-500 font-medium text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="https://images2.imgbox.com/6e/86/l0501Aip_o.png" alt="Premier Digital Lab" class="h-8 w-auto">
+        <div>© 2026 <span class="text-gray-300">Premier Digital Lab</span> — <span data-i18n="footerText">All rights reserved.</span></div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-slate-400">
+        <span>📍 Algeria</span>
+        <span>💬 @PremierDigitalLab</span>
+        <span>📞 WhatsApp: <a href="https://wa.me/213654083898" class="text-blue-400 hover:underline">+213 654 083 898</a></span>
+      </div>
+    </div>
+  </footer>
 
-<script>
-function switchTab(tab, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  btn.classList.add('active');
-}
-</script>
+  <!-- JAVASCRIPT & APP LOGIC -->
+  <script>
+    // Product Database (DZ/EUR catalogs)
+    const db = {
+      dz: [
+        {
+          id: "lynx-dz",
+          brand: "Lynx IPTV",
+          name: "Lynx IPTV",
+          img: "https://images2.imgbox.com/c0/8f/a1mqn3mM_o.png",
+          subtitle: "2000+ Ch · 4K UHD · VOD Library · No Buffering",
+          tags: ["2K+ Ch", "4K UHD", "Multi-Device"],
+          featured: false,
+          searchTags: "lynx iptv 2k 4k uhd multi-device movie channels",
+          plans: [
+            { duration: "3 Months", price: "900 DZ" },
+            { duration: "6 Months", price: "1500 DZ" },
+            { duration: "12 Months", price: "2500 DZ", best: true }
+          ]
+        },
+        {
+          id: "iron-dz",
+          brand: "Iron TV Max",
+          name: "Iron TV Max FHD",
+          img: "https://images2.imgbox.com/fb/33/CPgmEsH0_o.jpg",
+          subtitle: "Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe",
+          tags: ["FHD", "Football Live", "Arabe"],
+          featured: false,
+          searchTags: "iron tv max fhd sports football live arabic french arab movie",
+          plans: [
+            { duration: "3 Months", price: "1500 DZ" },
+            { duration: "6 Months", price: "2000 DZ" },
+            { duration: "12 Months", price: "3000 DZ", best: true }
+          ]
+        },
+        {
+          id: "dar-dz",
+          brand: "Dar Player",
+          name: "Dar Player IPTV",
+          img: "https://images2.imgbox.com/af/cc/ONdhUMjO_o.jpg",
+          subtitle: "Unlimited Entertainment at Your Fingertips. 5000+ channels",
+          tags: ["4K HD", "5k+ Ch", "Multi-Device"],
+          featured: false,
+          searchTags: "dar player iptv 4k hd 5000 5k ch multi device movie list",
+          plans: [
+            { duration: "3 Months", price: "2000 DZ" },
+            { duration: "6 Months", price: "2800 DZ" },
+            { duration: "12 Months", price: "4200 DZ", best: true }
+          ]
+        },
+        {
+          id: "neo-dz",
+          brand: "Neo 4K",
+          name: "Neo 4K IPTV",
+          img: "https://images2.imgbox.com/9d/df/eVCARigP_o.jpg",
+          subtitle: "Ultra 4K quality. 99% Up-Time, Fast Stream",
+          tags: ["4K FHD", "99% Up-Time", "Fast Stream"],
+          featured: false,
+          searchTags: "neo 4k iptv fhd 99 up time fast stream movie quality",
+          plans: [
+            { duration: "3 Months", price: "2000 DZ" },
+            { duration: "6 Months", price: "2800 DZ" },
+            { duration: "12 Months", price: "4500 DZ", best: true }
+          ]
+        },
+        {
+          id: "king-dz",
+          brand: "King 365 TV",
+          name: "King 365 TV",
+          img: "https://images2.imgbox.com/15/45/Fpzm6tJD_o.jpg",
+          subtitle: "Votre divertissement. Sans limites. Football, Films, Arabe",
+          tags: ["Football Live", "Arabe", "4K"],
+          featured: true,
+          searchTags: "king 365 tv football live sports arabic french arab movie 4k",
+          plans: [
+            { duration: "3 Months", price: "4000 DZ" },
+            { duration: "6 Months", price: "5000 DZ" },
+            { duration: "12 Months", price: "8000 DZ", best: true }
+          ]
+        },
+        {
+          id: "strong-dz",
+          brand: "Strong 8K",
+          name: "Strong 8K IPTV",
+          img: "https://images2.imgbox.com/cc/a2/N4hY9vjB_o.jpg",
+          subtitle: "Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen",
+          tags: ["8K Quality", "5000+ Ch", "Multi-Screen"],
+          featured: true,
+          searchTags: "strong 8k iptv quality premium 5000 ch multi screen bufferless",
+          plans: [
+            { duration: "3 Months", price: "4000 DZ" },
+            { duration: "6 Months", price: "5000 DZ" },
+            { duration: "12 Months", price: "8000 DZ", best: true }
+          ]
+        }
+      ],
+      eu: [
+        {
+          id: "iron-eu",
+          brand: "Iron TV Max",
+          name: "Iron TV Max FHD",
+          img: "https://images2.imgbox.com/c5/e5/AKLOezHz_o.jpg",
+          subtitle: "Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe",
+          tags: ["FHD", "Football Live", "Arabe"],
+          featured: false,
+          searchTags: "iron tv max fhd sports football live arabic french arab movie",
+          plans: [
+            { duration: "3 Months", price: "€9.99" },
+            { duration: "6 Months", price: "€14.99" },
+            { duration: "12 Months", price: "€24.99", best: true }
+          ]
+        },
+        {
+          id: "neo-eu",
+          brand: "Neo 4K",
+          name: "Neo 4K IPTV",
+          img: "https://images2.imgbox.com/85/66/rMiW03GE_o.jpg",
+          subtitle: "Ultra 4K quality. 99% Up-Time, Fast Stream",
+          tags: ["4K FHD", "99% Up-Time", "Fast Stream"],
+          featured: false,
+          searchTags: "neo 4k iptv fhd 99 up time fast stream movie quality",
+          plans: [
+            { duration: "3 Months", price: "€14.99" },
+            { duration: "6 Months", price: "€24.99" },
+            { duration: "12 Months", price: "€31.99", best: true }
+          ]
+        },
+        {
+          id: "king-eu",
+          brand: "King 365 TV",
+          name: "King 365 TV",
+          img: "https://images2.imgbox.com/31/84/L86T2F6a_o.jpg",
+          subtitle: "Votre divertissement. Sans limites. Football, Films, Arabe",
+          tags: ["Football Live", "Arabe", "4K"],
+          featured: true,
+          searchTags: "king 365 tv football live sports arabic french arab movie 4k",
+          plans: [
+            { duration: "3 Months", price: "€24.99" },
+            { duration: "6 Months", price: "€31.99" },
+            { duration: "12 Months", price: "€49.99", best: true }
+          ]
+        },
+        {
+          id: "strong-eu",
+          brand: "Strong 8K",
+          name: "Strong 8K IPTV",
+          img: "https://images2.imgbox.com/aa/f1/GTrx8B5h_o.jpg",
+          subtitle: "Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen",
+          tags: ["8K Quality", "5000+ Ch", "Multi-Screen"],
+          featured: true,
+          searchTags: "strong 8k iptv quality premium 5000 ch multi screen bufferless",
+          plans: [
+            { duration: "3 Months", price: "€24.99" },
+            { duration: "6 Months", price: "€34.99" },
+            { duration: "12 Months", price: "€49.99", best: true }
+          ]
+        }
+      ]
+    };
+
+    // Translation Databases
+    const i18n = {
+      en: {
+        navIptv: "IPTV Brands",
+        navContact: "Contact",
+        navWa: "WhatsApp Chat",
+        badgeReseller: "🚀 Official Reseller • Algeria & Europe",
+        heroTitle: "Premium <span class='text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500'>Digital</span> Subscriptions",
+        heroDesc: "Your trusted source for premium IPTV plans. Fast delivery, 24/7 support, and the best prices in the market.",
+        statBrands: "IPTV Brands",
+        statSupport: "Support 24/7",
+        statUptime: "Uptime Guarantee",
+        statQuality: "4K/8K Quality",
+        searchPlaceholder: "Search for IPTV brands, tags, qualities...",
+        filterAll: "All",
+        filter4k: "4K/8K Quality",
+        filterMulti: "Multi-Screen",
+        filterLive: "Live Sports",
+        filterArabic: "Arabic Channels",
+        secLabelDz: "Algerian Market (DZA)",
+        secLabelEu: "Europe Market (EUR)",
+        cardFrom: "From",
+        btnChoose: "Choose Plan",
+        modalTitle: "Configure Your Subscription",
+        modalSelectDuration: "1. Select Duration",
+        modalSelectPayment: "2. Select Payment Method",
+        modalSendWa: "Order on WhatsApp",
+        payBaridiMob: "BaridiMob (Fast transfer)",
+        payCcp: "CCP (Post Office)",
+        payBinance: "Binance Pay",
+        payPaypal: "PayPal",
+        payRedotPay: "RedotPay",
+        faqTitle: "Frequently Asked Questions",
+        faq1Q: "How do I install the subscription?",
+        faq1A: "Installation is simple! We support all devices (Smart TVs, Firestick, Android, iOS, MAG). Once you order, we will guide you step-by-step and recommend the best apps like IPTV Smarters Pro, ibo Player, or dedicated brand apps.",
+        faq2Q: "Do you offer a free trial?",
+        faq2A: "Yes! We offer 24-hour test lines so you can check the channel list and stream quality before purchasing. Contact us on WhatsApp to get yours instantly.",
+        faq3Q: "How long does activation take?",
+        faq3A: "Activation is immediate! Once payment is verified, our team will send your subscription codes and installation guide on WhatsApp within 5 to 15 minutes.",
+        faq4Q: "What payment methods do you accept?",
+        faq4A: "For Algerian customers, we accept BaridiMob and CCP transfers. For international and European customers, we accept PayPal, Binance Pay, and RedotPay.",
+        compatTitle: "Device Compatibility",
+        compatSubtitle: "Our subscriptions work flawlessly on all modern platforms and devices.",
+        reviewsTitle: "What Our Customers Say",
+        footerText: "All rights reserved.",
+        ctaTitle: "Ready to experience lag-free streaming?",
+        ctaDesc: "Get in touch with us on WhatsApp for a custom package or instant free test line. We're online and happy to help!",
+        paymentBarTitle: "Preferred Payment Methods",
+        paymentBarDesc: "We accept simple and fast payment systems for both local customers in Algeria and worldwide users. Instant validation upon verification.",
+        modalSumTotal: "Total Price",
+        modalSumPayment: "Payment via",
+        modalNotesLabel: "Notes or Questions (Optional)",
+        modalBtnCancel: "Cancel",
+        noResultsTitle: "No Brands Found",
+        noResultsText: "Try adjusting your search terms or filter selections to find what you are looking for.",
+        filterLabel: "Filter By:"
+      },
+      fr: {
+        navIptv: "Marques IPTV",
+        navContact: "Contact",
+        navWa: "WhatsApp Chat",
+        badgeReseller: "🚀 Revendeur Officiel • Algérie & Europe",
+        heroTitle: "Abonnements <span class='text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500'>Numériques</span> Premium",
+        heroDesc: "Votre source de confiance pour les meilleurs abonnements IPTV. Livraison rapide, support 24/7, et les meilleurs tarifs.",
+        statBrands: "Marques IPTV",
+        statSupport: "Support 24/7",
+        statUptime: "Uptime Garanti",
+        statQuality: "Qualité 4K/8K",
+        searchPlaceholder: "Rechercher des marques, tags, qualités...",
+        filterAll: "Tout",
+        filter4k: "Qualité 4K/8K",
+        filterMulti: "Multi-Écrans",
+        filterLive: "Sports en Direct",
+        filterArabic: "Chaînes Arabes",
+        secLabelDz: "Marché Algérien (DZA)",
+        secLabelEu: "Marché Européen (EUR)",
+        cardFrom: "À partir de",
+        btnChoose: "Choisir un Plan",
+        modalTitle: "Configurer Votre Abonnement",
+        modalSelectDuration: "1. Sélectionner la Durée",
+        modalSelectPayment: "2. Choisir le Moyen de Paiement",
+        modalSendWa: "Commander sur WhatsApp",
+        payBaridiMob: "BaridiMob (Transfert rapide)",
+        payCcp: "CCP (La Poste)",
+        payBinance: "Binance Pay",
+        payPaypal: "PayPal",
+        payRedotPay: "RedotPay",
+        faqTitle: "Foire Aux Questions",
+        faq1Q: "Comment installer l'abonnement ?",
+        faq1A: "L'installation est très simple ! Nous prenons en charge tous les appareils (Smart TV, Firestick, Android, iOS, MAG). Une fois commandé, nous vous guiderons étape par étape et vous recommanderons les meilleures applications (IPTV Smarters Pro, ibo Player, etc.).",
+        faq2Q: "Proposez-vous un test gratuit ?",
+        faq2A: "Oui ! Nous proposons des lignes de test de 24 heures pour vous permettre de vérifier la liste des chaînes et la qualité avant d'acheter. Contactez-nous sur WhatsApp pour l'obtenir instantanément.",
+        faq3Q: "Combien de temps prend l'activation ?",
+        faq3A: "L'activation est immédiate ! Une fois le paiement vérifié, notre équipe vous enverra vos codes d'abonnement et le guide d'installation sur WhatsApp dans un délai de 5 à 15 minutes.",
+        faq4Q: "Quels modes de paiement acceptez-vous ?",
+        faq4A: "Pour les clients en Algérie, nous acceptons les transferts BaridiMob et CCP. Pour les clients internationaux et européens, nous acceptons PayPal, Binance Pay et RedotPay.",
+        compatTitle: "Compatibilité Appareils",
+        compatSubtitle: "Nos abonnements fonctionnent parfaitement sur toutes les plateformes modernes.",
+        reviewsTitle: "Avis de Nos Clients",
+        footerText: "Tous droits réservés.",
+        ctaTitle: "Prêt pour un streaming sans coupures ?",
+        ctaDesc: "Contactez-nous sur WhatsApp pour une formule sur-mesure ou une ligne de test gratuite de 24 heures. Nous sommes en ligne !",
+        paymentBarTitle: "Moyens de Paiement",
+        paymentBarDesc: "Nous acceptons des systèmes de paiement simples et rapides pour l'Algérie et l'étranger. Validation instantanée après vérification.",
+        modalSumTotal: "Prix Total",
+        modalSumPayment: "Paiement via",
+        modalNotesLabel: "Notes ou Questions (Optionnel)",
+        modalBtnCancel: "Annuler",
+        noResultsTitle: "Aucune Marque Trouvée",
+        noResultsText: "Ajustez vos filtres ou vos termes de recherche pour trouver ce que vous cherchez.",
+        filterLabel: "Filtrer Par :"
+      },
+      ar: {
+        navIptv: "سيرفرات IPTV",
+        navContact: "اتصل بنا",
+        navWa: "محادثة واتساب",
+        badgeReseller: "🚀 موزع رسمي معتمد • الجزائر وأوروبا",
+        heroTitle: "اشتراكات <span class='text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500'>رقمية</span> فائقة الجودة",
+        heroDesc: "وجهتك الأولى والموثوقة لأقوى اشتراكات IPTV. تفعيل فوري، دعم متواصل 24/7، وبأفضل الأسعار في السوق.",
+        statBrands: "سيرفرات IPTV",
+        statSupport: "دعم 24/7 متواصل",
+        statUptime: "ثبات بث 99%",
+        statQuality: "دقة 4K/8K فائقة",
+        searchPlaceholder: "ابحث عن السيرفرات، الجودة، الرياضة...",
+        filterAll: "الكل",
+        filter4k: "دقة 4K/8K",
+        filterMulti: "متعدد الشاشات",
+        filterLive: "بث المباريات",
+        filterArabic: "باقات عربية",
+        secLabelDz: "السوق الجزائري (DZA)",
+        secLabelEu: "السوق الأوروبي (EUR)",
+        cardFrom: "ابتداءً من",
+        btnChoose: "اختر الاشتراك",
+        modalTitle: "إعداد اشتراكك المفضل",
+        modalSelectDuration: "1. اختر مدة الاشتراك",
+        modalSelectPayment: "2. اختر طريقة الدفع المناسبة",
+        modalSendWa: "تأكيد الطلب عبر واتساب",
+        payBaridiMob: "بريدي موب (BaridiMob)",
+        payCcp: "الحساب البريدي الجاري (CCP)",
+        payBinance: "بينانس باي (Binance Pay)",
+        payPaypal: "بايبال (PayPal)",
+        payRedotPay: "ريدوت باي (RedotPay)",
+        faqTitle: "الأسئلة الشائعة",
+        faq1Q: "كيف يمكنني تشغيل الاشتراك على جهازي؟",
+        faq1A: "التشغيل سهل جداً! نحن ندعم جميع الأجهزة (شاشات سمارت، Firestick، هواتف أندرويد وآيفون، أجهزة MAG). بعد تأكيد الطلب، سنقوم بمساعدتك خطوة بخطوة وتوجيهك لأفضل التطبيقات مثل IPTV Smarters Pro أو ibo Player أو التطبيق الخاص بالسيرفر.",
+        faq2Q: "هل توفرون تجربة مجانية قبل الاشتراك؟",
+        faq2A: "نعم بالطبع! نوفر أكواد تجريبية لمدة 24 ساعة لتتمكن من فحص قائمة القنوات وجودة البث قبل الشراء. تواصل معنا عبر الواتساب للحصول على كود التجربة فوراً.",
+        faq3Q: "كم من الوقت يستغرق تفعيل الاشتراك؟",
+        faq3A: "التفعيل فوري! بمجرد تأكيد عملية الدفع، يقوم فريقنا بإرسال بيانات الاشتراك ودليل التشغيل إليك عبر واتساب في غضون 5 إلى 15 دقيقة فقط.",
+        faq4Q: "ما هي طرق الدفع المتاحة لديكم؟",
+        faq4A: "لعملائنا داخل الجزائر، نقبل الدفع عبر بريدي موب (BaridiMob) والحساب البريدي الجاري (CCP). لعملائنا في أوروبا وباقي دول العالم، نقبل بايبال (PayPal)، بينانس (Binance Pay)، وبطاقة ريدوت باي (RedotPay).",
+        compatTitle: "الأجهزة المتوافقة",
+        compatSubtitle: "اشتراكاتنا تعمل بسلاسة وثبات تام على جميع الأنظمة والأجهزة الحديثة.",
+        reviewsTitle: "آراء عملائنا الكرام",
+        footerText: "جميع الحقوق محفوظة.",
+        ctaTitle: "جاهز لتجربة مشاهدة مذهلة وبدون تقطيع؟",
+        ctaDesc: "تواصل معنا الآن عبر واتساب للحصول على باقة مخصصة أو لتفعيل تجربة مجانية 24 ساعة. نحن في الخدمة دائماً!",
+        paymentBarTitle: "طرق الدفع المفضلة",
+        paymentBarDesc: "نوفر طرق دفع سهلة وآمنة تناسب العملاء داخل الجزائر وخارجها مع تفعيل واشتراك سريع فور الدفع.",
+        modalSumTotal: "إجمالي السعر",
+        modalSumPayment: "طريقة الدفع",
+        modalNotesLabel: "ملاحظات أو أسئلة (اختياري)",
+        modalBtnCancel: "إلغاء",
+        noResultsTitle: "لم يتم العثور على نتائج",
+        noResultsText: "يرجى تعديل مصطلحات البحث أو الفلاتر للعثور على ما تبحث عنه.",
+        filterLabel: "تصفية حسب:"
+      }
+    };
+
+    // State Variables
+    let currentLang = 'en';
+    let currentMarket = 'dz'; // 'dz' or 'eu'
+    let currentFilterTag = 'all';
+    let currentSearchQuery = '';
+
+    // Selected order variables (Modal state)
+    let selectedProduct = null;
+    let selectedDurationIndex = 0;
+    let selectedPaymentMethod = '';
+
+    // Initialize Page
+    window.addEventListener('DOMContentLoaded', () => {
+      // Set initial state from LocalStorage or query parameter or default
+      const savedLang = localStorage.getItem('premier_lang');
+      if (savedLang && i18n[savedLang]) {
+        currentLang = savedLang;
+      } else {
+        // Detect browser language or default to 'ar' since majority target is Algeria/Arab
+        const bLang = navigator.language.split('-')[0];
+        if (['ar', 'fr', 'en'].includes(bLang)) {
+          currentLang = bLang;
+        } else {
+          currentLang = 'ar'; // Default to Arabic for premium target relevance
+        }
+      }
+
+      applyLanguage(currentLang);
+      switchTab(currentMarket);
+      lucide.createIcons();
+    });
+
+    // Toggle dropdown
+    function toggleLangDropdown() {
+      const drop = document.getElementById('langDropdown');
+      drop.classList.toggle('hidden');
+    }
+
+    // Close dropdown on outside click
+    window.addEventListener('click', (e) => {
+      const langBtn = document.getElementById('langBtn');
+      const langDropdown = document.getElementById('langDropdown');
+      if (langBtn && langDropdown && !langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+        langDropdown.classList.add('hidden');
+      }
+    });
+
+    // Change Language
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('premier_lang', lang);
+      applyLanguage(lang);
+
+      // Close dropdown
+      document.getElementById('langDropdown').classList.add('hidden');
+
+      // Re-render catalog to update localized fields
+      renderCatalog();
+    }
+
+    // Translate all elements marked with data-i18n
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      // Handle RTL for Arabic
+      if (lang === 'ar') {
+        document.documentElement.dir = 'rtl';
+        document.body.classList.add('font-[Cairo]');
+        document.body.classList.remove('font-sans');
+      } else {
+        document.documentElement.dir = 'ltr';
+        document.body.classList.add('font-sans');
+        document.body.classList.remove('font-[Cairo]');
+      }
+
+      // Translate texts
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+          elem.innerHTML = i18n[lang][key];
+        }
+      });
+
+      // Translate placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n-placeholder');
+        if (i18n[lang] && i18n[lang][key]) {
+          elem.placeholder = i18n[lang][key];
+        }
+      });
+
+      // Update Active language label in button
+      const labels = { en: 'English', fr: 'Français', ar: 'العربية' };
+      document.getElementById('currentLangLabel').innerText = labels[lang];
+    }
+
+    // Switch Market Tab
+    function switchTab(market) {
+      currentMarket = market;
+
+      // Toggle button classes
+      const btnDz = document.getElementById('tabBtn-dz');
+      const btnEu = document.getElementById('tabBtn-eu');
+
+      if (market === 'dz') {
+        btnDz.classList.add('tab-active');
+        btnDz.classList.remove('text-gray-400');
+        btnEu.classList.remove('tab-active');
+        btnEu.classList.add('text-gray-400');
+      } else {
+        btnEu.classList.add('tab-active');
+        btnEu.classList.remove('text-gray-400');
+        btnDz.classList.remove('tab-active');
+        btnDz.classList.add('text-gray-400');
+      }
+
+      // Reset filter on market switch
+      currentFilterTag = 'all';
+      updateFilterUI();
+
+      // Render items
+      renderCatalog();
+    }
+
+    // Filter pill tag toggling
+    function setFilterTag(tag) {
+      currentFilterTag = tag;
+      updateFilterUI();
+      renderCatalog();
+    }
+
+    function updateFilterUI() {
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        btn.className = "filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 text-gray-400 border border-slate-700/60 hover:scale-105 hover:bg-slate-700 hover:text-white transition-all";
+      });
+      const activeBtn = document.getElementById('filter-' + currentFilterTag);
+      if (activeBtn) {
+        activeBtn.className = "filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white border border-blue-500 shadow-md hover:scale-105 transition-all";
+      }
+    }
+
+    // Search input handling
+    function handleSearch() {
+      const input = document.getElementById('searchInput');
+      currentSearchQuery = input.value.trim().toLowerCase();
+
+      // Clear icon toggle
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (currentSearchQuery.length > 0) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+
+      renderCatalog();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      currentSearchQuery = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      renderCatalog();
+    }
+
+    // RENDER PRODUCT CATALOG DYNAMICALLY
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      const noResults = document.getElementById('noResults');
+      grid.innerHTML = '';
+
+      // Get market products
+      const products = db[currentMarket] || [];
+
+      // Filter based on query and tag
+      const filtered = products.filter(p => {
+        // Tag check
+        let matchesTag = true;
+        if (currentFilterTag === '4k') {
+          matchesTag = p.tags.includes('4K UHD') || p.tags.includes('4K FHD') || p.tags.includes('8K Quality') || p.tags.includes('4K');
+        } else if (currentFilterTag === 'multi') {
+          matchesTag = p.tags.includes('Multi-Device') || p.tags.includes('Multi-Screen');
+        } else if (currentFilterTag === 'live') {
+          matchesTag = p.tags.includes('Football Live');
+        } else if (currentFilterTag === 'arabic') {
+          matchesTag = p.tags.includes('Arabe');
+        }
+
+        // Search check
+        let matchesSearch = true;
+        if (currentSearchQuery.length > 0) {
+          matchesSearch = p.brand.toLowerCase().includes(currentSearchQuery) || 
+                          p.name.toLowerCase().includes(currentSearchQuery) || 
+                          p.subtitle.toLowerCase().includes(currentSearchQuery) || 
+                          p.searchTags.toLowerCase().includes(currentSearchQuery);
+        }
+
+        return matchesTag && matchesSearch;
+      });
+
+      // If empty
+      if (filtered.length === 0) {
+        grid.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      grid.classList.remove('hidden');
+      noResults.classList.add('hidden');
+
+      // Generate HTML cards
+      filtered.forEach(p => {
+        const startingPrice = p.plans[0].price;
+        const featuredGlowClass = p.featured ? 'border-amber-500/30 bg-slate-900/90 glow-gold' : 'border-slate-800/80 bg-slate-900/60 hover:border-blue-500/20';
+
+        let tagsHtml = '';
+        p.tags.forEach(t => {
+          tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
+        });
+
+        const isFeaturedLabel = p.featured ? `<div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-brandDark font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-lg z-10">⭐ PREMIUM CHOICE</div>` : '';
+
+        const cardHtml = `
+          <div class="card relative p-5 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group ${featuredGlowClass}">
+            ${isFeaturedLabel}
+
+            <div>
+              <!-- Brand Banner Image -->
+              <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
+                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              </div>
+
+              <!-- Brand Titles -->
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h4 class="text-xs text-blue-400 font-extrabold uppercase tracking-widest mb-0.5">${p.brand}</h4>
+                  <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:text-blue-400 transition-colors">${p.name}</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-gray-500 block uppercase" data-i18n="cardFrom">Starting from</span>
+                  <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
+                </div>
+              </div>
+
+              <!-- Subtitle Description -->
+              <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${p.subtitle}</p>
+
+              <!-- Tags list -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                ${tagsHtml}
+              </div>
+            </div>
+
+            <!-- Choose Plan CTA Button -->
+            <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              <span data-i18n="btnChoose">Choose Plan</span>
+            </button>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHtml);
+      });
+
+      // Update icons after dynamic injection
+      lucide.createIcons();
+      applyLanguage(currentLang);
+    }
+
+    // FAQs Accordion toggle
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-answer-' + id);
+      const chev = document.getElementById('faq-chevron-' + id);
+
+      ans.classList.toggle('hidden');
+      chev.classList.toggle('rotate-180');
+    }
+
+    // MODAL ORDER CONFIGURATION WORKFLOW
+    function openOrderModal(productId) {
+      // Find product in DB
+      let prod = db.dz.find(x => x.id === productId);
+      let cat = i18n[currentLang].secLabelDz; // Algerian Market
+      if (!prod) {
+        prod = db.eu.find(x => x.id === productId);
+        cat = i18n[currentLang].secLabelEu; // Europe Market
+      }
+
+      if (!prod) return;
+
+      selectedProduct = prod;
+      selectedDurationIndex = 2; // Default to 12 Months (index 2)
+
+      // Auto pick payment method
+      if (prod.id.endsWith('-dz')) {
+        selectedPaymentMethod = 'baridimob'; // default for algeria
+      } else {
+        selectedPaymentMethod = 'paypal'; // default for europe
+      }
+
+      // Populate Modal Fields
+      document.getElementById('modalProductName').innerText = prod.name;
+      document.getElementById('modalProductImg').src = prod.img;
+      document.getElementById('modalProductCategory').innerText = cat;
+
+      // Populate Durations Grid
+      const durGrid = document.getElementById('modalDurationGrid');
+      durGrid.innerHTML = '';
+      prod.plans.forEach((plan, idx) => {
+        const isBestLabel = plan.best ? `<div class="absolute -top-1.5 -right-1 bg-rose-600 text-[8px] font-black tracking-widest text-white px-1.5 py-0.5 rounded-full shadow z-10 uppercase">BEST VALUE</div>` : '';
+        const durCard = `
+          <button onclick="setModalDuration(${idx})" id="durCard-${idx}" class="relative p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center ${idx === selectedDurationIndex ? 'border-blue-500 bg-blue-500/10 text-white font-extrabold' : 'border-slate-800 bg-slate-950/80 text-gray-400 hover:border-slate-700'}">
+            ${isBestLabel}
+            <span class="text-xs block font-bold mb-0.5">${plan.duration}</span>
+            <span class="text-xs text-emerald-400 font-extrabold">${plan.price}</span>
+          </button>
+        `;
+        durGrid.insertAdjacentHTML('beforeend', durCard);
+      });
+
+      // Populate Payments list
+      const payList = document.getElementById('modalPaymentList');
+      payList.innerHTML = '';
+
+      // Different payment options for DZ vs EU
+      const availablePayments = prod.id.endsWith('-dz') 
+        ? [
+            { id: 'baridimob', name: i18n[currentLang].payBaridiMob, desc: 'التحويل السريع عبر تطبيق بريدي موب', icon: 'credit-card', color: 'bg-red-600' },
+            { id: 'ccp', name: i18n[currentLang].payCcp, desc: 'الدفع المباشر في مركز البريد CCP', icon: 'mail', color: 'bg-amber-500' },
+            { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Secure Checkout via PayPal Invoice', icon: 'external-link', color: 'bg-blue-600' },
+            { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Pay instantly using BNB/USDT', icon: 'coins', color: 'bg-yellow-500' }
+          ]
+        : [
+            { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Safe PayPal Card or Balance Checkout', icon: 'credit-card', color: 'bg-blue-600' },
+            { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Fast Crypto transaction Binance Pay', icon: 'coins', color: 'bg-yellow-500' },
+            { id: 'redotpay', name: i18n[currentLang].payRedotPay, desc: 'Modern digital card checkout', icon: 'wallet', color: 'bg-rose-500' }
+          ];
+
+      availablePayments.forEach(pay => {
+        const isSelected = pay.id === selectedPaymentMethod;
+        const payCard = `
+          <button onclick="setModalPayment('${pay.id}')" id="payCard-${pay.id}" class="w-full p-3 rounded-xl border flex items-center justify-between transition-all text-left ${isSelected ? 'border-blue-500 bg-blue-500/10 text-white font-bold' : 'border-slate-800 bg-slate-950/80 text-gray-400 hover:border-slate-700'}">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg ${pay.color} flex items-center justify-center text-white"><i data-lucide="${pay.icon}" class="w-4 h-4"></i></div>
+              <div>
+                <span class="text-xs block font-bold leading-tight">${pay.name}</span>
+                <span class="text-[10px] text-slate-500 leading-none">${pay.desc}</span>
+              </div>
+            </div>
+            <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center ${isSelected ? 'border-blue-500 bg-blue-500' : 'border-slate-800'}">
+              <div class="w-1.5 h-1.5 rounded-full bg-brandCard ${isSelected ? 'block' : 'hidden'}"></div>
+            </div>
+          </button>
+        `;
+        payList.insertAdjacentHTML('beforeend', payCard);
+      });
+
+      // Clear notes field
+      document.getElementById('modalNotes').value = '';
+
+      // Update Price display
+      updateModalPricing();
+
+      // Show modal
+      document.getElementById('orderModal').classList.remove('hidden');
+      document.body.classList.add('overflow-hidden'); // disable background scrolling
+
+      // Re-initialize modal lucide icons
+      lucide.createIcons();
+    }
+
+    function setModalDuration(index) {
+      selectedDurationIndex = index;
+
+      // Update visual selection on durations
+      document.querySelectorAll('#modalDurationGrid button').forEach((btn, idx) => {
+        if (idx === index) {
+          btn.className = "relative p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center border-blue-500 bg-blue-500/10 text-white font-extrabold";
+        } else {
+          btn.className = "relative p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-center border-slate-800 bg-slate-950/80 text-gray-400 hover:border-slate-700";
+        }
+      });
+
+      updateModalPricing();
+    }
+
+    function setModalPayment(payId) {
+      selectedPaymentMethod = payId;
+
+      // Update visual selections on payment options
+      document.querySelectorAll('#modalPaymentList button').forEach(btn => {
+        const id = btn.id.replace('payCard-', '');
+        const isSelected = id === payId;
+
+        if (isSelected) {
+          btn.className = btn.className.replace('border-slate-800 bg-slate-950/80 text-gray-400', 'border-blue-500 bg-blue-500/10 text-white font-bold');
+          btn.querySelector('.border-2').className = btn.querySelector('.border-2').className.replace('border-slate-800', 'border-blue-500 bg-blue-500');
+          btn.querySelector('.border-2 div').classList.remove('hidden');
+        } else {
+          btn.className = btn.className.replace('border-blue-500 bg-blue-500/10 text-white font-bold', 'border-slate-800 bg-slate-950/80 text-gray-400');
+          btn.querySelector('.border-2').className = btn.querySelector('.border-2').className.replace('border-blue-500 bg-blue-500', 'border-slate-800').replace('bg-blue-500', '');
+          btn.querySelector('.border-2 div').classList.add('hidden');
+        }
+      });
+
+      updateModalPricing();
+    }
+
+    function updateModalPricing() {
+      if (!selectedProduct) return;
+
+      const plan = selectedProduct.plans[selectedDurationIndex];
+      const price = plan.price;
+
+      document.getElementById('modalDisplayPrice').innerText = price;
+
+      // Format display payment method name
+      const payNames = {
+        baridimob: 'BaridiMob',
+        ccp: 'CCP Post',
+        paypal: 'PayPal',
+        binance: 'Binance Pay',
+        redotpay: 'RedotPay'
+      };
+      document.getElementById('modalDisplayPayment').innerText = payNames[selectedPaymentMethod] || 'WhatsApp';
+    }
+
+    function closeModal() {
+      document.getElementById('orderModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // FORM WHATSAPP CHECKOUT GENERATOR
+    function sendOrderWhatsApp() {
+      if (!selectedProduct) return;
+
+      const plan = selectedProduct.plans[selectedDurationIndex];
+      const duration = plan.duration;
+      const price = plan.price;
+      const notes = document.getElementById('modalNotes').value.trim();
+
+      const payNames = {
+        baridimob: 'BaridiMob 🇩🇿',
+        ccp: 'CCP Post 🇩🇿',
+        paypal: 'PayPal 💳',
+        binance: 'Binance Pay 🪙',
+        redotpay: 'RedotPay 💳'
+      };
+      const paymentName = payNames[selectedPaymentMethod] || selectedPaymentMethod;
+
+      // Construct a highly professional WhatsApp request in user's language
+      let text = '';
+      if (currentLang === 'ar') {
+        text = `السلام عليكم ورحمة الله، أريد طلب اشتراك IPTV من بريميير ديجيتال لاب:
+- السيرفر: *${selectedProduct.name}*
+- المدة: *${duration}*
+- السعر: *${price}*
+- طريقة الدفع المفضلة: *${paymentName}*`;
+        if (notes) {
+          text += `\n- ملاحظات إضافية: "${notes}"`;
+        }
+        text += `\n\nأرجو إرسال معلومات الدفع ودليل التشغيل لتفعيل الاشتراك. شكراً لكم!`;
+      } else if (currentLang === 'fr') {
+        text = `Bonjour ! Je souhaite commander un abonnement IPTV chez Premier Digital Lab :
+- Serveur : *${selectedProduct.name}*
+- Durée : *${duration}*
+- Tarif : *${price}*
+- Mode de paiement choisi : *${paymentName}*`;
+        if (notes) {
+          text += `\n- Note/Question : "${notes}"`;
+        }
+        text += `\n\nMerci de m'envoyer les coordonnées de paiement pour procéder à l'activation. Cordialement !`;
+      } else {
+        text = `Hello! I would like to order an IPTV subscription from Premier Digital Lab:
+- Server: *${selectedProduct.name}*
+- Duration: *${duration}*
+- Price: *${price}*
+- Preferred Payment: *${paymentName}*`;
+        if (notes) {
+          text += `\n- Notes/Questions: "${notes}"`;
+        }
+        text += `\n\nPlease send me the payment instructions and setup guide for activation. Thank you!`;
+      }
+
+      // Encode and open WhatsApp link
+      const encodedText = encodeURIComponent(text);
+      const url = `https://wa.me/213654083898?text=${encodedText}`;
+
+      window.open(url, '_blank');
+      closeModal();
+    }
+  </script>
 </body>
 </html>
