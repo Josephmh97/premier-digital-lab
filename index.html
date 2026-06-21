@@ -267,7 +267,7 @@
         </button>
       </div>
 
-      <!-- Search and Filters -->
+      <!-- Search Bar -->
       <div class="relative w-full md:w-80 flex items-center">
         <span class="absolute left-4 text-slate-500">
           <i data-lucide="search" class="w-4 h-4"></i>
@@ -280,15 +280,6 @@
       </div>
     </div>
 
-    <!-- Category Filter Badges -->
-    <div id="filterSection" class="flex flex-wrap gap-2 mb-8 items-center">
-      <span class="text-xs text-slate-500 font-semibold mr-2 uppercase tracking-wide" id="filterLabel">Category:</span>
-      <button onclick="setCategoryFilter('all')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white border border-blue-500 shadow-md hover:scale-105 transition-all" id="filter-all" data-i18n="filterAll">All Services</button>
-      <button onclick="setCategoryFilter('iptv')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-iptv" data-i18n="filterIptv">📺 IPTV</button>
-      <button onclick="setCategoryFilter('social')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-social" data-i18n="filterSocial">🚀 Social Media</button>
-      <button onclick="setCategoryFilter('coins')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 hover:text-white text-gray-400 border border-slate-700/60 hover:scale-105 transition-all" id="filter-coins" data-i18n="filterCoins">🪙 TikTok Coins</button>
-    </div>
-
     <!-- PRODUCT CATALOG GRID -->
     <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       <!-- Generated Dynamically by JS -->
@@ -298,7 +289,7 @@
     <div id="noResults" class="hidden text-center py-16 bg-slate-900/20 rounded-3xl border border-slate-800/50">
       <i data-lucide="alert-triangle" class="w-12 h-12 text-yellow-500 mx-auto mb-4"></i>
       <h3 class="text-lg font-bold text-white mb-2" id="noResultsTitle">No Services Found</h3>
-      <p class="text-gray-400 text-sm max-w-sm mx-auto" id="noResultsText">Try adjusting your search terms or filter selections to find what you are looking for.</p>
+      <p class="text-gray-400 text-sm max-w-sm mx-auto" id="noResultsText">Try adjusting your search terms to find what you are looking for.</p>
     </div>
 
     <!-- DEVICE COMPATIBILITY GUIDE (IPTV only) -->
@@ -814,10 +805,6 @@
         statCoins: "TikTok Coins",
         statDelivery: "Instant Delivery",
         searchPlaceholder: "Search for IPTV, followers, coins...",
-        filterAll: "All Services",
-        filterIptv: "📺 IPTV",
-        filterSocial: "🚀 Social Media",
-        filterCoins: "🪙 TikTok Coins",
         secLabelDz: "Algeria IPTV",
         secLabelEu: "Europe IPTV",
         secLabelGrowth: "Growth Services",
@@ -853,8 +840,7 @@
         modalNotesLabel: "Notes, Links or Questions (Optional)",
         modalBtnCancel: "Cancel",
         noResultsTitle: "No Services Found",
-        noResultsText: "Try adjusting your search terms or filter selections to find what you are looking for.",
-        filterLabel: "Category:"
+        noResultsText: "Try adjusting your search terms to find what you are looking for."
       },
       fr: {
         navWa: "WhatsApp Chat",
@@ -864,10 +850,6 @@
         statCoins: "Pièces TikTok",
         statDelivery: "Livraison Instantanée",
         searchPlaceholder: "Rechercher IPTV, followers, pièces...",
-        filterAll: "Tous les Services",
-        filterIptv: "📺 IPTV",
-        filterSocial: "🚀 Réseaux Sociaux",
-        filterCoins: "🪙 Pièces TikTok",
         secLabelDz: "IPTV Algérie",
         secLabelEu: "IPTV Europe",
         secLabelGrowth: "Services de Croissance",
@@ -903,8 +885,7 @@
         modalNotesLabel: "Notes ou Questions (Optionnel)",
         modalBtnCancel: "Annuler",
         noResultsTitle: "Aucun Service Trouvé",
-        noResultsText: "Ajustez vos filtres ou vos termes de recherche.",
-        filterLabel: "Catégorie :"
+        noResultsText: "Ajustez vos termes de recherche pour trouver ce que vous cherchez."
       },
       ar: {
         navWa: "محادثة واتساب",
@@ -914,10 +895,6 @@
         statCoins: "عملات تيك توك",
         statDelivery: "توصيل فوري",
         searchPlaceholder: "ابحث عن IPTV، متابعين، عملات...",
-        filterAll: "كل الخدمات",
-        filterIptv: "📺 IPTV",
-        filterSocial: "🚀 السوشيال ميديا",
-        filterCoins: "🪙 عملات تيك توك",
         secLabelDz: "IPTV الجزائر",
         secLabelEu: "IPTV أوروبا",
         secLabelGrowth: "خدمات النمو",
@@ -953,15 +930,13 @@
         modalNotesLabel: "ملاحظات أو أسئلة (اختياري)",
         modalBtnCancel: "إلغاء",
         noResultsTitle: "لم يتم العثور على نتائج",
-        noResultsText: "يرجى تعديل مصطلحات البحث أو الفلاتر.",
-        filterLabel: "القسم:"
+        noResultsText: "يرجى تعديل مصطلحات البحث للعثور على ما تبحث عنه."
       }
     };
 
     // State Variables
     let currentLang = 'en';
-    let currentMarket = 'dz'; // 'dz', 'eu', or 'growth'
-    let currentCategoryFilter = 'all';
+    let currentMarket = 'dz';
     let currentSearchQuery = '';
 
     // Selected order variables (Modal state)
@@ -1044,8 +1019,6 @@
     // Switch Tab
     function switchTab(market) {
       currentMarket = market;
-      currentCategoryFilter = 'all';
-      updateFilterUI();
 
       const btnDz = document.getElementById('tabBtn-dz');
       const btnEu = document.getElementById('tabBtn-eu');
@@ -1073,31 +1046,12 @@
       if (market === 'growth') {
         compatSec.classList.add('opacity-0', 'h-0', 'overflow-hidden', 'mt-0');
         compatSec.classList.remove('mt-24');
-        // Hide category filters for growth (show only all)
-        document.getElementById('filterSection').classList.add('hidden');
       } else {
         compatSec.classList.remove('opacity-0', 'h-0', 'overflow-hidden', 'mt-0');
         compatSec.classList.add('mt-24');
-        document.getElementById('filterSection').classList.remove('hidden');
       }
 
       renderCatalog();
-    }
-
-    function setCategoryFilter(category) {
-      currentCategoryFilter = category;
-      updateFilterUI();
-      renderCatalog();
-    }
-
-    function updateFilterUI() {
-      document.querySelectorAll('.filter-pill').forEach(btn => {
-        btn.className = "filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800/80 text-gray-400 border border-slate-700/60 hover:scale-105 hover:bg-slate-700 hover:text-white transition-all";
-      });
-      const activeBtn = document.getElementById('filter-' + currentCategoryFilter);
-      if (activeBtn) {
-        activeBtn.className = "filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-blue-600 text-white border border-blue-500 shadow-md hover:scale-105 transition-all";
-      }
     }
 
     function handleSearch() {
@@ -1136,13 +1090,8 @@
         products = db[currentMarket] || [];
       }
 
-      // Filter based on query and category
+      // Filter based on search query only
       const filtered = products.filter(p => {
-        let matchesCategory = true;
-        if (currentCategoryFilter !== 'all') {
-          matchesCategory = (p.category === currentCategoryFilter);
-        }
-
         let matchesSearch = true;
         if (currentSearchQuery.length > 0) {
           matchesSearch = p.brand.toLowerCase().includes(currentSearchQuery) ||
@@ -1150,8 +1099,7 @@
             p.subtitle.toLowerCase().includes(currentSearchQuery) ||
             p.searchTags.toLowerCase().includes(currentSearchQuery);
         }
-
-        return matchesCategory && matchesSearch;
+        return matchesSearch;
       });
 
       if (filtered.length === 0) {
@@ -1181,8 +1129,6 @@
         p.tags.forEach(t => {
           tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
         });
-
-        const isGrowthPlan = isGrowth ? 'growth-plan-btn' : '';
 
         const cardHtml = `
           <div class="${cardClasses}">
