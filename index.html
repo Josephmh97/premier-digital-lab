@@ -745,13 +745,14 @@
             { duration: "10,000 Followers", price: "2200 DZ / €13.99", best: true }
           ]
         },
-        // TikTok - Updated with new pricing
+        // TikTok - Updated with new pricing and image position
         {
           id: "tiktok",
           brand: "TikTok Boost",
           name: "TikTok Followers, Views & Likes",
           category: "social",
           img: "https://images2.imgbox.com/c9/15/RMNdoW0P_o.jpg",
+          imgPosition: "top",
           subtitle: "Real TikTok followers, likes, and video views. Rank high on the algorithm fast.",
           tags: ["Followers", "Views", "Likes", "Algorithmic Growth"],
           featured: false,
@@ -1137,13 +1138,16 @@
           tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
         });
 
+        // Use imgPosition to control object-position
+        const imgPosition = p.imgPosition === 'top' ? 'object-top' : 'object-center';
+
         const cardHtml = `
           <div class="${cardClasses}">
             ${featuredLabel}
 
             <div>
               <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
-                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover ${imgPosition} group-hover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
               </div>
 
@@ -1208,7 +1212,8 @@
       selectedProduct = prod;
       selectedDurationIndex = prod.plans.length - 1;
 
-      if (prod.id.includes('-dz')) {
+      // Set default payment method based on product type
+      if (prod.id.includes('-dz') || prod.category === 'social' || prod.category === 'coins') {
         selectedPaymentMethod = 'baridimob';
       } else if (prod.id.includes('-eu')) {
         selectedPaymentMethod = 'paypal';
@@ -1246,17 +1251,29 @@
       const payList = document.getElementById('modalPaymentList');
       payList.innerHTML = '';
 
-      const availablePayments = selectedProduct.id.includes('-dz') ?
-        [
+      // Show all payment methods for Growth services (social & coins)
+      const isGrowthService = prod.category === 'social' || prod.category === 'coins';
+      const isDzProduct = prod.id.includes('-dz');
+      const isEuProduct = prod.id.includes('-eu');
+
+      let availablePayments = [];
+
+      if (isGrowthService || isDzProduct) {
+        // Show all payment methods for Growth + DZ
+        availablePayments = [
           { id: 'baridimob', name: i18n[currentLang].payBaridiMob, desc: 'التحويل السريع', logo: 'https://play-lh.googleusercontent.com/9hxHLjS9v301vyDOOOs0TMlSXA-38pzBn_Yd8IeUXfVVolSXwcfEPLEY5UwTwzdSRr4GEBXJ1470PLatTBqJ' },
           { id: 'ccp', name: i18n[currentLang].payCcp, desc: 'الدفع في مركز البريد', logo: 'https://logowik.com/content/uploads/images/algerie-poste9001.logowik.com.webp' },
-          { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Pay using BNB/USDT', logo: 'https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png' }
-        ] :
-        [
+          { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Pay using BNB/USDT', logo: 'https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png' },
+          { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Safe PayPal Checkout', logo: 'https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png' },
+          { id: 'redotpay', name: i18n[currentLang].payRedotPay, desc: 'Modern digital card', logo: 'https://www.redotpay.one/wp-content/uploads/2025/10/logo-redotpay-348-94.png' }
+        ];
+      } else if (isEuProduct) {
+        availablePayments = [
           { id: 'paypal', name: i18n[currentLang].payPaypal, desc: 'Safe PayPal Checkout', logo: 'https://images.seeklogo.com/logo-png/24/1/paypal-logo-png_seeklogo-249214.png' },
           { id: 'binance', name: i18n[currentLang].payBinance, desc: 'Fast Crypto transaction', logo: 'https://images.seeklogo.com/logo-png/44/1/binance-smart-chain-bsc-logo-png_seeklogo-446621.png' },
           { id: 'redotpay', name: i18n[currentLang].payRedotPay, desc: 'Modern digital card', logo: 'https://www.redotpay.one/wp-content/uploads/2025/10/logo-redotpay-348-94.png' }
         ];
+      }
 
       availablePayments.forEach(pay => {
         const isSelected = pay.id === selectedPaymentMethod;
