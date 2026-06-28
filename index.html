@@ -1095,104 +1095,121 @@
       document.getElementById('clearSearchBtn').classList.add('hidden');
       renderCatalog();
     }
+// RENDER PRODUCT CATALOG
+function renderCatalog() {
+  const grid = document.getElementById('catalogGrid');
+  const noResults = document.getElementById('noResults');
+  grid.innerHTML = '';
 
-    // RENDER PRODUCT CATALOG
-    function renderCatalog() {
-      const grid = document.getElementById('catalogGrid');
-      const noResults = document.getElementById('noResults');
-      grid.innerHTML = '';
+  let products = [];
 
-      let products = [];
+  if (currentMarket === 'growth') {
+    products = db.growth || [];
+  } else {
+    products = db[currentMarket] || [];
+  }
 
-      if (currentMarket === 'growth') {
-        products = db.growth || [];
-      } else {
-        products = db[currentMarket] || [];
-      }
-
-      // Filter based on search query only
-      const filtered = products.filter(p => {
-        let matchesSearch = true;
-        if (currentSearchQuery.length > 0) {
-          matchesSearch = p.brand.toLowerCase().includes(currentSearchQuery) ||
-            p.name.toLowerCase().includes(currentSearchQuery) ||
-            p.subtitle.toLowerCase().includes(currentSearchQuery) ||
-            p.searchTags.toLowerCase().includes(currentSearchQuery);
-        }
-        return matchesSearch;
-      });
-
-      if (filtered.length === 0) {
-        grid.classList.add('hidden');
-        noResults.classList.remove('hidden');
-        return;
-      }
-
-      grid.classList.remove('hidden');
-      noResults.classList.add('hidden');
-
-      const isGrowth = currentMarket === 'growth';
-
-      filtered.forEach(p => {
-        const startingPrice = p.plans[0].price;
-        let cardClasses = "card relative p-5 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group ";
-
-        if (isGrowth) {
-          cardClasses += p.featured ? 'growth-card featured glow-purple border-purple-500/30' : 'growth-card border-purple-500/20';
-        } else {
-          cardClasses += p.featured ? 'border-amber-500/30 bg-slate-900/90 glow-gold' : 'border-slate-800/80 bg-slate-900/60 hover:border-blue-500/20';
-        }
-
-        const featuredLabel = p.featured ? `<div class="absolute top-4 right-4 bg-gradient-to-r ${isGrowth ? 'from-purple-500 to-violet-600' : 'from-amber-500 to-yellow-600'} text-brandDark font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-lg z-10">⭐ PREMIUM</div>` : '';
-
-        let tagsHtml = '';
-        p.tags.forEach(t => {
-          tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
-        });
-
-        // Use imgPosition to control object-position
-        const imgPosition = p.imgPosition === 'top' ? 'object-top' : 'object-center';
-
-        const cardHtml = `
-          <div class="${cardClasses}">
-            ${featuredLabel}
-
-            <div>
-              <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
-                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover ${imgPosition} group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-              </div>
-
-              <div class="flex items-start justify-between mb-2">
-                <div>
-                  <h4 class="text-xs ${isGrowth ? 'text-purple-400' : 'text-blue-400'} font-extrabold uppercase tracking-widest mb-0.5">${p.brand}</h4>
-                  <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:${isGrowth ? 'text-purple-400' : 'text-blue-400'} transition-colors">${p.name}</h3>
-                </div>
-                <div class="text-right">
-                  <span class="text-[10px] text-gray-500 block uppercase">From</span>
-                  <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
-                </div>
-              </div>
-
-              <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${p.subtitle}</p>
-
-              <div class="flex flex-wrap gap-1.5 mb-6">
-                ${tagsHtml}
-              </div>
-            </div>
-
-            <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
-              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-              <span data-i18n="btnChoose">Choose Plan</span>
-            </button>
-          </div>
-        `;
-        grid.insertAdjacentHTML('beforeend', cardHtml);
-      });
-
-      lucide.createIcons();
-      applyLanguage(currentLang);
+  // Filter based on search query only
+  const filtered = products.filter(p => {
+    let matchesSearch = true;
+    if (currentSearchQuery.length > 0) {
+      matchesSearch = p.brand.toLowerCase().includes(currentSearchQuery) ||
+        p.name.toLowerCase().includes(currentSearchQuery) ||
+        p.subtitle.toLowerCase().includes(currentSearchQuery) ||
+        p.searchTags.toLowerCase().includes(currentSearchQuery);
     }
+    return matchesSearch;
+  });
+
+  if (filtered.length === 0) {
+    grid.classList.add('hidden');
+    noResults.classList.remove('hidden');
+    return;
+  }
+
+  grid.classList.remove('hidden');
+  noResults.classList.add('hidden');
+
+  const isGrowth = currentMarket === 'growth';
+
+  filtered.forEach(p => {
+    const startingPrice = p.plans[0].price;
+    let cardClasses = "card relative p-5 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group ";
+
+    if (isGrowth) {
+      cardClasses += p.featured ? 'growth-card featured glow-purple border-purple-500/30' : 'growth-card border-purple-500/20';
+    } else {
+      cardClasses += p.featured ? 'border-amber-500/30 bg-slate-900/90 glow-gold' : 'border-slate-800/80 bg-slate-900/60 hover:border-blue-500/20';
+    }
+
+    const featuredLabel = p.featured ? `<div class="absolute top-4 right-4 bg-gradient-to-r ${isGrowth ? 'from-purple-500 to-violet-600' : 'from-amber-500 to-yellow-600'} text-brandDark font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-lg z-10">⭐ PREMIUM</div>` : '';
+
+    let tagsHtml = '';
+    p.tags.forEach(t => {
+      tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
+    });
+
+    // Use imgPosition to control object-position
+    const imgPosition = p.imgPosition === 'top' ? 'object-top' : 'object-center';
+
+    const cardHtml = `
+      <div class="${cardClasses}">
+        ${featuredLabel}
+
+        <div>
+          <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
+            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover ${imgPosition} group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+          </div>
+
+          <div class="flex items-start justify-between mb-2">
+            <div>
+              <h4 class="text-xs ${isGrowth ? 'text-purple-400' : 'text-blue-400'} font-extrabold uppercase tracking-widest mb-0.5">${p.brand}</h4>
+              <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:${isGrowth ? 'text-purple-400' : 'text-blue-400'} transition-colors">${p.name}</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-gray-500 block uppercase">From</span>
+              <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${p.subtitle}</p>
+
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            ${tagsHtml}
+          </div>
+          
+          <!-- DETAILS SECTION - Only for Instagram -->
+          ${p.id === 'instagram' ? `
+            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+              <details class="text-xs text-gray-400">
+                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+                  📋 Service Details
+                </summary>
+                <div class="mt-2 space-y-1 text-[11px] leading-relaxed">
+                  <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-12 hours</p>
+                  <p>⚡ <span class="text-gray-300">Speed:</span> 200-400 followers/day</p>
+                  <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30-day refill</p>
+                  <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
+                  <p>📌 <span class="text-gray-300">Format:</span> Username or full link</p>
+                </div>
+              </details>
+            </div>
+          ` : ''}
+        </div>
+
+        <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span data-i18n="btnChoose">Choose Plan</span>
+        </button>
+      </div>
+    `;
+    grid.insertAdjacentHTML('beforeend', cardHtml);
+  });
+
+  lucide.createIcons();
+  applyLanguage(currentLang);
+} }
 
     // FAQs Accordion toggle
     function toggleFaq(id) {
