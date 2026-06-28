@@ -1153,57 +1153,83 @@ function renderCatalog() {
     const imgPosition = p.imgPosition === 'top' ? 'object-top' : 'object-center';
 
     const cardHtml = `
-      <div class="${cardClasses}">
-        ${featuredLabel}
+  <div class="${cardClasses}">
+    ${featuredLabel}
 
+    <div>
+      <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
+        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover ${imgPosition} group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+      </div>
+
+      <div class="flex items-start justify-between mb-2">
         <div>
-          <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
-            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover ${imgPosition} group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-          </div>
+          <h4 class="text-xs ${isGrowth ? 'text-purple-400' : 'text-blue-400'} font-extrabold uppercase tracking-widest mb-0.5">${p.brand}</h4>
+          <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:${isGrowth ? 'text-purple-400' : 'text-blue-400'} transition-colors">${p.name}</h3>
+        </div>
+        <div class="text-right">
+          <span class="text-[10px] text-gray-500 block uppercase">From</span>
+          <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
+        </div>
+      </div>
 
-          <div class="flex items-start justify-between mb-2">
-            <div>
-              <h4 class="text-xs ${isGrowth ? 'text-purple-400' : 'text-blue-400'} font-extrabold uppercase tracking-widest mb-0.5">${p.brand}</h4>
-              <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:${isGrowth ? 'text-purple-400' : 'text-blue-400'} transition-colors">${p.name}</h3>
-            </div>
-            <div class="text-right">
-              <span class="text-[10px] text-gray-500 block uppercase">From</span>
-              <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
-            </div>
-          </div>
+      <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${p.subtitle}</p>
 
-          <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${p.subtitle}</p>
+      <div class="flex flex-wrap gap-1.5 mb-6">
+        ${tagsHtml}
+      </div>
+      
+      <!-- DETAILS SECTION - Only for Instagram -->
+     ${p.id === 'instagram' ? `
+  <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+    <details class="text-xs text-gray-400">
+      <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+        📋 Service Details
+      </summary>
+      <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
 
-          <div class="flex flex-wrap gap-1.5 mb-6">
-            ${tagsHtml}
-          </div>
-          
-          <!-- DETAILS SECTION - Only for Instagram -->
-          ${p.id === 'instagram' ? `
-            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
-              <details class="text-xs text-gray-400">
-                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                  📋 Service Details
-                </summary>
-                <div class="mt-2 space-y-1 text-[11px] leading-relaxed">
-                  <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-12 hours</p>
-                  <p>⚡ <span class="text-gray-300">Speed:</span> 200-400 followers/day</p>
-                  <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30-day refill</p>
-                  <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
-                  <p>📌 <span class="text-gray-300">Format:</span> Username or full link</p>
-                </div>
-              </details>
-            </div>
-          ` : ''}
+        <!-- Followers Details -->
+        <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+          <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👥 Followers</p>
+          <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-12 hours</p>
+          <p>⚡ <span class="text-gray-300">Speed:</span> 200-400 followers per day</p>
+          <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 Days manual refill</p>
+          <p>🎯 <span class="text-gray-300">Quality:</span> Medium</p>
+          <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
+          <p>📌 <span class="text-gray-300">Format:</span> Username or full link</p>
         </div>
 
-        <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
-          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span data-i18n="btnChoose">Choose Plan</span>
-        </button>
+        <!-- Likes Details -->
+        <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+          <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">❤️ Likes</p>
+          <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-30 minutes</p>
+          <p>⚡ <span class="text-gray-300">Speed:</span> 15-150+ likes per minute (bigger order = faster speed)</p>
+          <p>🛡️ <span class="text-gray-300">Guarantee:</span> 45 days</p>
+          <p>🎯 <span class="text-gray-300">Quality:</span> Medium - High</p>
+          <p>📱 <span class="text-gray-300">Works on:</span> Posts, Reels & IGTV</p>
+        </div>
+
+        <!-- Views Details -->
+        <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+          <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👁️ Views</p>
+          <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-15 minutes</p>
+          <p>⚡ <span class="text-gray-300">Speed:</span> 50,000 - 100,000 per day</p>
+          <p>🛡️ <span class="text-gray-300">Guarantee:</span> Lifetime</p>
+          <p>📱 <span class="text-gray-300">Works on:</span> Reels, IGTV & regular videos (not photos)</p>
+        </div>
+
       </div>
-    `;
+    </details>
+  </div>
+` : ''}
+    </div>
+
+    <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
+      <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+      <span data-i18n="btnChoose">Choose Plan</span>
+    </button>
+  </div>
+`;
     grid.insertAdjacentHTML('beforeend', cardHtml);
   });
 
