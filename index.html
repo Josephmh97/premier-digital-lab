@@ -49,7 +49,6 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 8px; height: 8px; }
     ::-webkit-scrollbar-track { background: #060813; }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
@@ -437,300 +436,301 @@
 
     // TRANSLATIONS
     const i18n = {
-     en: {
-  navWa: "WhatsApp Chat",
-  badgeReseller: "🚀 Official Reseller • Algeria & Europe",
-  statBrands: "IPTV Brands",
-  statGrowth: "Growth Services",
-  statCoins: "TikTok Coins",
-  statDelivery: "Instant Delivery",
-  searchPlaceholder: "Search for IPTV, followers, coins...",
-  secLabelDz: "Algeria IPTV",
-  secLabelEu: "Europe IPTV",
-  secLabelGrowth: "Growth Services",
-  cardFrom: "From",
-  btnChoose: "Choose Plan",
-  modalSelectDuration: "Select Duration",
-  modalSelectQuantity: "Select Quantity",
-  modalSelectCoins: "Select Coins Amount",
-  modalSelectPayment: "Select Payment Method",
-  modalSendWa: "Order on WhatsApp",
-  payBaridiMob: "BaridiMob (Fast transfer)",
-  payCcp: "CCP (Post Office)",
-  payBinance: "Binance Pay",
-  payPaypal: "PayPal",
-  payRedotPay: "RedotPay",
-  faqTitle: "Frequently Asked Questions",
-  faq1Q: "How do I install the subscription?",
-  faq1A: "Installation is simple! We support all devices (Smart TVs, Firestick, Android, iOS, MAG). Once you order, we will guide you step-by-step and recommend the best apps like IPTV Smarters Pro, ibo Player, or dedicated brand apps.",
-  faq2Q: "Do you offer a free trial?",
-  faq2A: "Yes! We offer 24-hour test lines so you can check the channel list and stream quality before purchasing. Contact us on WhatsApp to get yours instantly.",
-  faq3Q: "How long does activation take?",
-  faq3A: "Activation is immediate! Once payment is verified, our team will send your subscription codes or credit your social/coin account on WhatsApp within 5 to 15 minutes.",
-  faq4Q: "What payment methods do you accept?",
-  faq4A: "For Algerian customers, we accept BaridiMob and CCP transfers. For international and European customers, we accept PayPal, Binance Pay, and RedotPay.",
-  compatTitle: "Device Compatibility",
-  compatSubtitle: "Our IPTV subscriptions work flawlessly on all modern platforms and devices.",
-  reviewsTitle: "What Our Customers Say",
-  footerText: "All rights reserved.",
-  ctaTitle: "Ready to boost your digital presence?",
-  ctaDesc: "Get in touch with us on WhatsApp for a custom package or instant free test line. We're online and happy to help!",
-  modalSumTotal: "Total Price",
-  modalSumPayment: "Payment via",
-  modalNotesLabel: "Notes, Links or Questions (Optional)",
-  modalBtnCancel: "Cancel",
-  noResultsTitle: "No Services Found",
-  noResultsText: "Try adjusting your search terms to find what you are looking for.",
-  growth: {
-    instagram: { brand: "Instagram Boost", name: "Instagram Followers, Views & Likes", subtitle: "High-quality Instagram growth. Followers, views & likes with refill guarantee.", tags: ["Followers", "Views", "Likes", "30-Day Refill", "Worldwide"] },
-    tiktok: { brand: "TikTok Boost", name: "TikTok Followers, Views & Likes", subtitle: "Real TikTok followers, likes, and video views. Rank high on the algorithm fast.", tags: ["Followers", "Views", "Likes", "Algorithmic Growth", "WorldWide"] },
-    tiktokLive: { brand: "TikTok Live", name: "TikTok Live Stream Views & likes", subtitle: "Boost your TikTok Live streams with real viewers. Increase engagement and go viral!", tags: ["Live Views", "Engagement", "Viral", "Real Viewers"] },
-    tiktokComments: { brand: "TikTok Video Comments", name: "TikTok Video Comments", subtitle: "Get real, engaging comments on your TikTok videos. Boost engagement and visibility.", tags: ["Comments", "Engagement", "Custom Comments", "Real Users"] },
-    youtube: { brand: "YouTube Boost", name: "YouTube Subscribers, Views & Likes", subtitle: "Boost your YouTube channel with subscribers, views, likes & shares. High retention and permanent.", tags: ["Subscribers", "Views", "Likes", "Shares", "Monetization"] },
-    tiktokCoins: { brand: "TikTok Coins", name: "TikTok Coins Recharge", subtitle: "Cheapest TikTok coins top-up in Algeria & Europe. Instant and official recharging directly into your account.", tags: ["Cheapest Price", "Instant", "Official Recharge"] }
-  },
-  serviceDetails: {
-    instagram: {
-      followers: { title: "👥 Followers", startTime: "0-12 hours", speed: "200-400 followers per day", guarantee: "30 Days manual refill", quality: "Medium", targeting: "Worldwide", format: "Username or full link" },
-      likes: { title: "❤️ Likes", startTime: "0-60 minutes", speed: "15-150+ likes per minute (bigger order = faster speed)", guarantee: "45 days", quality: "Medium - High", worksOn: "Posts, Reels & IGTV" },
-      views: { title: "👁️ Views", startTime: "0-60 minutes", speed: "50,000 - 100,000 per day", guarantee: "Lifetime", worksOn: "Reels, IGTV & regular videos (not photos)" }
-    },
-    tiktok: {
-      followers: { title: "👥 Followers", format: "https://www.tiktok.com/@page1", startTime: "0-24 hours", speed: "100-1,000 per day (bigger order = faster speed)", guarantee: "30 days" },
-      views: { title: "👁️ Views", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 hours", speed: "500,000 per day", guarantee: "Lifetime" },
-      likesShares: { title: "❤️ Likes & 🔄 Shares", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 hours", speed: "1,000-5,000 per day", guarantee: "30 days" }
-    },
-    tiktokLive: {
-      views: { title: "👁️ Live Views", format: "https://www.tiktok.com/@username/live", startTime: "0-15 minutes", duration: "15 minutes stay time", eachView: "1 live-stream viewer", targeting: "Worldwide", quality: "Stable Views for your Live Stream", speed: "Fast Start" },
-      likes: { title: "❤️ Live Likes", format: "https://www.tiktok.com/@username/live", startTime: "0-5 minutes", speed: "1,000-10,000 likes per hour", targeting: "Worldwide", quality: "Real likes from active users" }
-    },
-    tiktokComments: { title: "💬 AI-Generated Comments", generatedWith: "AI", format: "https://www.tiktok.com/@username/live", startTime: "0-24 hours", speed: "50-250 comments per day", guarantee: "30 days", quality: "Medium", targeting: "Worldwide" },
-    youtube: {
-      subscribers: { title: "👥 Subscribers", format: "https://www.youtube.com/@XXXXX", startTime: "Up to 6 hours", speed: "50-200 per day", guarantee: "30 days" },
-      views: { title: "👁️ Views", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 hour", speed: "10,000 - 50,000 views per day", guarantee: "Lifetime", targeting: "Worldwide (mix of countries or one random country)", retention: "0-10 minutes" },
-      likesShares: { title: "👍 Likes & 🔄 Shares", startTime: "0-12 hours", speed: "20-150 likes per day", guarantee: "30 days" }
-    }
-  },
-  tiktokCoinsWarning: {
-    title: "⚠️ REQUIRED - Read Before Ordering",
-    howItWorks: "📋 How It Works",
-    howItWorksSteps: [
-      "Provide your TikTok linked Email / Username",
-      "Provide your TikTok Login details",
-      "Share 2FA / Verification code when prompted",
-      "Coins will be added after successful purchase"
-    ],
-    serviceDetails: "⚡ Service Details",
-    serviceDetailsItems: [
-      "Fast Delivery: Usually 5–30 Minutes",
-      "Safe & Secure Purchase",
-      "Account removed after service completion",
-      "Trusted Seller Support until order is completed"
-    ],
-    importantNote: "⚠️ Important Note",
-    importantNoteItems: [
-      "Please make sure your login details are correct.",
-      "Verification code may be required during purchase.",
-      "Delivery time may take 5 minutes to 1 hour depending on technical issues."
-    ]
-  }
-},
-     fr: {
-  navWa: "WhatsApp Chat",
-  badgeReseller: "🚀 Revendeur Officiel • Algérie & Europe",
-  statBrands: "Marques IPTV",
-  statGrowth: "Services de Croissance",
-  statCoins: "Pièces TikTok",
-  statDelivery: "Livraison Instantanée",
-  searchPlaceholder: "Rechercher IPTV, followers, pièces...",
-  secLabelDz: "IPTV Algérie",
-  secLabelEu: "IPTV Europe",
-  secLabelGrowth: "Services de Croissance",
-  cardFrom: "À partir de",
-  btnChoose: "Choisir un Plan",
-  modalSelectDuration: "Sélectionner la Durée",
-  modalSelectQuantity: "Sélectionner la Quantité",
-  modalSelectCoins: "Sélectionner les Pièces",
-  modalSelectPayment: "Choisir le Paiement",
-  modalSendWa: "Commander sur WhatsApp",
-  payBaridiMob: "BaridiMob (Transfert rapide)",
-  payCcp: "CCP (La Poste)",
-  payBinance: "Binance Pay",
-  payPaypal: "PayPal",
-  payRedotPay: "RedotPay",
-  faqTitle: "Foire Aux Questions",
-  faq1Q: "Comment installer l'abonnement ?",
-  faq1A: "L'installation est très simple ! Nous prenons en charge tous les appareils (Smart TV, Firestick, Android, iOS, MAG). Une fois commandé, nous vous guiderons étape par étape.",
-  faq2Q: "Proposez-vous un test gratuit ?",
-  faq2A: "Oui ! Nous proposons des lignes de test de 24 heures. Contactez-nous sur WhatsApp pour l'obtenir instantanément.",
-  faq3Q: "Combien de temps prend l'activation ?",
-  faq3A: "L'activation est immédiate ! Une fois le paiement vérifié, notre équipe vous enverra vos codes dans un délai de 5 à 15 minutes.",
-  faq4Q: "Quels modes de paiement acceptez-vous ?",
-  faq4A: "Pour les clients en Algérie, nous acceptons BaridiMob et CCP. Pour les clients internationaux, nous acceptons PayPal, Binance Pay et RedotPay.",
-  compatTitle: "Compatibilité Appareils",
-  compatSubtitle: "Nos abonnements IPTV fonctionnent parfaitement sur toutes les plateformes modernes.",
-  reviewsTitle: "Avis de Nos Clients",
-  footerText: "Tous droits réservés.",
-  ctaTitle: "Prêt pour un streaming et boost sans coupures ?",
-  ctaDesc: "Contactez-nous sur WhatsApp pour une formule sur-mesure ou une ligne de test gratuite.",
-  modalSumTotal: "Prix Total",
-  modalSumPayment: "Paiement via",
-  modalNotesLabel: "Notes ou Questions (Optionnel)",
-  modalBtnCancel: "Annuler",
-  noResultsTitle: "Aucun Service Trouvé",
-  noResultsText: "Ajustez vos termes de recherche pour trouver ce que vous cherchez.",
-  growth: {
-    instagram: { brand: "Instagram Boost", name: "Abonnés, Vues & J'aime Instagram", subtitle: "Croissance Instagram de haute qualité. Abonnés, vues et j'aime avec garantie de recharge.", tags: ["Abonnés", "Vues", "J'aime", "Recharge 30 Jours", "Monde"] },
-    tiktok: { brand: "TikTok Boost", name: "Abonnés, Vues & J'aime TikTok", subtitle: "Vrais abonnés, likes et vues TikTok. Montez rapidement dans l'algorithme.", tags: ["Abonnés", "Vues", "J'aime", "Croissance Algorithmique", "Monde"] },
-    tiktokLive: { brand: "TikTok Live", name: "Vues & J'aime TikTok Live", subtitle: "Augmentez vos streams TikTok Live avec de vrais spectateurs. Engagement et viralité garantis.", tags: ["Vues Live", "Engagement", "Viral", "Vrais Spectateurs"] },
-    tiktokComments: { brand: "Commentaires TikTok", name: "Commentaires Vidéo TikTok", subtitle: "Obtenez de vrais commentaires engageants sur vos vidéos TikTok. Boostez l'engagement.", tags: ["Commentaires", "Engagement", "Commentaires Personnalisés", "Vrais Utilisateurs"] },
-    youtube: { brand: "YouTube Boost", name: "Abonnés, Vues & J'aime YouTube", subtitle: "Boostez votre chaîne YouTube avec abonnés, vues, likes et partages. Haute rétention.", tags: ["Abonnés", "Vues", "J'aime", "Partages", "Monétisation"] },
-    tiktokCoins: { brand: "Pièces TikTok", name: "Recharge Pièces TikTok", subtitle: "Recharge de pièces TikTok au meilleur prix en Algérie et en Europe. Instantané et officiel.", tags: ["Prix Bas", "Instantané", "Recharge Officielle"] }
-  },
-  serviceDetails: {
-    instagram: {
-      followers: { title: "👥 Abonnés", startTime: "0-12 heures", speed: "200-400 abonnés par jour", guarantee: "30 Jours de recharge manuelle", quality: "Moyen", targeting: "Monde", format: "Nom d'utilisateur ou lien complet" },
-      likes: { title: "❤️ J'aime", startTime: "0-60 minutes", speed: "15-150+ j'aime par minute (plus grande commande = plus rapide)", guarantee: "45 jours", quality: "Moyen - Élevé", worksOn: "Publications, Reels & IGTV" },
-      views: { title: "👁️ Vues", startTime: "0-60 minutes", speed: "50 000 - 100 000 par jour", guarantee: "À vie", worksOn: "Reels, IGTV & vidéos (pas les photos)" }
-    },
-    tiktok: {
-      followers: { title: "👥 Abonnés", format: "https://www.tiktok.com/@page1", startTime: "0-24 heures", speed: "100-1 000 par jour (plus grande commande = plus rapide)", guarantee: "30 jours" },
-      views: { title: "👁️ Vues", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 heures", speed: "500 000 par jour", guarantee: "À vie" },
-      likesShares: { title: "❤️ J'aime & 🔄 Partages", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 heures", speed: "1 000-5 000 par jour", guarantee: "30 jours" }
-    },
-    tiktokLive: {
-      views: { title: "👁️ Vues Live", format: "https://www.tiktok.com/@username/live", startTime: "0-15 minutes", duration: "15 minutes de temps de présence", eachView: "1 spectateur en direct", targeting: "Monde", quality: "Vues stables pour votre Live", speed: "Démarrage rapide" },
-      likes: { title: "❤️ J'aime Live", format: "https://www.tiktok.com/@username/live", startTime: "0-5 minutes", speed: "1 000-10 000 j'aime par heure", targeting: "Monde", quality: "Vrais j'aime d'utilisateurs actifs" }
-    },
-    tiktokComments: { title: "💬 Commentaires Générés par IA", generatedWith: "IA", format: "https://www.tiktok.com/@username/live", startTime: "0-24 heures", speed: "50-250 commentaires par jour", guarantee: "30 jours", quality: "Moyen", targeting: "Monde" },
-    youtube: {
-      subscribers: { title: "👥 Abonnés", format: "https://www.youtube.com/@XXXXX", startTime: "Jusqu'à 6 heures", speed: "50-200 par jour", guarantee: "30 jours" },
-      views: { title: "👁️ Vues", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 heure", speed: "10 000 - 50 000 vues par jour", guarantee: "À vie", targeting: "Monde (mix de pays ou un pays aléatoire)", retention: "0-10 minutes" },
-      likesShares: { title: "👍 J'aime & 🔄 Partages", startTime: "0-12 heures", speed: "20-150 j'aime par jour", guarantee: "30 jours" }
-    }
-  },
-  tiktokCoinsWarning: {
-    title: "⚠️ OBLIGATOIRE - À Lire Avant de Commander",
-    howItWorks: "📋 Comment ça fonctionne",
-    howItWorksSteps: [
-      "Fournissez votre Email / Nom d'utilisateur TikTok",
-      "Fournissez vos identifiants de connexion TikTok",
-      "Partagez le code 2FA / Vérification si demandé",
-      "Les pièces seront ajoutées après l'achat réussi"
-    ],
-    serviceDetails: "⚡ Détails du Service",
-    serviceDetailsItems: [
-      "Livraison Rapide : Généralement 5–30 Minutes",
-      "Achat Sécurisé",
-      "Compte supprimé après la fin du service",
-      "Support Vendeur jusqu'à la finalisation de la commande"
-    ],
-    importantNote: "⚠️ Note Importante",
-    importantNoteItems: [
-      "Assurez-vous que vos identifiants sont corrects.",
-      "Un code de vérification peut être demandé pendant l'achat.",
-      "Le délai de livraison peut prendre de 5 minutes à 1 heure selon les problèmes techniques."
-    ]
-  }
-},
+      en: {
+        navWa: "WhatsApp Chat",
+        badgeReseller: "🚀 Official Reseller • Algeria & Europe",
+        statBrands: "IPTV Brands",
+        statGrowth: "Growth Services",
+        statCoins: "TikTok Coins",
+        statDelivery: "Instant Delivery",
+        searchPlaceholder: "Search for IPTV, followers, coins...",
+        secLabelDz: "Algeria IPTV",
+        secLabelEu: "Europe IPTV",
+        secLabelGrowth: "Growth Services",
+        cardFrom: "From",
+        btnChoose: "Choose Plan",
+        modalSelectDuration: "Select Duration",
+        modalSelectQuantity: "Select Quantity",
+        modalSelectCoins: "Select Coins Amount",
+        modalSelectPayment: "Select Payment Method",
+        modalSendWa: "Order on WhatsApp",
+        payBaridiMob: "BaridiMob (Fast transfer)",
+        payCcp: "CCP (Post Office)",
+        payBinance: "Binance Pay",
+        payPaypal: "PayPal",
+        payRedotPay: "RedotPay",
+        faqTitle: "Frequently Asked Questions",
+        faq1Q: "How do I install the subscription?",
+        faq1A: "Installation is simple! We support all devices (Smart TVs, Firestick, Android, iOS, MAG). Once you order, we will guide you step-by-step and recommend the best apps like IPTV Smarters Pro, ibo Player, or dedicated brand apps.",
+        faq2Q: "Do you offer a free trial?",
+        faq2A: "Yes! We offer 24-hour test lines so you can check the channel list and stream quality before purchasing. Contact us on WhatsApp to get yours instantly.",
+        faq3Q: "How long does activation take?",
+        faq3A: "Activation is immediate! Once payment is verified, our team will send your subscription codes or credit your social/coin account on WhatsApp within 5 to 15 minutes.",
+        faq4Q: "What payment methods do you accept?",
+        faq4A: "For Algerian customers, we accept BaridiMob and CCP transfers. For international and European customers, we accept PayPal, Binance Pay, and RedotPay.",
+        compatTitle: "Device Compatibility",
+        compatSubtitle: "Our IPTV subscriptions work flawlessly on all modern platforms and devices.",
+        reviewsTitle: "What Our Customers Say",
+        footerText: "All rights reserved.",
+        ctaTitle: "Ready to boost your digital presence?",
+        ctaDesc: "Get in touch with us on WhatsApp for a custom package or instant free test line. We're online and happy to help!",
+        modalSumTotal: "Total Price",
+        modalSumPayment: "Payment via",
+        modalNotesLabel: "Notes, Links or Questions (Optional)",
+        modalBtnCancel: "Cancel",
+        noResultsTitle: "No Services Found",
+        noResultsText: "Try adjusting your search terms to find what you are looking for.",
+        growth: {
+          instagram: { brand: "Instagram Boost", name: "Instagram Followers, Views & Likes", subtitle: "High-quality Instagram growth. Followers, views & likes with refill guarantee.", tags: ["Followers", "Views", "Likes", "30-Day Refill", "Worldwide"] },
+          tiktok: { brand: "TikTok Boost", name: "TikTok Followers, Views & Likes", subtitle: "Real TikTok followers, likes, and video views. Rank high on the algorithm fast.", tags: ["Followers", "Views", "Likes", "Algorithmic Growth", "WorldWide"] },
+          tiktokLive: { brand: "TikTok Live", name: "TikTok Live Stream Views & likes", subtitle: "Boost your TikTok Live streams with real viewers. Increase engagement and go viral!", tags: ["Live Views", "Engagement", "Viral", "Real Viewers"] },
+          tiktokComments: { brand: "TikTok Video Comments", name: "TikTok Video Comments", subtitle: "Get real, engaging comments on your TikTok videos. Boost engagement and visibility.", tags: ["Comments", "Engagement", "Custom Comments", "Real Users"] },
+          youtube: { brand: "YouTube Boost", name: "YouTube Subscribers, Views & Likes", subtitle: "Boost your YouTube channel with subscribers, views, likes & shares. High retention and permanent.", tags: ["Subscribers", "Views", "Likes", "Shares", "Monetization"] },
+          tiktokCoins: { brand: "TikTok Coins", name: "TikTok Coins Recharge", subtitle: "Cheapest TikTok coins top-up in Algeria & Europe. Instant and official recharging directly into your account.", tags: ["Cheapest Price", "Instant", "Official Recharge"] }
+        },
+        serviceDetails: {
+          instagram: {
+            followers: { title: "👥 Followers", startTime: "0-12 hours", speed: "200-400 followers per day", guarantee: "30 Days manual refill", quality: "Medium", targeting: "Worldwide", format: "Username or full link" },
+            likes: { title: "❤️ Likes", startTime: "0-60 minutes", speed: "15-150+ likes per minute (bigger order = faster speed)", guarantee: "45 days", quality: "Medium - High", worksOn: "Posts, Reels & IGTV" },
+            views: { title: "👁️ Views", startTime: "0-60 minutes", speed: "50,000 - 100,000 per day", guarantee: "Lifetime", worksOn: "Reels, IGTV & regular videos (not photos)" }
+          },
+          tiktok: {
+            followers: { title: "👥 Followers", format: "https://www.tiktok.com/@page1", startTime: "0-24 hours", speed: "100-1,000 per day (bigger order = faster speed)", guarantee: "30 days" },
+            views: { title: "👁️ Views", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 hours", speed: "500,000 per day", guarantee: "Lifetime" },
+            likesShares: { title: "❤️ Likes & 🔄 Shares", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 hours", speed: "1,000-5,000 per day", guarantee: "30 days" }
+          },
+          tiktokLive: {
+            views: { title: "👁️ Live Views", format: "https://www.tiktok.com/@username/live", startTime: "0-15 minutes", duration: "15 minutes stay time", eachView: "1 live-stream viewer", targeting: "Worldwide", quality: "Stable Views for your Live Stream", speed: "Fast Start" },
+            likes: { title: "❤️ Live Likes", format: "https://www.tiktok.com/@username/live", startTime: "0-5 minutes", speed: "1,000-10,000 likes per hour", targeting: "Worldwide", quality: "Real likes from active users" }
+          },
+          tiktokComments: { title: "💬 AI-Generated Comments", generatedWith: "AI", format: "https://www.tiktok.com/@username/live", startTime: "0-24 hours", speed: "50-250 comments per day", guarantee: "30 days", quality: "Medium", targeting: "Worldwide" },
+          youtube: {
+            subscribers: { title: "👥 Subscribers", format: "https://www.youtube.com/@XXXXX", startTime: "Up to 6 hours", speed: "50-200 per day", guarantee: "30 days" },
+            views: { title: "👁️ Views", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 hour", speed: "10,000 - 50,000 views per day", guarantee: "Lifetime", targeting: "Worldwide (mix of countries or one random country)", retention: "0-10 minutes" },
+            likesShares: { title: "👍 Likes & 🔄 Shares", startTime: "0-12 hours", speed: "20-150 likes per day", guarantee: "30 days" }
+          }
+        },
+        tiktokCoinsWarning: {
+          title: "⚠️ REQUIRED - Read Before Ordering",
+          howItWorks: "📋 How It Works",
+          howItWorksSteps: [
+            "Provide your TikTok linked Email / Username",
+            "Provide your TikTok Login details",
+            "Share 2FA / Verification code when prompted",
+            "Coins will be added after successful purchase"
+          ],
+          serviceDetails: "⚡ Service Details",
+          serviceDetailsItems: [
+            "Fast Delivery: Usually 5–30 Minutes",
+            "Safe & Secure Purchase",
+            "Account removed after service completion",
+            "Trusted Seller Support until order is completed"
+          ],
+          importantNote: "⚠️ Important Note",
+          importantNoteItems: [
+            "Please make sure your login details are correct.",
+            "Verification code may be required during purchase.",
+            "Delivery time may take 5 minutes to 1 hour depending on technical issues."
+          ]
+        }
+      },
+      fr: {
+        navWa: "WhatsApp Chat",
+        badgeReseller: "🚀 Revendeur Officiel • Algérie & Europe",
+        statBrands: "Marques IPTV",
+        statGrowth: "Services de Croissance",
+        statCoins: "Pièces TikTok",
+        statDelivery: "Livraison Instantanée",
+        searchPlaceholder: "Rechercher IPTV, followers, pièces...",
+        secLabelDz: "IPTV Algérie",
+        secLabelEu: "IPTV Europe",
+        secLabelGrowth: "Services de Croissance",
+        cardFrom: "À partir de",
+        btnChoose: "Choisir un Plan",
+        modalSelectDuration: "Sélectionner la Durée",
+        modalSelectQuantity: "Sélectionner la Quantité",
+        modalSelectCoins: "Sélectionner les Pièces",
+        modalSelectPayment: "Choisir le Paiement",
+        modalSendWa: "Commander sur WhatsApp",
+        payBaridiMob: "BaridiMob (Transfert rapide)",
+        payCcp: "CCP (La Poste)",
+        payBinance: "Binance Pay",
+        payPaypal: "PayPal",
+        payRedotPay: "RedotPay",
+        faqTitle: "Foire Aux Questions",
+        faq1Q: "Comment installer l'abonnement ?",
+        faq1A: "L'installation est très simple ! Nous prenons en charge tous les appareils (Smart TV, Firestick, Android, iOS, MAG). Une fois commandé, nous vous guiderons étape par étape.",
+        faq2Q: "Proposez-vous un test gratuit ?",
+        faq2A: "Oui ! Nous proposons des lignes de test de 24 heures. Contactez-nous sur WhatsApp pour l'obtenir instantanément.",
+        faq3Q: "Combien de temps prend l'activation ?",
+        faq3A: "L'activation est immédiate ! Une fois le paiement vérifié, notre équipe vous enverra vos codes dans un délai de 5 à 15 minutes.",
+        faq4Q: "Quels modes de paiement acceptez-vous ?",
+        faq4A: "Pour les clients en Algérie, nous acceptons BaridiMob et CCP. Pour les clients internationaux, nous acceptons PayPal, Binance Pay et RedotPay.",
+        compatTitle: "Compatibilité Appareils",
+        compatSubtitle: "Nos abonnements IPTV fonctionnent parfaitement sur toutes les plateformes modernes.",
+        reviewsTitle: "Avis de Nos Clients",
+        footerText: "Tous droits réservés.",
+        ctaTitle: "Prêt pour un streaming et boost sans coupures ?",
+        ctaDesc: "Contactez-nous sur WhatsApp pour une formule sur-mesure ou une ligne de test gratuite.",
+        modalSumTotal: "Prix Total",
+        modalSumPayment: "Paiement via",
+        modalNotesLabel: "Notes ou Questions (Optionnel)",
+        modalBtnCancel: "Annuler",
+        noResultsTitle: "Aucun Service Trouvé",
+        noResultsText: "Ajustez vos termes de recherche pour trouver ce que vous cherchez.",
+        growth: {
+          instagram: { brand: "Instagram Boost", name: "Abonnés, Vues & J'aime Instagram", subtitle: "Croissance Instagram de haute qualité. Abonnés, vues et j'aime avec garantie de recharge.", tags: ["Abonnés", "Vues", "J'aime", "Recharge 30 Jours", "Monde"] },
+          tiktok: { brand: "TikTok Boost", name: "Abonnés, Vues & J'aime TikTok", subtitle: "Vrais abonnés, likes et vues TikTok. Montez rapidement dans l'algorithme.", tags: ["Abonnés", "Vues", "J'aime", "Croissance Algorithmique", "Monde"] },
+          tiktokLive: { brand: "TikTok Live", name: "Vues & J'aime TikTok Live", subtitle: "Augmentez vos streams TikTok Live avec de vrais spectateurs. Engagement et viralité garantis.", tags: ["Vues Live", "Engagement", "Viral", "Vrais Spectateurs"] },
+          tiktokComments: { brand: "Commentaires TikTok", name: "Commentaires Vidéo TikTok", subtitle: "Obtenez de vrais commentaires engageants sur vos vidéos TikTok. Boostez l'engagement.", tags: ["Commentaires", "Engagement", "Commentaires Personnalisés", "Vrais Utilisateurs"] },
+          youtube: { brand: "YouTube Boost", name: "Abonnés, Vues & J'aime YouTube", subtitle: "Boostez votre chaîne YouTube avec abonnés, vues, likes et partages. Haute rétention.", tags: ["Abonnés", "Vues", "J'aime", "Partages", "Monétisation"] },
+          tiktokCoins: { brand: "Pièces TikTok", name: "Recharge Pièces TikTok", subtitle: "Recharge de pièces TikTok au meilleur prix en Algérie et en Europe. Instantané et officiel.", tags: ["Prix Bas", "Instantané", "Recharge Officielle"] }
+        },
+        serviceDetails: {
+          instagram: {
+            followers: { title: "👥 Abonnés", startTime: "0-12 heures", speed: "200-400 abonnés par jour", guarantee: "30 Jours de recharge manuelle", quality: "Moyen", targeting: "Monde", format: "Nom d'utilisateur ou lien complet" },
+            likes: { title: "❤️ J'aime", startTime: "0-60 minutes", speed: "15-150+ j'aime par minute (plus grande commande = plus rapide)", guarantee: "45 jours", quality: "Moyen - Élevé", worksOn: "Publications, Reels & IGTV" },
+            views: { title: "👁️ Vues", startTime: "0-60 minutes", speed: "50 000 - 100 000 par jour", guarantee: "À vie", worksOn: "Reels, IGTV & vidéos (pas les photos)" }
+          },
+          tiktok: {
+            followers: { title: "👥 Abonnés", format: "https://www.tiktok.com/@page1", startTime: "0-24 heures", speed: "100-1 000 par jour (plus grande commande = plus rapide)", guarantee: "30 jours" },
+            views: { title: "👁️ Vues", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 heures", speed: "500 000 par jour", guarantee: "À vie" },
+            likesShares: { title: "❤️ J'aime & 🔄 Partages", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 heures", speed: "1 000-5 000 par jour", guarantee: "30 jours" }
+          },
+          tiktokLive: {
+            views: { title: "👁️ Vues Live", format: "https://www.tiktok.com/@username/live", startTime: "0-15 minutes", duration: "15 minutes de temps de présence", eachView: "1 spectateur en direct", targeting: "Monde", quality: "Vues stables pour votre Live", speed: "Démarrage rapide" },
+            likes: { title: "❤️ J'aime Live", format: "https://www.tiktok.com/@username/live", startTime: "0-5 minutes", speed: "1 000-10 000 j'aime par heure", targeting: "Monde", quality: "Vrais j'aime d'utilisateurs actifs" }
+          },
+          tiktokComments: { title: "💬 Commentaires Générés par IA", generatedWith: "IA", format: "https://www.tiktok.com/@username/live", startTime: "0-24 heures", speed: "50-250 commentaires par jour", guarantee: "30 jours", quality: "Moyen", targeting: "Monde" },
+          youtube: {
+            subscribers: { title: "👥 Abonnés", format: "https://www.youtube.com/@XXXXX", startTime: "Jusqu'à 6 heures", speed: "50-200 par jour", guarantee: "30 jours" },
+            views: { title: "👁️ Vues", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 heure", speed: "10 000 - 50 000 vues par jour", guarantee: "À vie", targeting: "Monde (mix de pays ou un pays aléatoire)", retention: "0-10 minutes" },
+            likesShares: { title: "👍 J'aime & 🔄 Partages", startTime: "0-12 heures", speed: "20-150 j'aime par jour", guarantee: "30 jours" }
+          }
+        },
+        tiktokCoinsWarning: {
+          title: "⚠️ OBLIGATOIRE - À Lire Avant de Commander",
+          howItWorks: "📋 Comment ça fonctionne",
+          howItWorksSteps: [
+            "Fournissez votre Email / Nom d'utilisateur TikTok",
+            "Fournissez vos identifiants de connexion TikTok",
+            "Partagez le code 2FA / Vérification si demandé",
+            "Les pièces seront ajoutées après l'achat réussi"
+          ],
+          serviceDetails: "⚡ Détails du Service",
+          serviceDetailsItems: [
+            "Livraison Rapide : Généralement 5–30 Minutes",
+            "Achat Sécurisé",
+            "Compte supprimé après la fin du service",
+            "Support Vendeur jusqu'à la finalisation de la commande"
+          ],
+          importantNote: "⚠️ Note Importante",
+          importantNoteItems: [
+            "Assurez-vous que vos identifiants sont corrects.",
+            "Un code de vérification peut être demandé pendant l'achat.",
+            "Le délai de livraison peut prendre de 5 minutes à 1 heure selon les problèmes techniques."
+          ]
+        }
+      },
       ar: {
-  navWa: "محادثة واتساب",
-  badgeReseller: "🚀 موزع رسمي معتمد • الجزائر وأوروبا",
-  statBrands: "سيرفرات IPTV",
-  statGrowth: "خدمات النمو",
-  statCoins: "عملات تيك توك",
-  statDelivery: "توصيل فوري",
-  searchPlaceholder: "ابحث عن IPTV، متابعين، عملات...",
-  secLabelDz: "IPTV الجزائر",
-  secLabelEu: "IPTV أوروبا",
-  secLabelGrowth: "خدمات النمو",
-  cardFrom: "ابتداءً من",
-  btnChoose: "اختر الاشتراك",
-  modalSelectDuration: "اختر مدة الاشتراك",
-  modalSelectQuantity: "اختر الكمية المطلوبة",
-  modalSelectCoins: "اختر كمية الشحن",
-  modalSelectPayment: "اختر طريقة الدفع",
-  modalSendWa: "تأكيد الطلب عبر واتساب",
-  payBaridiMob: "بريدي موب (BaridiMob)",
-  payCcp: "الحساب البريدي (CCP)",
-  payBinance: "بينانس باي (Binance Pay)",
-  payPaypal: "بايبال (PayPal)",
-  payRedotPay: "ريدوت باي (RedotPay)",
-  faqTitle: "الأسئلة الشائعة",
-  faq1Q: "كيف يمكنني تشغيل الاشتراك؟",
-  faq1A: "التشغيل سهل جداً! نحن ندعم جميع الأجهزة (شاشات سمارت، Firestick، أندرويد، آيفون، MAG). بعد تأكيد الطلب، سنقوم بمساعدتك خطوة بخطوة.",
-  faq2Q: "هل توفرون تجربة مجانية؟",
-  faq2A: "نعم! نوفر أكواد تجريبية لمدة 24 ساعة. تواصل معنا عبر الواتساب للحصول على كود التجربة فوراً.",
-  faq3Q: "كم من الوقت يستغرق التفعيل؟",
-  faq3A: "التفعيل فوري! بمجرد تأكيد الدفع، يقوم فريقنا بإرسال بيانات الاشتراك خلال 5 إلى 15 دقيقة.",
-  faq4Q: "ما هي طرق الدفع المتاحة؟",
-  faq4A: "لعملائنا في الجزائر، نقبل بريدي موب والحساب البريدي. لعملائنا في أوروبا والعالم، نقبل بايبال، بينانس باي، وريدوت باي.",
-  compatTitle: "الأجهزة المتوافقة",
-  compatSubtitle: "اشتراكات IPTV لدينا تعمل بسلاسة على جميع الأجهزة الحديثة.",
-  reviewsTitle: "آراء عملائنا",
-  footerText: "جميع الحقوق محفوظة.",
-  ctaTitle: "جاهز لتجربة مشاهدة بدون تقطيع ونمو حساباتك؟",
-  ctaDesc: "تواصل معنا الآن عبر واتساب للحصول على باقة مخصصة أو تجربة مجانية.",
-  modalSumTotal: "إجمالي السعر",
-  modalSumPayment: "طريقة الدفع",
-  modalNotesLabel: "ملاحظات أو أسئلة (اختياري)",
-  modalBtnCancel: "إلغاء",
-  noResultsTitle: "لم يتم العثور على نتائج",
-  noResultsText: "يرجى تعديل مصطلحات البحث للعثور على ما تبحث عنه.",
-  growth: {
-    instagram: { brand: "إنستغرام بوست", name: "متابعين، مشاهدات وإعجابات إنستغرام", subtitle: "نمو عالي الجودة لإنستغرام. متابعين، مشاهدات وإعجابات مع ضمان إعادة التعبئة.", tags: ["متابعين", "مشاهدات", "إعجابات", "إعادة تعبئة 30 يوم", "عالمي"] },
-    tiktok: { brand: "تيك توك بوست", name: "متابعين، مشاهدات وإعجابات تيك توك", subtitle: "متابعين حقيقيين، إعجابات ومشاهدات تيك توك. تصدر في الخوارزمية بسرعة.", tags: ["متابعين", "مشاهدات", "إعجابات", "نمو خوارزمي", "عالمي"] },
-    tiktokLive: { brand: "تيك توك لايف", name: "مشاهدات وإعجابات تيك توك لايف", subtitle: "عزز بثوشاتك المباشرة على تيك توك بمشاهدين حقيقيين. زيادة التفاعل والانتشار.", tags: ["مشاهدات لايف", "تفاعل", "انتشار", "مشاهدين حقيقيين"] },
-    tiktokComments: { brand: "تعليقات تيك توك", name: "تعليقات فيديوهات تيك توك", subtitle: "احصل على تعليقات حقيقية وتفاعلية على فيديوهات تيك توك. عزز التفاعل والظهور.", tags: ["تعليقات", "تفاعل", "تعليقات مخصصة", "مستخدمين حقيقيين"] },
-    youtube: { brand: "يوتيوب بوست", name: "مشتركين، مشاهدات وإعجابات يوتيوب", subtitle: "عزز قناتك على يوتيوب بمشتركين، مشاهدات، إعجابات ومشاركات. احتفاظ عالي.", tags: ["مشتركين", "مشاهدات", "إعجابات", "مشاركات", "تحقيق ربح"] },
-    tiktokCoins: { brand: "عملات تيك توك", name: "شحن عملات تيك توك", subtitle: "أرخص شحن عملات تيك توك في الجزائر وأوروبا. شحن فوري ورسمي مباشر.", tags: ["أرخص سعر", "فوري", "شحن رسمي"] }
-  },
-  serviceDetails: {
-    instagram: {
-      followers: { title: "👥 متابعين", startTime: "0-12 ساعة", speed: "200-400 متابع يومياً", guarantee: "30 يوم إعادة تعبئة يدوية", quality: "متوسط", targeting: "عالمي", format: "اسم المستخدم أو الرابط الكامل" },
-      likes: { title: "❤️ إعجابات", startTime: "0-60 دقيقة", speed: "15-150+ إعجاب في الدقيقة (الطلب الأكبر = سرعة أسرع)", guarantee: "45 يوم", quality: "متوسط - عالي", worksOn: "منشورات، ريلز و IGTV" },
-      views: { title: "👁️ مشاهدات", startTime: "0-60 دقيقة", speed: "50,000 - 100,000 يومياً", guarantee: "مدى الحياة", worksOn: "ريلز، IGTV وفيديوهات (ليست الصور)" }
-    },
-    tiktok: {
-      followers: { title: "👥 متابعين", format: "https://www.tiktok.com/@page1", startTime: "0-24 ساعة", speed: "100-1,000 يومياً (الطلب الأكبر = سرعة أسرع)", guarantee: "30 يوم" },
-      views: { title: "👁️ مشاهدات", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 ساعة", speed: "500,000 يومياً", guarantee: "مدى الحياة" },
-      likesShares: { title: "❤️ إعجابات & 🔄 مشاركات", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 ساعة", speed: "1,000-5,000 يومياً", guarantee: "30 يوم" }
-    },
-    tiktokLive: {
-      views: { title: "👁️ مشاهدات لايف", format: "https://www.tiktok.com/@username/live", startTime: "0-15 دقيقة", duration: "15 دقيقة مدة البقاء", eachView: "1 مشاهد مباشر", targeting: "عالمي", quality: "مشاهدات ثابتة لبثك المباشر", speed: "بداية سريعة" },
-      likes: { title: "❤️ إعجابات لايف", format: "https://www.tiktok.com/@username/live", startTime: "0-5 دقائق", speed: "1,000-10,000 إعجاب في الساعة", targeting: "عالمي", quality: "إعجابات حقيقية من مستخدمين نشطين" }
-    },
-    tiktokComments: { title: "💬 تعليقات مولدة بالذكاء الاصطناعي", generatedWith: "الذكاء الاصطناعي", format: "https://www.tiktok.com/@username/live", startTime: "0-24 ساعة", speed: "50-250 تعليق يومياً", guarantee: "30 يوم", quality: "متوسط", targeting: "عالمي" },
-    youtube: {
-      subscribers: { title: "👥 مشتركين", format: "https://www.youtube.com/@XXXXX", startTime: "حتى 6 ساعات", speed: "50-200 يومياً", guarantee: "30 يوم" },
-      views: { title: "👁️ مشاهدات", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 ساعة", speed: "10,000 - 50,000 مشاهدة يومياً", guarantee: "مدى الحياة", targeting: "عالمي (مزيج من الدول أو دولة عشوائية)", retention: "0-10 دقائق" },
-      likesShares: { title: "👍 إعجابات & 🔄 مشاركات", startTime: "0-12 ساعة", speed: "20-150 إعجاب يومياً", guarantee: "30 يوم" }
-    }
-  },
-  tiktokCoinsWarning: {
-    title: "⚠️ مطلوب - اقرأ قبل الطلب",
-    howItWorks: "📋 طريقة العمل",
-    howItWorksSteps: [
-      "قدم بريدك الإلكتروني / اسم المستخدم المرتبط بتيك توك",
-      "قدم تفاصيل تسجيل الدخول الخاصة بتيك توك",
-      "شارك رمز التحقق 2FA عند الطلب",
-      "سيتم إضافة العملات بعد عملية الشراء الناجحة"
-    ],
-    serviceDetails: "⚡ تفاصيل الخدمة",
-    serviceDetailsItems: [
-      "توصيل سريع: عادة 5–30 دقيقة",
-      "شراء آمن ومأمون",
-      "إزالة الحساب بعد اكتمال الخدمة",
-      "دعم البائع الموثوق حتى اكتمال الطلب"
-    ],
-    importantNote: "⚠️ ملاحظة مهمة",
-    importantNoteItems: [
-      "تأكد من صحة تفاصيل تسجيل الدخول الخاصة بك.",
-      "قد يكون رمز التحقق مطلوباً أثناء عملية الشراء.",
-      "قد يستغرق وقت التسليم من 5 دقائق إلى ساعة واحدة حسب المشاكل التقنية."
-    ]
-  }
-}
+        navWa: "محادثة واتساب",
+        badgeReseller: "🚀 موزع رسمي معتمد • الجزائر وأوروبا",
+        statBrands: "سيرفرات IPTV",
+        statGrowth: "خدمات النمو",
+        statCoins: "عملات تيك توك",
+        statDelivery: "توصيل فوري",
+        searchPlaceholder: "ابحث عن IPTV، متابعين، عملات...",
+        secLabelDz: "IPTV الجزائر",
+        secLabelEu: "IPTV أوروبا",
+        secLabelGrowth: "خدمات النمو",
+        cardFrom: "ابتداءً من",
+        btnChoose: "اختر الاشتراك",
+        modalSelectDuration: "اختر مدة الاشتراك",
+        modalSelectQuantity: "اختر الكمية المطلوبة",
+        modalSelectCoins: "اختر كمية الشحن",
+        modalSelectPayment: "اختر طريقة الدفع",
+        modalSendWa: "تأكيد الطلب عبر واتساب",
+        payBaridiMob: "بريدي موب (BaridiMob)",
+        payCcp: "الحساب البريدي (CCP)",
+        payBinance: "بينانس باي (Binance Pay)",
+        payPaypal: "بايبال (PayPal)",
+        payRedotPay: "ريدوت باي (RedotPay)",
+        faqTitle: "الأسئلة الشائعة",
+        faq1Q: "كيف يمكنني تشغيل الاشتراك؟",
+        faq1A: "التشغيل سهل جداً! نحن ندعم جميع الأجهزة (شاشات سمارت، Firestick، أندرويد، آيفون، MAG). بعد تأكيد الطلب، سنقوم بمساعدتك خطوة بخطوة.",
+        faq2Q: "هل توفرون تجربة مجانية؟",
+        faq2A: "نعم! نوفر أكواد تجريبية لمدة 24 ساعة. تواصل معنا عبر الواتساب للحصول على كود التجربة فوراً.",
+        faq3Q: "كم من الوقت يستغرق التفعيل؟",
+        faq3A: "التفعيل فوري! بمجرد تأكيد الدفع، يقوم فريقنا بإرسال بيانات الاشتراك خلال 5 إلى 15 دقيقة.",
+        faq4Q: "ما هي طرق الدفع المتاحة؟",
+        faq4A: "لعملائنا في الجزائر، نقبل بريدي موب والحساب البريدي. لعملائنا في أوروبا والعالم، نقبل بايبال، بينانس باي، وريدوت باي.",
+        compatTitle: "الأجهزة المتوافقة",
+        compatSubtitle: "اشتراكات IPTV لدينا تعمل بسلاسة على جميع الأجهزة الحديثة.",
+        reviewsTitle: "آراء عملائنا",
+        footerText: "جميع الحقوق محفوظة.",
+        ctaTitle: "جاهز لتجربة مشاهدة بدون تقطيع ونمو حساباتك؟",
+        ctaDesc: "تواصل معنا الآن عبر واتساب للحصول على باقة مخصصة أو تجربة مجانية.",
+        modalSumTotal: "إجمالي السعر",
+        modalSumPayment: "طريقة الدفع",
+        modalNotesLabel: "ملاحظات أو أسئلة (اختياري)",
+        modalBtnCancel: "إلغاء",
+        noResultsTitle: "لم يتم العثور على نتائج",
+        noResultsText: "يرجى تعديل مصطلحات البحث للعثور على ما تبحث عنه.",
+        growth: {
+          instagram: { brand: "إنستغرام بوست", name: "متابعين، مشاهدات وإعجابات إنستغرام", subtitle: "نمو عالي الجودة لإنستغرام. متابعين، مشاهدات وإعجابات مع ضمان إعادة التعبئة.", tags: ["متابعين", "مشاهدات", "إعجابات", "إعادة تعبئة 30 يوم", "عالمي"] },
+          tiktok: { brand: "تيك توك بوست", name: "متابعين، مشاهدات وإعجابات تيك توك", subtitle: "متابعين حقيقيين، إعجابات ومشاهدات تيك توك. تصدر في الخوارزمية بسرعة.", tags: ["متابعين", "مشاهدات", "إعجابات", "نمو خوارزمي", "عالمي"] },
+          tiktokLive: { brand: "تيك توك لايف", name: "مشاهدات وإعجابات تيك توك لايف", subtitle: "عزز بثوشاتك المباشرة على تيك توك بمشاهدين حقيقيين. زيادة التفاعل والانتشار.", tags: ["مشاهدات لايف", "تفاعل", "انتشار", "مشاهدين حقيقيين"] },
+          tiktokComments: { brand: "تعليقات تيك توك", name: "تعليقات فيديوهات تيك توك", subtitle: "احصل على تعليقات حقيقية وتفاعلية على فيديوهات تيك توك. عزز التفاعل والظهور.", tags: ["تعليقات", "تفاعل", "تعليقات مخصصة", "مستخدمين حقيقيين"] },
+          youtube: { brand: "يوتيوب بوست", name: "مشتركين، مشاهدات وإعجابات يوتيوب", subtitle: "عزز قناتك على يوتيوب بمشتركين، مشاهدات، إعجابات ومشاركات. احتفاظ عالي.", tags: ["مشتركين", "مشاهدات", "إعجابات", "مشاركات", "تحقيق ربح"] },
+          tiktokCoins: { brand: "عملات تيك توك", name: "شحن عملات تيك توك", subtitle: "أرخص شحن عملات تيك توك في الجزائر وأوروبا. شحن فوري ورسمي مباشر.", tags: ["أرخص سعر", "فوري", "شحن رسمي"] }
+        },
+        serviceDetails: {
+          instagram: {
+            followers: { title: "👥 متابعين", startTime: "0-12 ساعة", speed: "200-400 متابع يومياً", guarantee: "30 يوم إعادة تعبئة يدوية", quality: "متوسط", targeting: "عالمي", format: "اسم المستخدم أو الرابط الكامل" },
+            likes: { title: "❤️ إعجابات", startTime: "0-60 دقيقة", speed: "15-150+ إعجاب في الدقيقة (الطلب الأكبر = سرعة أسرع)", guarantee: "45 يوم", quality: "متوسط - عالي", worksOn: "منشورات، ريلز و IGTV" },
+            views: { title: "👁️ مشاهدات", startTime: "0-60 دقيقة", speed: "50,000 - 100,000 يومياً", guarantee: "مدى الحياة", worksOn: "ريلز، IGTV وفيديوهات (ليست الصور)" }
+          },
+          tiktok: {
+            followers: { title: "👥 متابعين", format: "https://www.tiktok.com/@page1", startTime: "0-24 ساعة", speed: "100-1,000 يومياً (الطلب الأكبر = سرعة أسرع)", guarantee: "30 يوم" },
+            views: { title: "👁️ مشاهدات", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 ساعة", speed: "500,000 يومياً", guarantee: "مدى الحياة" },
+            likesShares: { title: "❤️ إعجابات & 🔄 مشاركات", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 ساعة", speed: "1,000-5,000 يومياً", guarantee: "30 يوم" }
+          },
+          tiktokLive: {
+            views: { title: "👁️ مشاهدات لايف", format: "https://www.tiktok.com/@username/live", startTime: "0-15 دقيقة", duration: "15 دقيقة مدة البقاء", eachView: "1 مشاهد مباشر", targeting: "عالمي", quality: "مشاهدات ثابتة لبثك المباشر", speed: "بداية سريعة" },
+            likes: { title: "❤️ إعجابات لايف", format: "https://www.tiktok.com/@username/live", startTime: "0-5 دقائق", speed: "1,000-10,000 إعجاب في الساعة", targeting: "عالمي", quality: "إعجابات حقيقية من مستخدمين نشطين" }
+          },
+          tiktokComments: { title: "💬 تعليقات مولدة بالذكاء الاصطناعي", generatedWith: "الذكاء الاصطناعي", format: "https://www.tiktok.com/@username/live", startTime: "0-24 ساعة", speed: "50-250 تعليق يومياً", guarantee: "30 يوم", quality: "متوسط", targeting: "عالمي" },
+          youtube: {
+            subscribers: { title: "👥 مشتركين", format: "https://www.youtube.com/@XXXXX", startTime: "حتى 6 ساعات", speed: "50-200 يومياً", guarantee: "30 يوم" },
+            views: { title: "👁️ مشاهدات", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 ساعة", speed: "10,000 - 50,000 مشاهدة يومياً", guarantee: "مدى الحياة", targeting: "عالمي (مزيج من الدول أو دولة عشوائية)", retention: "0-10 دقائق" },
+            likesShares: { title: "👍 إعجابات & 🔄 مشاركات", startTime: "0-12 ساعة", speed: "20-150 إعجاب يومياً", guarantee: "30 يوم" }
+          }
+        },
+        tiktokCoinsWarning: {
+          title: "⚠️ مطلوب - اقرأ قبل الطلب",
+          howItWorks: "📋 طريقة العمل",
+          howItWorksSteps: [
+            "قدم بريدك الإلكتروني / اسم المستخدم المرتبط بتيك توك",
+            "قدم تفاصيل تسجيل الدخول الخاصة بتيك توك",
+            "شارك رمز التحقق 2FA عند الطلب",
+            "سيتم إضافة العملات بعد عملية الشراء الناجحة"
+          ],
+          serviceDetails: "⚡ تفاصيل الخدمة",
+          serviceDetailsItems: [
+            "توصيل سريع: عادة 5–30 دقيقة",
+            "شراء آمن ومأمون",
+            "إزالة الحساب بعد اكتمال الخدمة",
+            "دعم البائع الموثوق حتى اكتمال الطلب"
+          ],
+          importantNote: "⚠️ ملاحظة مهمة",
+          importantNoteItems: [
+            "تأكد من صحة تفاصيل تسجيل الدخول الخاصة بك.",
+            "قد يكون رمز التحقق مطلوباً أثناء عملية الشراء.",
+            "قد يستغرق وقت التسليم من 5 دقائق إلى ساعة واحدة حسب المشاكل التقنية."
+          ]
+        }
+      }
+    };
 
     // STATE
     let currentLang = 'fr';
@@ -1060,29 +1060,29 @@
                 </div>
               ` : ''}
 
-            ${p.id === 'tiktok-coins' ? `
-  <div class="mb-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-    <details class="text-xs text-gray-300" open>
-      <summary class="cursor-pointer text-amber-400 font-bold hover:text-amber-300 transition-colors text-sm">
-        ${i18n[currentLang].tiktokCoinsWarning.title}
-      </summary>
-      <div class="mt-3 space-y-2 text-[11px] leading-relaxed">
-        <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
-          <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">${i18n[currentLang].tiktokCoinsWarning.howItWorks}</p>
-          ${i18n[currentLang].tiktokCoinsWarning.howItWorksSteps.map(step => `<p>➤ ${step}</p>`).join('')}
-        </div>
-        <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
-          <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">${i18n[currentLang].tiktokCoinsWarning.serviceDetails}</p>
-          ${i18n[currentLang].tiktokCoinsWarning.serviceDetailsItems.map(item => `<p>• ${item}</p>`).join('')}
-        </div>
-        <div class="p-2.5 bg-red-500/10 rounded-lg border border-red-500/30">
-          <p class="text-red-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">${i18n[currentLang].tiktokCoinsWarning.importantNote}</p>
-          ${i18n[currentLang].tiktokCoinsWarning.importantNoteItems.map(item => `<p>➤ ${item}</p>`).join('')}
-        </div>
-      </div>
-    </details>
-  </div>
-` : ''}
+              ${p.id === 'tiktok-coins' ? `
+                <div class="mb-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
+                  <details class="text-xs text-gray-300" open>
+                    <summary class="cursor-pointer text-amber-400 font-bold hover:text-amber-300 transition-colors text-sm">
+                      ${i18n[currentLang].tiktokCoinsWarning.title}
+                    </summary>
+                    <div class="mt-3 space-y-2 text-[11px] leading-relaxed">
+                      <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
+                        <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">${i18n[currentLang].tiktokCoinsWarning.howItWorks}</p>
+                        ${i18n[currentLang].tiktokCoinsWarning.howItWorksSteps.map(step => `<p>➤ ${step}</p>`).join('')}
+                      </div>
+                      <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
+                        <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">${i18n[currentLang].tiktokCoinsWarning.serviceDetails}</p>
+                        ${i18n[currentLang].tiktokCoinsWarning.serviceDetailsItems.map(item => `<p>• ${item}</p>`).join('')}
+                      </div>
+                      <div class="p-2.5 bg-red-500/10 rounded-lg border border-red-500/30">
+                        <p class="text-red-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">${i18n[currentLang].tiktokCoinsWarning.importantNote}</p>
+                        ${i18n[currentLang].tiktokCoinsWarning.importantNoteItems.map(item => `<p>➤ ${item}</p>`).join('')}
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
             </div>
             <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
               <i data-lucide="shopping-bag" class="w-4 h-4"></i>
