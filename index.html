@@ -50,33 +50,15 @@
 
   <style>
     /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #060813;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #3b82f6;
-    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #060813; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
 
-    /* Glow Effects */
-    .glow-blue {
-      box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.4);
-    }
-    .glow-gold {
-      box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.45);
-    }
-    .glow-purple {
-      box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4);
-    }
+    .glow-blue { box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.4); }
+    .glow-gold { box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.45); }
+    .glow-purple { box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4); }
 
-    /* Active tab style overlay */
     .tab-active {
       background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
       color: #ffffff !important;
@@ -88,73 +70,31 @@
       box-shadow: 0 4px 15px rgba(139, 92, 246, 0.35);
     }
 
-    /* Floating WhatsApp Button Animation */
     @keyframes pulse-green {
       0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
       70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
-    .wa-pulse {
-      animation: pulse-green 2s infinite;
-    }
+    .wa-pulse { animation: pulse-green 2s infinite; }
 
-    /* Growth tab specific styles */
     .growth-card {
       border-color: rgba(139, 92, 246, 0.2);
       background: #0f0a1a;
     }
-    .growth-card:hover {
-      border-color: rgba(139, 92, 246, 0.5);
-    }
+    .growth-card:hover { border-color: rgba(139, 92, 246, 0.5); }
     .growth-card.featured {
       border-color: rgba(139, 92, 246, 0.4);
       background: #140d24;
-    }
-    .growth-badge {
-      background: rgba(139, 92, 246, 0.12);
-      border: 1px solid rgba(139, 92, 246, 0.35);
-      color: #a78bfa;
-    }
-    .growth-plan-btn {
-      background: rgba(139, 92, 246, 0.03);
-      border-color: rgba(139, 92, 246, 0.1);
-    }
-    .growth-plan-btn:hover {
-      background: rgba(139, 92, 246, 0.08);
-      border-color: rgba(139, 92, 246, 0.25);
-    }
-    .growth-plan-btn.hot {
-      background: rgba(139, 92, 246, 0.08);
-      border-color: rgba(139, 92, 246, 0.25);
-    }
-    .growth-plan-btn.hot:hover {
-      background: rgba(139, 92, 246, 0.15);
-    }
-    .growth-plan-btn .plan-price {
-      color: #a78bfa;
-    }
-    .growth-plan-btn.hot .plan-price {
-      color: #8b5cf6;
-    }
-    .growth-plan-btn .plan-order {
-      color: #8b5cf6;
-      background: rgba(139, 92, 246, 0.08);
-    }
-    .growth-plan-btn:hover .plan-order {
-      background: rgba(139, 92, 246, 0.15);
     }
   </style>
 </head>
 <body class="bg-brandDark text-gray-100 font-sans min-height-screen relative overflow-x-hidden selection:bg-blue-500 selection:text-white">
 
-  <!-- Radial Background Glow -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.15),_transparent_60%)] pointer-events-none z-0"></div>
 
   <!-- STICKY HEADER -->
   <nav class="sticky top-0 z-50 backdrop-blur-md bg-brandDark/80 border-b border-white/[0.06] transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-
-      <!-- Logo -->
       <a href="#" class="flex items-center gap-3 group">
         <div class="relative">
           <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
@@ -167,10 +107,7 @@
           <div class="text-xs text-gray-400 font-medium tracking-wider">@PremierDigitalLab</div>
         </div>
       </a>
-
-      <!-- Right Nav controls -->
       <div class="flex items-center gap-3 sm:gap-6">
-        <!-- Language Switcher Dropdown -->
         <div class="relative inline-block text-left">
           <button onclick="toggleLangDropdown()" id="langBtn" class="flex items-center gap-1.5 bg-slate-800/80 border border-slate-700 hover:border-blue-500 text-gray-200 hover:text-white px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all">
             <i data-lucide="languages" class="w-4 h-4"></i>
@@ -179,21 +116,16 @@
           </button>
           <div id="langDropdown" class="hidden absolute right-0 mt-2 w-36 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl p-1.5 z-50">
             <button onclick="setLanguage('en')" class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-lg hover:bg-blue-600 hover:text-white font-medium flex items-center justify-between transition-all">
-              <span>English</span>
-              <span class="text-xs text-gray-400">EN</span>
+              <span>English</span> <span class="text-xs text-gray-400">EN</span>
             </button>
             <button onclick="setLanguage('fr')" class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-lg hover:bg-blue-600 hover:text-white font-medium flex items-center justify-between transition-all">
-              <span>Français</span>
-              <span class="text-xs text-gray-400">FR</span>
+              <span>Français</span> <span class="text-xs text-gray-400">FR</span>
             </button>
             <button onclick="setLanguage('ar')" class="w-full text-left px-3 py-2 text-xs sm:text-sm rounded-lg hover:bg-blue-600 hover:text-white font-medium flex items-center justify-between transition-all">
-              <span class="font-bold">العربية</span>
-              <span class="text-xs text-gray-400">AR</span>
+              <span class="font-bold">العربية</span> <span class="text-xs text-gray-400">AR</span>
             </button>
           </div>
         </div>
-
-        <!-- WhatsApp Link -->
         <a href="https://wa.me/213654083898" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-lg transition-all duration-300">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span data-i18n="navWa">WhatsApp Chat</span>
@@ -211,16 +143,12 @@
       </span>
       <span data-i18n="badgeReseller">🚀 Official Reseller • Algeria & Europe</span>
     </div>
-
     <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight text-white mb-6 leading-[1.1]" id="heroTitleMain">
       Premium <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Digital</span> Services
     </h1>
-
     <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light" id="heroDescMain">
-      Your trusted destination for premium IPTV subscriptions, Social Media account growth, and TikTok coins recharging. Secure checkout and instant delivery.
+      Your trusted destination for premium IPTV subscriptions, Social Media account growth, and TikTok coins recharging.
     </p>
-
-    <!-- Stat Grid -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
       <div class="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm hover:border-blue-500/30 transition-all group">
         <div class="text-blue-500 mb-2 flex justify-center"><i data-lucide="tv" class="w-6 h-6 group-hover:scale-110 transition-transform"></i></div>
@@ -247,56 +175,36 @@
 
   <!-- MAIN CATALOG AREA -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 z-10 relative" id="iptv">
-
-    <!-- Tab Controls & Search Bar container -->
     <div class="flex flex-col md:flex-row gap-6 items-center justify-between mb-10 bg-slate-900/40 p-4 sm:p-5 rounded-3xl border border-slate-800/60 backdrop-blur-sm">
-
-      <!-- Tabs Switcher -->
       <div class="flex p-1.5 bg-slate-950/80 rounded-2xl border border-slate-800/60 w-full md:w-auto relative flex-wrap">
         <button onclick="switchTab('dz')" id="tabBtn-dz" class="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:text-white transition-all">
-          <span>🇩🇿</span>
-          <span data-i18n="secLabelDz">Algeria IPTV</span>
+          <span>🇩🇿</span> <span data-i18n="secLabelDz">Algeria IPTV</span>
         </button>
         <button onclick="switchTab('eu')" id="tabBtn-eu" class="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:text-white transition-all">
-          <span>🇪🇺</span>
-          <span data-i18n="secLabelEu">Europe IPTV</span>
+          <span>🇪🇺</span> <span data-i18n="secLabelEu">Europe IPTV</span>
         </button>
         <button onclick="switchTab('growth')" id="tabBtn-growth" class="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-gray-400 hover:text-white transition-all">
-          <span>📈</span>
-          <span data-i18n="secLabelGrowth">Growth Services</span>
+          <span>📈</span> <span data-i18n="secLabelGrowth">Growth Services</span>
         </button>
       </div>
-
-      <!-- Search Bar -->
       <div class="relative w-full md:w-80 flex items-center">
-        <span class="absolute left-4 text-slate-500">
-          <i data-lucide="search" class="w-4 h-4"></i>
-        </span>
-        <input type="text" id="searchInput" oninput="handleSearch()" data-i18n-placeholder="searchPlaceholder" placeholder="Search for IPTV, followers, coins..." class="w-full pl-11 pr-4 py-3 text-xs sm:text-sm bg-slate-950/80 border border-slate-800/80 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-inner">
-        <!-- Clear button -->
-        <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-4 text-slate-500 hover:text-white">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
+        <span class="absolute left-4 text-slate-500"><i data-lucide="search" class="w-4 h-4"></i></span>
+        <input type="text" id="searchInput" oninput="handleSearch()" data-i18n-placeholder="searchPlaceholder" placeholder="Search..." class="w-full pl-11 pr-4 py-3 text-xs sm:text-sm bg-slate-950/80 border border-slate-800/80 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-inner">
+        <button onclick="clearSearch()" id="clearSearchBtn" class="hidden absolute right-4 text-slate-500 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
       </div>
     </div>
 
-    <!-- PRODUCT CATALOG GRID -->
-    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      <!-- Generated Dynamically by JS -->
-    </div>
-
-    <!-- Empty search notice -->
+    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
     <div id="noResults" class="hidden text-center py-16 bg-slate-900/20 rounded-3xl border border-slate-800/50">
       <i data-lucide="alert-triangle" class="w-12 h-12 text-yellow-500 mx-auto mb-4"></i>
       <h3 class="text-lg font-bold text-white mb-2" id="noResultsTitle">No Services Found</h3>
-      <p class="text-gray-400 text-sm max-w-sm mx-auto" id="noResultsText">Try adjusting your search terms to find what you are looking for.</p>
+      <p class="text-gray-400 text-sm max-w-sm mx-auto" id="noResultsText">Try adjusting your search terms.</p>
     </div>
 
-    <!-- DEVICE COMPATIBILITY GUIDE (IPTV only) -->
+    <!-- DEVICE COMPATIBILITY -->
     <section id="compatSection" class="mt-24 text-center transition-all duration-300">
       <h3 class="font-display font-bold text-2xl sm:text-3xl text-white mb-3" data-i18n="compatTitle">Device Compatibility</h3>
-      <p class="text-gray-400 text-sm max-w-xl mx-auto mb-12" data-i18n="compatSubtitle">Our IPTV subscriptions work flawlessly on all modern platforms and devices.</p>
-
+      <p class="text-gray-400 text-sm max-w-xl mx-auto mb-12" data-i18n="compatSubtitle">Our IPTV subscriptions work flawlessly on all modern platforms.</p>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="monitor" class="w-6 h-6"></i></div>
@@ -306,17 +214,17 @@
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="smartphone" class="w-6 h-6"></i></div>
           <h4 class="text-sm font-bold text-white mb-1">Mobile / Tablet</h4>
-          <span class="text-[10px] text-gray-500 uppercase">Android, Apple iOS</span>
+          <span class="text-[10px] text-gray-500 uppercase">Android, iOS</span>
         </div>
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="laptop" class="w-6 h-6"></i></div>
           <h4 class="text-sm font-bold text-white mb-1">PC / Mac</h4>
-          <span class="text-[10px] text-gray-500 uppercase">VLC Player, WebPlayer</span>
+          <span class="text-[10px] text-gray-500 uppercase">VLC, WebPlayer</span>
         </div>
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="cpu" class="w-6 h-6"></i></div>
           <h4 class="text-sm font-bold text-white mb-1">Android Box</h4>
-          <span class="text-[10px] text-gray-500 uppercase">Xiaomi, Beelink, etc.</span>
+          <span class="text-[10px] text-gray-500 uppercase">Xiaomi, Beelink</span>
         </div>
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col items-center hover:border-blue-500/20 transition-all">
           <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4"><i data-lucide="flame" class="w-6 h-6"></i></div>
@@ -331,10 +239,9 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
+    <!-- TESTIMONIALS -->
     <section class="mt-28">
       <h3 class="font-display font-bold text-2xl sm:text-3xl text-center text-white mb-10" data-i18n="reviewsTitle">What Our Customers Say</h3>
-
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col justify-between">
           <div>
@@ -345,19 +252,13 @@
               <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
               <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
             </div>
-            <p class="text-gray-300 text-sm italic leading-relaxed">
-              "لقد جربت Strong 8K وهو خرافة بكل معنى الكلمة، ثبات عجيب في مباريات كاس العالم وجودة فائقة. تعامل راقي وتفعيل في أقل من 5 دقائق عبر بريدي موب."
-            </p>
+            <p class="text-gray-300 text-sm italic leading-relaxed">"لقد جربت Strong 8K وهو خرافة بكل معنى الكلمة، ثبات عجيب في مباريات كاس العالم وجودة فائقة. تعامل راقي وتفعيل في أقل من 5 دقائق عبر بريدي موب."</p>
           </div>
           <div class="mt-6 flex items-center gap-3">
             <div class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center text-xs">SB</div>
-            <div>
-              <h5 class="text-sm font-bold text-white">Sofiane B.</h5>
-              <span class="text-[10px] text-gray-500">Algiers, Algeria</span>
-            </div>
+            <div><h5 class="text-sm font-bold text-white">Sofiane B.</h5><span class="text-[10px] text-gray-500">Algiers, Algeria</span></div>
           </div>
         </div>
-
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col justify-between">
           <div>
             <div class="flex text-amber-500 gap-1 mb-4">
@@ -367,19 +268,13 @@
               <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
               <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
             </div>
-            <p class="text-gray-300 text-sm italic leading-relaxed">
-              "Best IPTV service I've ever bought. Support guided me step by step on setting up my smart TV with IPTV Smarters. Strongly recommended!"
-            </p>
+            <p class="text-gray-300 text-sm italic leading-relaxed">"Best IPTV service I've ever bought. Support guided me step by step on setting up my smart TV. Strongly recommended!"</p>
           </div>
           <div class="mt-6 flex items-center gap-3">
             <div class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center text-xs">ML</div>
-            <div>
-              <h5 class="text-sm font-bold text-white">Marc-Antoine L.</h5>
-              <span class="text-[10px] text-gray-500">Paris, France</span>
-            </div>
+            <div><h5 class="text-sm font-bold text-white">Marc-Antoine L.</h5><span class="text-[10px] text-gray-500">Paris, France</span></div>
           </div>
         </div>
-
         <div class="p-6 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex flex-col justify-between">
           <div>
             <div class="flex text-amber-500 gap-1 mb-4">
@@ -389,91 +284,65 @@
               <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
               <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
             </div>
-            <p class="text-gray-300 text-sm italic leading-relaxed">
-              "اشتراك Neo 4K ممتاز جدا وسعره منافس جدا مقارنة بالسوق. الدعم الفني متجاوب وسريع جدا على الواتساب."
-            </p>
+            <p class="text-gray-300 text-sm italic leading-relaxed">"اشتراك Neo 4K ممتاز جدا وسعره منافس جدا مقارنة بالسوق. الدعم الفني متجاوب وسريع جدا على الواتساب."</p>
           </div>
           <div class="mt-6 flex items-center gap-3">
             <div class="w-9 h-9 rounded-full bg-blue-600/20 text-blue-400 font-bold flex items-center justify-center text-xs">KY</div>
-            <div>
-              <h5 class="text-sm font-bold text-white">Kamal Y.</h5>
-              <span class="text-[10px] text-gray-500">Oran, Algeria</span>
-            </div>
+            <div><h5 class="text-sm font-bold text-white">Kamal Y.</h5><span class="text-[10px] text-gray-500">Oran, Algeria</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQS ACCORDION SECTION -->
+    <!-- FAQS -->
     <section class="mt-28 max-w-4xl mx-auto" id="faq">
       <h3 class="font-display font-bold text-2xl sm:text-3xl text-center text-white mb-10" data-i18n="faqTitle">Frequently Asked Questions</h3>
-
       <div class="space-y-4">
-        <!-- FAQ 1 -->
         <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
           <button onclick="toggleFaq(1)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
             <span data-i18n="faq1Q">How do I install the subscription?</span>
             <i data-lucide="chevron-down" id="faq-chevron-1" class="w-5 h-5 text-slate-400 transition-transform"></i>
           </button>
-          <div id="faq-answer-1" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq1A">
-            Installation is simple! We support all devices (Smart TVs, Firestick, Android, iOS, MAG). Once you order, we will guide you step-by-step and recommend the best apps like IPTV Smarters Pro, ibo Player, or dedicated brand apps.
-          </div>
+          <div id="faq-answer-1" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq1A">Installation is simple! We support all devices...</div>
         </div>
-
-        <!-- FAQ 2 -->
         <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
           <button onclick="toggleFaq(2)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
             <span data-i18n="faq2Q">Do you offer a free trial?</span>
             <i data-lucide="chevron-down" id="faq-chevron-2" class="w-5 h-5 text-slate-400 transition-transform"></i>
           </button>
-          <div id="faq-answer-2" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq2A">
-            Yes! We offer 24-hour test lines so you can check the channel list and stream quality before purchasing. Contact us on WhatsApp to get yours instantly.
-          </div>
+          <div id="faq-answer-2" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq2A">Yes! We offer 24-hour test lines...</div>
         </div>
-
-        <!-- FAQ 3 -->
         <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
           <button onclick="toggleFaq(3)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
             <span data-i18n="faq3Q">How long does activation take?</span>
             <i data-lucide="chevron-down" id="faq-chevron-3" class="w-5 h-5 text-slate-400 transition-transform"></i>
           </button>
-          <div id="faq-answer-3" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq3A">
-            Activation is immediate! Once payment is verified, our team will send your subscription codes and installation guide on WhatsApp within 5 to 15 minutes.
-          </div>
+          <div id="faq-answer-3" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq3A">Activation is immediate! Once payment is verified...</div>
         </div>
-
-        <!-- FAQ 4 -->
         <div class="border border-slate-800/80 rounded-2xl overflow-hidden bg-slate-900/20 backdrop-blur-sm transition-all hover:border-slate-700/60">
           <button onclick="toggleFaq(4)" class="w-full flex items-center justify-between p-5 text-left text-white font-bold text-sm sm:text-base gap-4">
             <span data-i18n="faq4Q">What payment methods do you accept?</span>
             <i data-lucide="chevron-down" id="faq-chevron-4" class="w-5 h-5 text-slate-400 transition-transform"></i>
           </button>
-          <div id="faq-answer-4" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq4A">
-            For Algerian customers, we accept BaridiMob and CCP transfers. For international and European customers, we accept PayPal, Binance Pay, and RedotPay.
-          </div>
+          <div id="faq-answer-4" class="hidden p-5 border-t border-slate-800/60 text-xs sm:text-sm text-gray-400 leading-relaxed bg-brandCard/20" data-i18n="faq4A">For Algerian customers, we accept BaridiMob and CCP...</div>
         </div>
       </div>
     </section>
 
-    <!-- CALL TO ACTION BOX -->
+    <!-- CTA -->
     <div class="mt-28 bg-gradient-to-br from-blue-600 to-indigo-800 p-8 sm:p-12 rounded-3xl text-center shadow-xl relative overflow-hidden group">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.1),_transparent_50%)] pointer-events-none"></div>
       <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white mb-4" id="ctaTitle">Ready to boost your digital presence?</h3>
-      <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto mb-8" id="ctaDesc">Get in touch with us on WhatsApp for a custom package or instant support. We're online and happy to help!</p>
-
+      <p class="text-blue-100 text-sm sm:text-base max-w-xl mx-auto mb-8" id="ctaDesc">Get in touch with us on WhatsApp for a custom package or instant support.</p>
       <a href="https://wa.me/213654083898" target="_blank" class="inline-flex items-center gap-3 bg-white hover:bg-gray-100 text-blue-700 font-bold text-sm sm:text-base px-8 py-4 rounded-2xl shadow-xl transition-all hover:scale-105 active:scale-95 duration-200">
-        <i data-lucide="message-circle" class="w-5 h-5 text-blue-600 fill-blue-600"></i>
-        <span>Chat on WhatsApp</span>
+        <i data-lucide="message-circle" class="w-5 h-5 text-blue-600 fill-blue-600"></i> Chat on WhatsApp
       </a>
     </div>
-
   </main>
 
-  <!-- INTERACTIVE CONFIGURATION MODAL -->
+  <!-- MODAL -->
   <div id="orderModal" class="hidden fixed inset-0 bg-brandDark/85 backdrop-blur-md z-50 flex items-center justify-center p-4">
     <div class="bg-brandCard border border-slate-800 rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative animate-scale-up max-h-[90vh] flex flex-col">
-
-      <!-- Modal Header -->
       <div class="p-6 border-b border-slate-800/60 flex items-center justify-between bg-slate-900/50">
         <div class="flex items-center gap-3">
           <img id="modalProductImg" class="w-10 h-10 rounded-lg object-cover border border-white/10" src="" alt="Product logo">
@@ -486,33 +355,19 @@
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
-
-      <!-- Scrollable content -->
       <div class="p-6 overflow-y-auto space-y-6 flex-1 text-xs sm:text-sm">
-
-        <!-- Selection block -->
         <div>
           <label class="block text-gray-300 font-bold mb-3" id="modalSelectDurationLabel">Select Option</label>
-          <div class="grid grid-cols-3 gap-3" id="modalDurationGrid">
-            <!-- Populated dynamically by JS -->
-          </div>
+          <div class="grid grid-cols-3 gap-3" id="modalDurationGrid"></div>
         </div>
-
-        <!-- Payment Method selection -->
         <div>
           <label class="block text-gray-300 font-bold mb-3" id="modalSelectPaymentLabel">Select Payment Method</label>
-          <div class="space-y-2.5" id="modalPaymentList">
-            <!-- Populated dynamically by JS -->
-          </div>
+          <div class="space-y-2.5" id="modalPaymentList"></div>
         </div>
-
-        <!-- Custom notes input -->
         <div>
           <label class="block text-gray-300 font-bold mb-1.5" id="modalNotesLabel">Notes or Questions (Optional)</label>
-          <textarea id="modalNotes" placeholder="Type here if you have any questions, devices you use, etc..." class="w-full bg-slate-950/80 border border-slate-800 text-white rounded-xl p-3 text-xs focus:outline-none focus:border-blue-500 transition-all placeholder-slate-500 h-20 resize-none"></textarea>
+          <textarea id="modalNotes" placeholder="Type here if you have any questions..." class="w-full bg-slate-950/80 border border-slate-800 text-white rounded-xl p-3 text-xs focus:outline-none focus:border-blue-500 transition-all placeholder-slate-500 h-20 resize-none"></textarea>
         </div>
-
-        <!-- Order pricing display summary -->
         <div class="p-4 bg-slate-950/60 border border-slate-800 rounded-2xl flex items-center justify-between">
           <div>
             <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider block" id="modalSumTotal">Total Price</span>
@@ -524,20 +379,16 @@
           </div>
         </div>
       </div>
-
-      <!-- Modal Actions (Sticky Footer) -->
       <div class="p-6 border-t border-slate-800/60 bg-slate-900/30 flex gap-3">
         <button onclick="closeModal()" class="flex-1 py-3.5 bg-slate-800 hover:bg-slate-700 text-gray-300 hover:text-white font-bold rounded-xl transition-colors text-xs uppercase" id="modalBtnCancel">Cancel</button>
         <button onclick="sendOrderWhatsApp()" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg hover:shadow-emerald-600/20 flex items-center justify-center gap-2 transition-all text-xs uppercase">
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span id="modalSendWaText">Order on WhatsApp</span>
+          <i data-lucide="message-circle" class="w-4 h-4"></i> <span id="modalSendWaText">Order on WhatsApp</span>
         </button>
       </div>
-
     </div>
   </div>
 
-  <!-- STICKY FLOATING WHATSAPP CHAT BUTTON (Mobile-friendly) -->
+  <!-- WHATSAPP FLOATING BUTTON -->
   <a href="https://wa.me/213654083898" target="_blank" class="fixed bottom-6 right-6 z-40 p-4 bg-brandGreen text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all wa-pulse duration-200 hover:bg-emerald-500 flex items-center justify-center" aria-label="WhatsApp Chat">
     <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.862L.072 23.927l6.218-1.432A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.798 9.798 0 01-4.932-1.327l-.354-.21-3.692.85.876-3.595-.23-.369A9.791 9.791 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.423 0 9.818 4.396 9.818 9.818 0 5.423-4.395 9.818-9.818 9.818z"/></svg>
   </a>
@@ -557,295 +408,34 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT & APP LOGIC -->
   <script>
-    // Product Database (DZ/EUR IPTV + Growth Services combined)
+    // PRODUCT DATABASE
     const db = {
       dz: [
-        // IPTV Products - DZ
-        {
-          id: "lynx-dz",
-          brand: "Lynx IPTV",
-          name: "Lynx IPTV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/c0/8f/a1mqn3mM_o.png",
-          subtitle: "2000+ Ch · 4K UHD · VOD Library · No Buffering",
-          tags: ["2K+ Ch", "4K UHD", "Multi-Device"],
-          featured: false,
-          searchTags: "lynx iptv 2k 4k uhd multi-device movie channels",
-          plans: [
-            { duration: "3 Months", price: "900 DZ" },
-            { duration: "6 Months", price: "1500 DZ" },
-            { duration: "12 Months", price: "2500 DZ", best: true }
-          ]
-        },
-        {
-          id: "iron-dz",
-          brand: "Iron TV Max",
-          name: "Iron TV Max FHD",
-          category: "iptv",
-          img: "https://images2.imgbox.com/fb/33/CPgmEsH0_o.jpg",
-          subtitle: "Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe",
-          tags: ["FHD", "Football Live", "Arabe"],
-          featured: false,
-          searchTags: "iron tv max fhd sports football live arabic french arab movie",
-          plans: [
-            { duration: "3 Months", price: "1500 DZ" },
-            { duration: "6 Months", price: "2000 DZ" },
-            { duration: "12 Months", price: "3000 DZ", best: true }
-          ]
-        },
-        {
-          id: "dar-dz",
-          brand: "Dar Player",
-          name: "Dar Player IPTV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/af/cc/ONdhUMjO_o.jpg",
-          subtitle: "Unlimited Entertainment at Your Fingertips. 5000+ channels",
-          tags: ["4K HD", "5k+ Ch", "Multi-Device"],
-          featured: false,
-          searchTags: "dar player iptv 4k hd 5000 5k ch multi device movie list",
-          plans: [
-            { duration: "3 Months", price: "2000 DZ" },
-            { duration: "6 Months", price: "2800 DZ" },
-            { duration: "12 Months", price: "4200 DZ", best: true }
-          ]
-        },
-        {
-          id: "neo-dz",
-          brand: "Neo 4K",
-          name: "Neo 4K IPTV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/9d/df/eVCARigP_o.jpg",
-          subtitle: "Ultra 4K quality. 99% Up-Time, Fast Stream",
-          tags: ["4K FHD", "99% Up-Time", "Fast Stream"],
-          featured: false,
-          searchTags: "neo 4k iptv fhd 99 up time fast stream movie quality",
-          plans: [
-            { duration: "3 Months", price: "2000 DZ" },
-            { duration: "6 Months", price: "2800 DZ" },
-            { duration: "12 Months", price: "4500 DZ", best: true }
-          ]
-        },
-        {
-          id: "king-dz",
-          brand: "King 365 TV",
-          name: "King 365 TV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/15/45/Fpzm6tJD_o.jpg",
-          subtitle: "Votre divertissement. Sans limites. Football, Films, Arabe",
-          tags: ["Football Live", "Arabe", "4K"],
-          featured: true,
-          searchTags: "king 365 tv football live sports arabic french arab movie 4k",
-          plans: [
-            { duration: "3 Months", price: "4000 DZ" },
-            { duration: "6 Months", price: "5000 DZ" },
-            { duration: "12 Months", price: "8000 DZ", best: true }
-          ]
-        },
-        {
-          id: "strong-dz",
-          brand: "Strong 8K",
-          name: "Strong 8K IPTV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/cc/a2/N4hY9vjB_o.jpg",
-          subtitle: "Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen",
-          tags: ["8K Quality", "5000+ Ch", "Multi-Screen"],
-          featured: true,
-          searchTags: "strong 8k iptv quality premium 5000 ch multi screen bufferless",
-          plans: [
-            { duration: "3 Months", price: "4000 DZ" },
-            { duration: "6 Months", price: "5000 DZ" },
-            { duration: "12 Months", price: "8000 DZ", best: true }
-          ]
-        }
+        { id: "lynx-dz", brand: "Lynx IPTV", name: "Lynx IPTV", category: "iptv", img: "https://images2.imgbox.com/c0/8f/a1mqn3mM_o.png", subtitle: "2000+ Ch · 4K UHD · VOD Library · No Buffering", tags: ["2K+ Ch", "4K UHD", "Multi-Device"], featured: false, searchTags: "lynx iptv 2k 4k uhd multi-device movie channels", plans: [{ duration: "3 Months", price: "900 DZ" }, { duration: "6 Months", price: "1500 DZ" }, { duration: "12 Months", price: "2500 DZ", best: true }] },
+        { id: "iron-dz", brand: "Iron TV Max", name: "Iron TV Max FHD", category: "iptv", img: "https://images2.imgbox.com/fb/33/CPgmEsH0_o.jpg", subtitle: "Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe", tags: ["FHD", "Football Live", "Arabe"], featured: false, searchTags: "iron tv max fhd sports football live arabic french arab movie", plans: [{ duration: "3 Months", price: "1500 DZ" }, { duration: "6 Months", price: "2000 DZ" }, { duration: "12 Months", price: "3000 DZ", best: true }] },
+        { id: "dar-dz", brand: "Dar Player", name: "Dar Player IPTV", category: "iptv", img: "https://images2.imgbox.com/af/cc/ONdhUMjO_o.jpg", subtitle: "Unlimited Entertainment at Your Fingertips. 5000+ channels", tags: ["4K HD", "5k+ Ch", "Multi-Device"], featured: false, searchTags: "dar player iptv 4k hd 5000 5k ch multi device movie list", plans: [{ duration: "3 Months", price: "2000 DZ" }, { duration: "6 Months", price: "2800 DZ" }, { duration: "12 Months", price: "4200 DZ", best: true }] },
+        { id: "neo-dz", brand: "Neo 4K", name: "Neo 4K IPTV", category: "iptv", img: "https://images2.imgbox.com/9d/df/eVCARigP_o.jpg", subtitle: "Ultra 4K quality. 99% Up-Time, Fast Stream", tags: ["4K FHD", "99% Up-Time", "Fast Stream"], featured: false, searchTags: "neo 4k iptv fhd 99 up time fast stream movie quality", plans: [{ duration: "3 Months", price: "2000 DZ" }, { duration: "6 Months", price: "2800 DZ" }, { duration: "12 Months", price: "4500 DZ", best: true }] },
+        { id: "king-dz", brand: "King 365 TV", name: "King 365 TV", category: "iptv", img: "https://images2.imgbox.com/15/45/Fpzm6tJD_o.jpg", subtitle: "Votre divertissement. Sans limites. Football, Films, Arabe", tags: ["Football Live", "Arabe", "4K"], featured: true, searchTags: "king 365 tv football live sports arabic french arab movie 4k", plans: [{ duration: "3 Months", price: "4000 DZ" }, { duration: "6 Months", price: "5000 DZ" }, { duration: "12 Months", price: "8000 DZ", best: true }] },
+        { id: "strong-dz", brand: "Strong 8K", name: "Strong 8K IPTV", category: "iptv", img: "https://images2.imgbox.com/cc/a2/N4hY9vjB_o.jpg", subtitle: "Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen", tags: ["8K Quality", "5000+ Ch", "Multi-Screen"], featured: true, searchTags: "strong 8k iptv quality premium 5000 ch multi screen bufferless", plans: [{ duration: "3 Months", price: "4000 DZ" }, { duration: "6 Months", price: "5000 DZ" }, { duration: "12 Months", price: "8000 DZ", best: true }] }
       ],
       eu: [
-        // IPTV Products - EU
-        {
-          id: "iron-eu",
-          brand: "Iron TV Max",
-          name: "Iron TV Max FHD",
-          category: "iptv",
-          img: "https://images2.imgbox.com/c5/e5/AKLOezHz_o.jpg",
-          subtitle: "Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe",
-          tags: ["FHD", "Football Live", "Arabe"],
-          featured: false,
-          searchTags: "iron tv max fhd sports football live arabic french arab movie",
-          plans: [
-            { duration: "3 Months", price: "€9.99" },
-            { duration: "6 Months", price: "€14.99" },
-            { duration: "12 Months", price: "€24.99", best: true }
-          ]
-        },
-        {
-          id: "neo-eu",
-          brand: "Neo 4K",
-          name: "Neo 4K IPTV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/85/66/rMiW03GE_o.jpg",
-          subtitle: "Ultra 4K quality. 99% Up-Time, Fast Stream",
-          tags: ["4K FHD", "99% Up-Time", "Fast Stream"],
-          featured: false,
-          searchTags: "neo 4k iptv fhd 99 up time fast stream movie quality",
-          plans: [
-            { duration: "3 Months", price: "€14.99" },
-            { duration: "6 Months", price: "€24.99" },
-            { duration: "12 Months", price: "€31.99", best: true }
-          ]
-        },
-        {
-          id: "king-eu",
-          brand: "King 365 TV",
-          name: "King 365 TV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/31/84/L86T2F6a_o.jpg",
-          subtitle: "Votre divertissement. Sans limites. Football, Films, Arabe",
-          tags: ["Football Live", "Arabe", "4K"],
-          featured: true,
-          searchTags: "king 365 tv football live sports arabic french arab movie 4k",
-          plans: [
-            { duration: "3 Months", price: "€24.99" },
-            { duration: "6 Months", price: "€31.99" },
-            { duration: "12 Months", price: "€49.99", best: true }
-          ]
-        },
-        {
-          id: "strong-eu",
-          brand: "Strong 8K",
-          name: "Strong 8K IPTV",
-          category: "iptv",
-          img: "https://images2.imgbox.com/aa/f1/GTrx8B5h_o.jpg",
-          subtitle: "Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen",
-          tags: ["8K Quality", "5000+ Ch", "Multi-Screen"],
-          featured: true,
-          searchTags: "strong 8k iptv quality premium 5000 ch multi screen bufferless",
-          plans: [
-            { duration: "3 Months", price: "€24.99" },
-            { duration: "6 Months", price: "€34.99" },
-            { duration: "12 Months", price: "€49.99", best: true }
-          ]
-        }
+        { id: "iron-eu", brand: "Iron TV Max", name: "Iron TV Max FHD", category: "iptv", img: "https://images2.imgbox.com/c5/e5/AKLOezHz_o.jpg", subtitle: "Votre plaisir. Sans frontières. Live TV, Films, Sport, Arabe", tags: ["FHD", "Football Live", "Arabe"], featured: false, searchTags: "iron tv max fhd sports football live arabic french arab movie", plans: [{ duration: "3 Months", price: "€9.99" }, { duration: "6 Months", price: "€14.99" }, { duration: "12 Months", price: "€24.99", best: true }] },
+        { id: "neo-eu", brand: "Neo 4K", name: "Neo 4K IPTV", category: "iptv", img: "https://images2.imgbox.com/85/66/rMiW03GE_o.jpg", subtitle: "Ultra 4K quality. 99% Up-Time, Fast Stream", tags: ["4K FHD", "99% Up-Time", "Fast Stream"], featured: false, searchTags: "neo 4k iptv fhd 99 up time fast stream movie quality", plans: [{ duration: "3 Months", price: "€14.99" }, { duration: "6 Months", price: "€24.99" }, { duration: "12 Months", price: "€31.99", best: true }] },
+        { id: "king-eu", brand: "King 365 TV", name: "King 365 TV", category: "iptv", img: "https://images2.imgbox.com/31/84/L86T2F6a_o.jpg", subtitle: "Votre divertissement. Sans limites. Football, Films, Arabe", tags: ["Football Live", "Arabe", "4K"], featured: true, searchTags: "king 365 tv football live sports arabic french arab movie 4k", plans: [{ duration: "3 Months", price: "€24.99" }, { duration: "6 Months", price: "€31.99" }, { duration: "12 Months", price: "€49.99", best: true }] },
+        { id: "strong-eu", brand: "Strong 8K", name: "Strong 8K IPTV", category: "iptv", img: "https://images2.imgbox.com/aa/f1/GTrx8B5h_o.jpg", subtitle: "Premium IPTV Service. 4K TV · 5000+ Channels · Multi-screen", tags: ["8K Quality", "5000+ Ch", "Multi-Screen"], featured: true, searchTags: "strong 8k iptv quality premium 5000 ch multi screen bufferless", plans: [{ duration: "3 Months", price: "€24.99" }, { duration: "6 Months", price: "€34.99" }, { duration: "12 Months", price: "€49.99", best: true }] }
       ],
-growth: [
-  // Instagram
-  {
-    id: "instagram",
-    brand: "Instagram Boost",
-    name: "Instagram Followers, Views & Likes",
-    category: "social",
-    img: "https://images2.imgbox.com/e4/ea/VzR4hVvq_o.png",
-    imgPosition: "middle",
-    subtitle: "High-quality Instagram growth. Followers, views & likes with refill guarantee.",
-    tags: ["Followers", "Views", "Likes", "30-Day Refill", "Worldwide"],
-    featured: false,
-    searchTags: "instagram followers grow boost likes views support profile social refill",
-    plans: [
-      { duration: "1,000 Views", price: "500 DZ / €1.99" },
-      { duration: "10,000 Views", price: "2700 DZ / €9.99" },
-      { duration: "1,000 Followers", price: "1650 DZ / €5.99" },
-      { duration: "5,000 Followers", price: "6800 DZ / €24.99" },
-      { duration: "1,000 Likes", price: "1650 DZ / €5.99" },
-      { duration: "5,000 Likes", price: "6800 DZ / €24.99" }
-    ]
-  },
-  // TikTok
-  {
-    id: "tiktok",
-    brand: "TikTok Boost",
-    name: "TikTok Followers, Views & Likes",
-    category: "social",
-    img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png",
-    imgPosition: "top",
-    subtitle: "Real TikTok followers, likes, and video views. Rank high on the algorithm fast.",
-    tags: ["Followers", "Views", "Likes", "Algorithmic Growth", "WorldWide"],
-    featured: false,
-    searchTags: "tiktok followers views likes shares grow viral algorithm profile",
-    plans: [
-      { duration: "1,000 Followers", price: "4200 DZ / €15.00" },
-      { duration: "10,000 Followers", price: "38000 DZ / €120.00" },
-      { duration: "1,000 Shares", price: "3700 DZ / €12.00" },
-      { duration: "1,000 Likes", price: "3500 DZ / €11.50" },
-      { duration: "10,000 Views", price: "2500 DZ / €9.99" },
-      { duration: "50,000 Views", price: "11000 DZ / €49.99" },
-      { duration: "100,000 Views", price: "22000 DZ / €89.99" }
-    ]
-  },
-  // TikTok Live Stream Views
-  {
-    id: "tiktok-live",
-    brand: "TikTok Live",
-    name: "TikTok Live Stream Views & likes",
-    category: "social",
-    img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png",
-    imgPosition: "middle",
-    subtitle: "Boost your TikTok Live streams with real viewers. Increase engagement and go viral!",
-    tags: ["Live Views", "Engagement", "Viral", "Real Viewers"],
-    featured: false,
-    searchTags: "tiktok live stream views viewers engagement viral live stream",
-    plans: [
-      { duration: "1,000 Live Views", price: "3350 DZ / €11.99" },
-      { duration: "10,000 Live Likes", price: "2800 DZ / €9.99" }
-    ]
-  },
-  // TikTok Comments
-  {
-    id: "tiktok-comments",
-    brand: "TikTok Video Comments",
-    name: "TikTok Video Comments",
-    category: "social",
-    img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png",
-    imgPosition: "middle",
-    subtitle: "Get real, engaging comments on your TikTok videos. Boost engagement and visibility.",
-    tags: ["Comments", "Engagement", "Custom Comments", "Real Users"],
-    featured: false,
-    searchTags: "tiktok comments engagement custom comments real users video comments",
-    plans: [
-      { duration: "20 Comments", price: "1400 DZ / €4.99" },
-      { duration: "100 Comments", price: "2800 DZ / €9.99" }
-    ]
-  },
-  // YouTube
-  {
-    id: "youtube",
-    brand: "YouTube Boost",
-    name: "YouTube Subscribers, Views & Likes",
-    category: "social",
-    img: "https://i.imgur.com/jnilOpb.png",
-    imgPosition: "right",
-    subtitle: "Boost your YouTube channel with subscribers, views, likes & shares. High retention and permanent.",
-    tags: ["Subscribers", "Views", "Likes", "Shares", "Monetization"],
-    featured: false,
-    searchTags: "youtube subscribers views likes shares watch hours monetization permanent",
-    plans: [
-      { duration: "1,000 Subscribers", price: "14000 DZ / €49.99" },
-      { duration: "1,000 Likes", price: "4500 DZ / €15.99" },
-      { duration: "1,000 Shares", price: "4200 DZ / €14.99" },
-      { duration: "1,000 Views", price: "1400 DZ / €4.99" }
-    ]
-  },
-  // TikTok Coins
-  {
-    id: "tiktok-coins",
-    brand: "TikTok Coins",
-    name: "TikTok Coins Recharge",
-    category: "coins",
-    img: "https://i.imgur.com/TxtocYB.png",
-    subtitle: "Cheapest TikTok coins top-up in Algeria & Europe. Instant and official recharging directly into your account.",
-    tags: ["Cheapest Price", "Instant", "Official Recharge"],
-    featured: true,
-    searchTags: "tiktok coins recharge gift coins cheap top up coins support gifts",
-    plans: [
-      { duration: "70 Coins", price: "850 DZ / €2.99" },
-      { duration: "350 Coins", price: "2100 DZ / €7.50" },
-      { duration: "700 Coins", price: "3900 DZ / €13.99", best: true },
-      { duration: "1,400 Coins", price: "8400 DZ / €29.99" }
-    ]
-  }
-]
+      growth: [
+        { id: "instagram", category: "social", img: "https://images2.imgbox.com/e4/ea/VzR4hVvq_o.png", imgPosition: "middle", brandKey: "instagram", nameKey: "instagram", subtitleKey: "instagram", tagsKey: "instagram", featured: false, searchTags: "instagram followers grow boost likes views support profile social refill", plans: [{ duration: "1,000 Views", price: "500 DZ / €1.99" }, { duration: "10,000 Views", price: "2700 DZ / €9.99" }, { duration: "1,000 Followers", price: "1650 DZ / €5.99" }, { duration: "5,000 Followers", price: "6800 DZ / €24.99" }, { duration: "1,000 Likes", price: "1650 DZ / €5.99" }, { duration: "5,000 Likes", price: "6800 DZ / €24.99" }] },
+        { id: "tiktok", category: "social", img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png", imgPosition: "top", brandKey: "tiktok", nameKey: "tiktok", subtitleKey: "tiktok", tagsKey: "tiktok", featured: false, searchTags: "tiktok followers views likes shares grow viral algorithm profile", plans: [{ duration: "1,000 Followers", price: "4200 DZ / €15.00" }, { duration: "10,000 Followers", price: "38000 DZ / €120.00" }, { duration: "1,000 Shares", price: "3700 DZ / €12.00" }, { duration: "1,000 Likes", price: "3500 DZ / €11.50" }, { duration: "10,000 Views", price: "2500 DZ / €9.99" }, { duration: "50,000 Views", price: "11000 DZ / €49.99" }, { duration: "100,000 Views", price: "22000 DZ / €89.99" }] },
+        { id: "tiktok-live", category: "social", img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png", imgPosition: "middle", brandKey: "tiktokLive", nameKey: "tiktokLive", subtitleKey: "tiktokLive", tagsKey: "tiktokLive", featured: false, searchTags: "tiktok live stream views viewers engagement viral live stream", plans: [{ duration: "1,000 Live Views", price: "3350 DZ / €11.99" }, { duration: "10,000 Live Likes", price: "2800 DZ / €9.99" }] },
+        { id: "tiktok-comments", category: "social", img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png", imgPosition: "middle", brandKey: "tiktokComments", nameKey: "tiktokComments", subtitleKey: "tiktokComments", tagsKey: "tiktokComments", featured: false, searchTags: "tiktok comments engagement custom comments real users video comments", plans: [{ duration: "20 Comments", price: "1400 DZ / €4.99" }, { duration: "100 Comments", price: "2800 DZ / €9.99" }] },
+        { id: "youtube", category: "social", img: "https://i.imgur.com/jnilOpb.png", imgPosition: "right", brandKey: "youtube", nameKey: "youtube", subtitleKey: "youtube", tagsKey: "youtube", featured: false, searchTags: "youtube subscribers views likes shares watch hours monetization permanent", plans: [{ duration: "1,000 Subscribers", price: "14000 DZ / €49.99" }, { duration: "1,000 Likes", price: "4500 DZ / €15.99" }, { duration: "1,000 Shares", price: "4200 DZ / €14.99" }, { duration: "1,000 Views", price: "1400 DZ / €4.99" }] },
+        { id: "tiktok-coins", category: "coins", img: "https://i.imgur.com/TxtocYB.png", brandKey: "tiktokCoins", nameKey: "tiktokCoins", subtitleKey: "tiktokCoins", tagsKey: "tiktokCoins", featured: true, searchTags: "tiktok coins recharge gift coins cheap top up coins support gifts", plans: [{ duration: "70 Coins", price: "850 DZ / €2.99" }, { duration: "350 Coins", price: "2100 DZ / €7.50" }, { duration: "700 Coins", price: "3900 DZ / €13.99", best: true }, { duration: "1,400 Coins", price: "8400 DZ / €29.99" }] }
+      ]
     };
 
-    // Translation Databases
+    // TRANSLATIONS
     const i18n = {
       en: {
         navWa: "WhatsApp Chat",
@@ -890,7 +480,37 @@ growth: [
         modalNotesLabel: "Notes, Links or Questions (Optional)",
         modalBtnCancel: "Cancel",
         noResultsTitle: "No Services Found",
-        noResultsText: "Try adjusting your search terms to find what you are looking for."
+        noResultsText: "Try adjusting your search terms to find what you are looking for.",
+        growth: {
+          instagram: { brand: "Instagram Boost", name: "Instagram Followers, Views & Likes", subtitle: "High-quality Instagram growth. Followers, views & likes with refill guarantee.", tags: ["Followers", "Views", "Likes", "30-Day Refill", "Worldwide"] },
+          tiktok: { brand: "TikTok Boost", name: "TikTok Followers, Views & Likes", subtitle: "Real TikTok followers, likes, and video views. Rank high on the algorithm fast.", tags: ["Followers", "Views", "Likes", "Algorithmic Growth", "WorldWide"] },
+          tiktokLive: { brand: "TikTok Live", name: "TikTok Live Stream Views & likes", subtitle: "Boost your TikTok Live streams with real viewers. Increase engagement and go viral!", tags: ["Live Views", "Engagement", "Viral", "Real Viewers"] },
+          tiktokComments: { brand: "TikTok Video Comments", name: "TikTok Video Comments", subtitle: "Get real, engaging comments on your TikTok videos. Boost engagement and visibility.", tags: ["Comments", "Engagement", "Custom Comments", "Real Users"] },
+          youtube: { brand: "YouTube Boost", name: "YouTube Subscribers, Views & Likes", subtitle: "Boost your YouTube channel with subscribers, views, likes & shares. High retention and permanent.", tags: ["Subscribers", "Views", "Likes", "Shares", "Monetization"] },
+          tiktokCoins: { brand: "TikTok Coins", name: "TikTok Coins Recharge", subtitle: "Cheapest TikTok coins top-up in Algeria & Europe. Instant and official recharging directly into your account.", tags: ["Cheapest Price", "Instant", "Official Recharge"] }
+        },
+        serviceDetails: {
+          instagram: {
+            followers: { title: "👥 Followers", startTime: "0-12 hours", speed: "200-400 followers per day", guarantee: "30 Days manual refill", quality: "Medium", targeting: "Worldwide", format: "Username or full link" },
+            likes: { title: "❤️ Likes", startTime: "0-60 minutes", speed: "15-150+ likes per minute (bigger order = faster speed)", guarantee: "45 days", quality: "Medium - High", worksOn: "Posts, Reels & IGTV" },
+            views: { title: "👁️ Views", startTime: "0-60 minutes", speed: "50,000 - 100,000 per day", guarantee: "Lifetime", worksOn: "Reels, IGTV & regular videos (not photos)" }
+          },
+          tiktok: {
+            followers: { title: "👥 Followers", format: "https://www.tiktok.com/@page1", startTime: "0-24 hours", speed: "100-1,000 per day (bigger order = faster speed)", guarantee: "30 days" },
+            views: { title: "👁️ Views", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 hours", speed: "500,000 per day", guarantee: "Lifetime" },
+            likesShares: { title: "❤️ Likes & 🔄 Shares", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 hours", speed: "1,000-5,000 per day", guarantee: "30 days" }
+          },
+          tiktokLive: {
+            views: { title: "👁️ Live Views", format: "https://www.tiktok.com/@username/live", startTime: "0-15 minutes", duration: "15 minutes stay time", eachView: "1 live-stream viewer", targeting: "Worldwide", quality: "Stable Views for your Live Stream", speed: "Fast Start" },
+            likes: { title: "❤️ Live Likes", format: "https://www.tiktok.com/@username/live", startTime: "0-5 minutes", speed: "1,000-10,000 likes per hour", targeting: "Worldwide", quality: "Real likes from active users" }
+          },
+          tiktokComments: { title: "💬 AI-Generated Comments", generatedWith: "AI", format: "https://www.tiktok.com/@username/live", startTime: "0-24 hours", speed: "50-250 comments per day", guarantee: "30 days", quality: "Medium", targeting: "Worldwide" },
+          youtube: {
+            subscribers: { title: "👥 Subscribers", format: "https://www.youtube.com/@XXXXX", startTime: "Up to 6 hours", speed: "50-200 per day", guarantee: "30 days" },
+            views: { title: "👁️ Views", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 hour", speed: "10,000 - 50,000 views per day", guarantee: "Lifetime", targeting: "Worldwide (mix of countries or one random country)", retention: "0-10 minutes" },
+            likesShares: { title: "👍 Likes & 🔄 Shares", startTime: "0-12 hours", speed: "20-150 likes per day", guarantee: "30 days" }
+          }
+        }
       },
       fr: {
         navWa: "WhatsApp Chat",
@@ -935,7 +555,37 @@ growth: [
         modalNotesLabel: "Notes ou Questions (Optionnel)",
         modalBtnCancel: "Annuler",
         noResultsTitle: "Aucun Service Trouvé",
-        noResultsText: "Ajustez vos termes de recherche pour trouver ce que vous cherchez."
+        noResultsText: "Ajustez vos termes de recherche pour trouver ce que vous cherchez.",
+        growth: {
+          instagram: { brand: "Instagram Boost", name: "Abonnés, Vues & J'aime Instagram", subtitle: "Croissance Instagram de haute qualité. Abonnés, vues et j'aime avec garantie de recharge.", tags: ["Abonnés", "Vues", "J'aime", "Recharge 30 Jours", "Monde"] },
+          tiktok: { brand: "TikTok Boost", name: "Abonnés, Vues & J'aime TikTok", subtitle: "Vrais abonnés, likes et vues TikTok. Montez rapidement dans l'algorithme.", tags: ["Abonnés", "Vues", "J'aime", "Croissance Algorithmique", "Monde"] },
+          tiktokLive: { brand: "TikTok Live", name: "Vues & J'aime TikTok Live", subtitle: "Augmentez vos streams TikTok Live avec de vrais spectateurs. Engagement et viralité garantis.", tags: ["Vues Live", "Engagement", "Viral", "Vrais Spectateurs"] },
+          tiktokComments: { brand: "Commentaires TikTok", name: "Commentaires Vidéo TikTok", subtitle: "Obtenez de vrais commentaires engageants sur vos vidéos TikTok. Boostez l'engagement.", tags: ["Commentaires", "Engagement", "Commentaires Personnalisés", "Vrais Utilisateurs"] },
+          youtube: { brand: "YouTube Boost", name: "Abonnés, Vues & J'aime YouTube", subtitle: "Boostez votre chaîne YouTube avec abonnés, vues, likes et partages. Haute rétention.", tags: ["Abonnés", "Vues", "J'aime", "Partages", "Monétisation"] },
+          tiktokCoins: { brand: "Pièces TikTok", name: "Recharge Pièces TikTok", subtitle: "Recharge de pièces TikTok au meilleur prix en Algérie et en Europe. Instantané et officiel.", tags: ["Prix Bas", "Instantané", "Recharge Officielle"] }
+        },
+        serviceDetails: {
+          instagram: {
+            followers: { title: "👥 Abonnés", startTime: "0-12 heures", speed: "200-400 abonnés par jour", guarantee: "30 Jours de recharge manuelle", quality: "Moyen", targeting: "Monde", format: "Nom d'utilisateur ou lien complet" },
+            likes: { title: "❤️ J'aime", startTime: "0-60 minutes", speed: "15-150+ j'aime par minute (plus grande commande = plus rapide)", guarantee: "45 jours", quality: "Moyen - Élevé", worksOn: "Publications, Reels & IGTV" },
+            views: { title: "👁️ Vues", startTime: "0-60 minutes", speed: "50 000 - 100 000 par jour", guarantee: "À vie", worksOn: "Reels, IGTV & vidéos (pas les photos)" }
+          },
+          tiktok: {
+            followers: { title: "👥 Abonnés", format: "https://www.tiktok.com/@page1", startTime: "0-24 heures", speed: "100-1 000 par jour (plus grande commande = plus rapide)", guarantee: "30 jours" },
+            views: { title: "👁️ Vues", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 heures", speed: "500 000 par jour", guarantee: "À vie" },
+            likesShares: { title: "❤️ J'aime & 🔄 Partages", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 heures", speed: "1 000-5 000 par jour", guarantee: "30 jours" }
+          },
+          tiktokLive: {
+            views: { title: "👁️ Vues Live", format: "https://www.tiktok.com/@username/live", startTime: "0-15 minutes", duration: "15 minutes de temps de présence", eachView: "1 spectateur en direct", targeting: "Monde", quality: "Vues stables pour votre Live", speed: "Démarrage rapide" },
+            likes: { title: "❤️ J'aime Live", format: "https://www.tiktok.com/@username/live", startTime: "0-5 minutes", speed: "1 000-10 000 j'aime par heure", targeting: "Monde", quality: "Vrais j'aime d'utilisateurs actifs" }
+          },
+          tiktokComments: { title: "💬 Commentaires Générés par IA", generatedWith: "IA", format: "https://www.tiktok.com/@username/live", startTime: "0-24 heures", speed: "50-250 commentaires par jour", guarantee: "30 jours", quality: "Moyen", targeting: "Monde" },
+          youtube: {
+            subscribers: { title: "👥 Abonnés", format: "https://www.youtube.com/@XXXXX", startTime: "Jusqu'à 6 heures", speed: "50-200 par jour", guarantee: "30 jours" },
+            views: { title: "👁️ Vues", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 heure", speed: "10 000 - 50 000 vues par jour", guarantee: "À vie", targeting: "Monde (mix de pays ou un pays aléatoire)", retention: "0-10 minutes" },
+            likesShares: { title: "👍 J'aime & 🔄 Partages", startTime: "0-12 heures", speed: "20-150 j'aime par jour", guarantee: "30 jours" }
+          }
+        }
       },
       ar: {
         navWa: "محادثة واتساب",
@@ -980,43 +630,64 @@ growth: [
         modalNotesLabel: "ملاحظات أو أسئلة (اختياري)",
         modalBtnCancel: "إلغاء",
         noResultsTitle: "لم يتم العثور على نتائج",
-        noResultsText: "يرجى تعديل مصطلحات البحث للعثور على ما تبحث عنه."
+        noResultsText: "يرجى تعديل مصطلحات البحث للعثور على ما تبحث عنه.",
+        growth: {
+          instagram: { brand: "إنستغرام بوست", name: "متابعين، مشاهدات وإعجابات إنستغرام", subtitle: "نمو عالي الجودة لإنستغرام. متابعين، مشاهدات وإعجابات مع ضمان إعادة التعبئة.", tags: ["متابعين", "مشاهدات", "إعجابات", "إعادة تعبئة 30 يوم", "عالمي"] },
+          tiktok: { brand: "تيك توك بوست", name: "متابعين، مشاهدات وإعجابات تيك توك", subtitle: "متابعين حقيقيين، إعجابات ومشاهدات تيك توك. تصدر في الخوارزمية بسرعة.", tags: ["متابعين", "مشاهدات", "إعجابات", "نمو خوارزمي", "عالمي"] },
+          tiktokLive: { brand: "تيك توك لايف", name: "مشاهدات وإعجابات تيك توك لايف", subtitle: "عزز بثوشاتك المباشرة على تيك توك بمشاهدين حقيقيين. زيادة التفاعل والانتشار.", tags: ["مشاهدات لايف", "تفاعل", "انتشار", "مشاهدين حقيقيين"] },
+          tiktokComments: { brand: "تعليقات تيك توك", name: "تعليقات فيديوهات تيك توك", subtitle: "احصل على تعليقات حقيقية وتفاعلية على فيديوهات تيك توك. عزز التفاعل والظهور.", tags: ["تعليقات", "تفاعل", "تعليقات مخصصة", "مستخدمين حقيقيين"] },
+          youtube: { brand: "يوتيوب بوست", name: "مشتركين، مشاهدات وإعجابات يوتيوب", subtitle: "عزز قناتك على يوتيوب بمشتركين، مشاهدات، إعجابات ومشاركات. احتفاظ عالي.", tags: ["مشتركين", "مشاهدات", "إعجابات", "مشاركات", "تحقيق ربح"] },
+          tiktokCoins: { brand: "عملات تيك توك", name: "شحن عملات تيك توك", subtitle: "أرخص شحن عملات تيك توك في الجزائر وأوروبا. شحن فوري ورسمي مباشر.", tags: ["أرخص سعر", "فوري", "شحن رسمي"] }
+        },
+        serviceDetails: {
+          instagram: {
+            followers: { title: "👥 متابعين", startTime: "0-12 ساعة", speed: "200-400 متابع يومياً", guarantee: "30 يوم إعادة تعبئة يدوية", quality: "متوسط", targeting: "عالمي", format: "اسم المستخدم أو الرابط الكامل" },
+            likes: { title: "❤️ إعجابات", startTime: "0-60 دقيقة", speed: "15-150+ إعجاب في الدقيقة (الطلب الأكبر = سرعة أسرع)", guarantee: "45 يوم", quality: "متوسط - عالي", worksOn: "منشورات، ريلز و IGTV" },
+            views: { title: "👁️ مشاهدات", startTime: "0-60 دقيقة", speed: "50,000 - 100,000 يومياً", guarantee: "مدى الحياة", worksOn: "ريلز، IGTV وفيديوهات (ليست الصور)" }
+          },
+          tiktok: {
+            followers: { title: "👥 متابعين", format: "https://www.tiktok.com/@page1", startTime: "0-24 ساعة", speed: "100-1,000 يومياً (الطلب الأكبر = سرعة أسرع)", guarantee: "30 يوم" },
+            views: { title: "👁️ مشاهدات", format: "https://www.tiktok.com/@username/video/317/", startTime: "0-2 ساعة", speed: "500,000 يومياً", guarantee: "مدى الحياة" },
+            likesShares: { title: "❤️ إعجابات & 🔄 مشاركات", format: "https://www.tiktok.com/@username/video/617/", startTime: "0-24 ساعة", speed: "1,000-5,000 يومياً", guarantee: "30 يوم" }
+          },
+          tiktokLive: {
+            views: { title: "👁️ مشاهدات لايف", format: "https://www.tiktok.com/@username/live", startTime: "0-15 دقيقة", duration: "15 دقيقة مدة البقاء", eachView: "1 مشاهد مباشر", targeting: "عالمي", quality: "مشاهدات ثابتة لبثك المباشر", speed: "بداية سريعة" },
+            likes: { title: "❤️ إعجابات لايف", format: "https://www.tiktok.com/@username/live", startTime: "0-5 دقائق", speed: "1,000-10,000 إعجاب في الساعة", targeting: "عالمي", quality: "إعجابات حقيقية من مستخدمين نشطين" }
+          },
+          tiktokComments: { title: "💬 تعليقات مولدة بالذكاء الاصطناعي", generatedWith: "الذكاء الاصطناعي", format: "https://www.tiktok.com/@username/live", startTime: "0-24 ساعة", speed: "50-250 تعليق يومياً", guarantee: "30 يوم", quality: "متوسط", targeting: "عالمي" },
+          youtube: {
+            subscribers: { title: "👥 مشتركين", format: "https://www.youtube.com/@XXXXX", startTime: "حتى 6 ساعات", speed: "50-200 يومياً", guarantee: "30 يوم" },
+            views: { title: "👁️ مشاهدات", format: "https://www.youtube.com/@XXXXX", startTime: "0-1 ساعة", speed: "10,000 - 50,000 مشاهدة يومياً", guarantee: "مدى الحياة", targeting: "عالمي (مزيج من الدول أو دولة عشوائية)", retention: "0-10 دقائق" },
+            likesShares: { title: "👍 إعجابات & 🔄 مشاركات", startTime: "0-12 ساعة", speed: "20-150 إعجاب يومياً", guarantee: "30 يوم" }
+          }
+        }
       }
     };
 
-    // State Variables
+    // STATE
     let currentLang = 'fr';
     let currentMarket = 'growth';
     let currentSearchQuery = '';
-
-    // Selected order variables (Modal state)
     let selectedProduct = null;
     let selectedDurationIndex = 2;
     let selectedPaymentMethod = '';
 
-    // Initialize Page
+    // INIT
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('premier_lang');
-      if (savedLang && i18n[savedLang]) {
-        currentLang = savedLang;
-      } else {
+      if (savedLang && i18n[savedLang]) currentLang = savedLang;
+      else {
         const bLang = navigator.language.split('-')[0];
-        if (['ar', 'fr', 'en'].includes(bLang)) {
-          currentLang = bLang;
-        } else {
-          currentLang = 'ar';
-        }
+        if (['ar', 'fr', 'en'].includes(bLang)) currentLang = bLang;
+        else currentLang = 'ar';
       }
-
       applyLanguage(currentLang);
       switchTab(currentMarket);
       lucide.createIcons();
     });
 
-    // Toggle dropdown
     function toggleLangDropdown() {
-      const drop = document.getElementById('langDropdown');
-      drop.classList.toggle('hidden');
+      document.getElementById('langDropdown').classList.toggle('hidden');
     }
 
     window.addEventListener('click', (e) => {
@@ -1037,7 +708,6 @@ growth: [
 
     function applyLanguage(lang) {
       document.documentElement.lang = lang;
-
       if (lang === 'ar') {
         document.documentElement.dir = 'rtl';
         document.body.classList.add('font-[Cairo]');
@@ -1047,51 +717,30 @@ growth: [
         document.body.classList.add('font-sans');
         document.body.classList.remove('font-[Cairo]');
       }
-
       document.querySelectorAll('[data-i18n]').forEach(elem => {
         const key = elem.getAttribute('data-i18n');
-        if (i18n[lang] && i18n[lang][key]) {
-          elem.innerHTML = i18n[lang][key];
-        }
+        if (i18n[lang] && i18n[lang][key]) elem.innerHTML = i18n[lang][key];
       });
-
       document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
         const key = elem.getAttribute('data-i18n-placeholder');
-        if (i18n[lang] && i18n[lang][key]) {
-          elem.placeholder = i18n[lang][key];
-        }
+        if (i18n[lang] && i18n[lang][key]) elem.placeholder = i18n[lang][key];
       });
-
       const labels = { en: 'English', fr: 'Français', ar: 'العربية' };
       document.getElementById('currentLangLabel').innerText = labels[lang];
     }
 
-    // Switch Tab
     function switchTab(market) {
       currentMarket = market;
-
       const btnDz = document.getElementById('tabBtn-dz');
       const btnEu = document.getElementById('tabBtn-eu');
       const btnGrowth = document.getElementById('tabBtn-growth');
-
-      // Reset all
       [btnDz, btnEu, btnGrowth].forEach(b => {
         b.classList.remove('tab-active', 'tab-active-purple', 'text-gray-400');
         b.classList.add('text-gray-400');
       });
-
-      if (market === 'dz') {
-        btnDz.classList.add('tab-active');
-        btnDz.classList.remove('text-gray-400');
-      } else if (market === 'eu') {
-        btnEu.classList.add('tab-active');
-        btnEu.classList.remove('text-gray-400');
-      } else if (market === 'growth') {
-        btnGrowth.classList.add('tab-active-purple');
-        btnGrowth.classList.remove('text-gray-400');
-      }
-
-      // Hide device compatibility for growth tab
+      if (market === 'dz') { btnDz.classList.add('tab-active'); btnDz.classList.remove('text-gray-400'); }
+      else if (market === 'eu') { btnEu.classList.add('tab-active'); btnEu.classList.remove('text-gray-400'); }
+      else if (market === 'growth') { btnGrowth.classList.add('tab-active-purple'); btnGrowth.classList.remove('text-gray-400'); }
       const compatSec = document.getElementById('compatSection');
       if (market === 'growth') {
         compatSec.classList.add('opacity-0', 'h-0', 'overflow-hidden', 'mt-0');
@@ -1100,21 +749,15 @@ growth: [
         compatSec.classList.remove('opacity-0', 'h-0', 'overflow-hidden', 'mt-0');
         compatSec.classList.add('mt-24');
       }
-
       renderCatalog();
     }
 
     function handleSearch() {
       const input = document.getElementById('searchInput');
       currentSearchQuery = input.value.trim().toLowerCase();
-
       const clearBtn = document.getElementById('clearSearchBtn');
-      if (currentSearchQuery.length > 0) {
-        clearBtn.classList.remove('hidden');
-      } else {
-        clearBtn.classList.add('hidden');
-      }
-
+      if (currentSearchQuery.length > 0) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
       renderCatalog();
     }
 
@@ -1126,335 +769,272 @@ growth: [
       renderCatalog();
     }
 
-   // RENDER PRODUCT CATALOG
-function renderCatalog() {
-  const grid = document.getElementById('catalogGrid');
-  const noResults = document.getElementById('noResults');
-  grid.innerHTML = '';
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      const noResults = document.getElementById('noResults');
+      grid.innerHTML = '';
+      let products = [];
+      if (currentMarket === 'growth') products = db.growth || [];
+      else products = db[currentMarket] || [];
 
-  let products = [];
+      const filtered = products.filter(p => {
+        let matchesSearch = true;
+        if (currentSearchQuery.length > 0) {
+          if (p.brandKey) {
+            matchesSearch = (i18n[currentLang].growth[p.brandKey]?.brand || "").toLowerCase().includes(currentSearchQuery) ||
+              (i18n[currentLang].growth[p.nameKey]?.name || "").toLowerCase().includes(currentSearchQuery) ||
+              (i18n[currentLang].growth[p.subtitleKey]?.subtitle || "").toLowerCase().includes(currentSearchQuery) ||
+              p.searchTags.toLowerCase().includes(currentSearchQuery);
+          } else {
+            matchesSearch = p.brand.toLowerCase().includes(currentSearchQuery) ||
+              p.name.toLowerCase().includes(currentSearchQuery) ||
+              p.subtitle.toLowerCase().includes(currentSearchQuery) ||
+              p.searchTags.toLowerCase().includes(currentSearchQuery);
+          }
+        }
+        return matchesSearch;
+      });
 
-  if (currentMarket === 'growth') {
-    products = db.growth || [];
-  } else {
-    products = db[currentMarket] || [];
-  }
+      if (filtered.length === 0) {
+        grid.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+      }
+      grid.classList.remove('hidden');
+      noResults.classList.add('hidden');
 
-  // Filter based on search query only
-  const filtered = products.filter(p => {
-    let matchesSearch = true;
-    if (currentSearchQuery.length > 0) {
-      matchesSearch = p.brand.toLowerCase().includes(currentSearchQuery) ||
-        p.name.toLowerCase().includes(currentSearchQuery) ||
-        p.subtitle.toLowerCase().includes(currentSearchQuery) ||
-        p.searchTags.toLowerCase().includes(currentSearchQuery);
-    }
-    return matchesSearch;
-  });
+      const isGrowth = currentMarket === 'growth';
 
-  if (filtered.length === 0) {
-    grid.classList.add('hidden');
-    noResults.classList.remove('hidden');
-    return;
-  }
+      filtered.forEach(p => {
+        const startingPrice = p.plans[0].price;
+        let cardClasses = "card relative p-5 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group ";
+        if (isGrowth) cardClasses += p.featured ? 'growth-card featured glow-purple border-purple-500/30' : 'growth-card border-purple-500/20';
+        else cardClasses += p.featured ? 'border-amber-500/30 bg-slate-900/90 glow-gold' : 'border-slate-800/80 bg-slate-900/60 hover:border-blue-500/20';
 
-  grid.classList.remove('hidden');
-  noResults.classList.add('hidden');
+        const featuredLabel = p.featured ? `<div class="absolute top-4 right-4 bg-gradient-to-r ${isGrowth ? 'from-purple-500 to-violet-600' : 'from-amber-500 to-yellow-600'} text-brandDark font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-lg z-10">⭐ PREMIUM</div>` : '';
 
-  const isGrowth = currentMarket === 'growth';
+        const brandText = p.brandKey ? (i18n[currentLang].growth[p.brandKey]?.brand || p.brandKey) : p.brand;
+        const nameText = p.nameKey ? (i18n[currentLang].growth[p.nameKey]?.name || p.nameKey) : p.name;
+        const subtitleText = p.subtitleKey ? (i18n[currentLang].growth[p.subtitleKey]?.subtitle || p.subtitleKey) : p.subtitle;
+        const tagsArray = p.tagsKey ? (i18n[currentLang].growth[p.tagsKey]?.tags || p.tags) : p.tags;
 
-  filtered.forEach(p => {
-    const startingPrice = p.plans[0].price;
-    let cardClasses = "card relative p-5 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden group ";
+        let tagsHtml = '';
+        tagsArray.forEach(t => {
+          tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
+        });
 
-    if (isGrowth) {
-      cardClasses += p.featured ? 'growth-card featured glow-purple border-purple-500/30' : 'growth-card border-purple-500/20';
-    } else {
-      cardClasses += p.featured ? 'border-amber-500/30 bg-slate-900/90 glow-gold' : 'border-slate-800/80 bg-slate-900/60 hover:border-blue-500/20';
-    }
+        const imgPosition = p.imgPosition === 'top' ? 'object-top' : 'object-center';
 
-    const featuredLabel = p.featured ? `<div class="absolute top-4 right-4 bg-gradient-to-r ${isGrowth ? 'from-purple-500 to-violet-600' : 'from-amber-500 to-yellow-600'} text-brandDark font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-lg z-10">⭐ PREMIUM</div>` : '';
-
-    let tagsHtml = '';
-    p.tags.forEach(t => {
-      tagsHtml += `<span class="px-2 py-0.5 rounded-md bg-slate-950/60 text-slate-400 text-[10px] sm:text-xs font-semibold border border-slate-800">${t}</span>`;
-    });
-
-    // Use imgPosition to control object-position
-    const imgPosition = p.imgPosition === 'top' ? 'object-top' : 'object-center';
-
-    const cardHtml = `
-      <div class="${cardClasses}">
-        ${featuredLabel}
-
-        <div>
-          <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
-            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain ${imgPosition} group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-          </div>
-
-          <div class="flex items-start justify-between mb-2">
+        const cardHtml = `
+          <div class="${cardClasses}">
+            ${featuredLabel}
             <div>
-              <h4 class="text-xs ${isGrowth ? 'text-purple-400' : 'text-blue-400'} font-extrabold uppercase tracking-widest mb-0.5">${p.brand}</h4>
-              <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:${isGrowth ? 'text-purple-400' : 'text-blue-400'} transition-colors">${p.name}</h3>
+              <div class="relative h-28 sm:h-32 w-full rounded-2xl overflow-hidden mb-4 border border-white/[0.05] bg-slate-950">
+                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain ${imgPosition} group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              </div>
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h4 class="text-xs ${isGrowth ? 'text-purple-400' : 'text-blue-400'} font-extrabold uppercase tracking-widest mb-0.5">${brandText}</h4>
+                  <h3 class="text-base sm:text-lg font-display font-bold text-white group-hover:${isGrowth ? 'text-purple-400' : 'text-blue-400'} transition-colors">${nameText}</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-gray-500 block uppercase">${i18n[currentLang].cardFrom || 'From'}</span>
+                  <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
+                </div>
+              </div>
+              <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${subtitleText}</p>
+              <div class="flex flex-wrap gap-1.5 mb-6">${tagsHtml}</div>
+              
+              <!-- DETAILS SECTIONS WITH TRANSLATIONS -->
+              ${p.id === 'instagram' ? `
+                <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+                  <details class="text-xs text-gray-400">
+                    <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">📋 Service Details</summary>
+                    <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.instagram.followers.title}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.instagram.followers.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.instagram.followers.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.instagram.followers.guarantee}</p>
+                        <p>🎯 <span class="text-gray-300">Quality:</span> ${i18n[currentLang].serviceDetails.instagram.followers.quality}</p>
+                        <p>🌍 <span class="text-gray-300">Targeting:</span> ${i18n[currentLang].serviceDetails.instagram.followers.targeting}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.instagram.followers.format}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.instagram.likes.title}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.instagram.likes.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.instagram.likes.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.instagram.likes.guarantee}</p>
+                        <p>🎯 <span class="text-gray-300">Quality:</span> ${i18n[currentLang].serviceDetails.instagram.likes.quality}</p>
+                        <p>📱 <span class="text-gray-300">Works on:</span> ${i18n[currentLang].serviceDetails.instagram.likes.worksOn}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.instagram.views.title}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.instagram.views.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.instagram.views.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.instagram.views.guarantee}</p>
+                        <p>📱 <span class="text-gray-300">Works on:</span> ${i18n[currentLang].serviceDetails.instagram.views.worksOn}</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
+
+              ${p.id === 'tiktok' ? `
+                <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+                  <details class="text-xs text-gray-400">
+                    <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">📋 Service Details</summary>
+                    <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.tiktok.followers.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.tiktok.followers.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.tiktok.followers.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.tiktok.followers.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.tiktok.followers.guarantee}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.tiktok.views.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.tiktok.views.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.tiktok.views.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.tiktok.views.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.tiktok.views.guarantee}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.tiktok.likesShares.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.tiktok.likesShares.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.tiktok.likesShares.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.tiktok.likesShares.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.tiktok.likesShares.guarantee}</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
+
+              ${p.id === 'tiktok-live' ? `
+                <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+                  <details class="text-xs text-gray-400">
+                    <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">📋 Service Details</summary>
+                    <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.tiktokLive.views.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.startTime}</p>
+                        <p>🕐 <span class="text-gray-300">Viewer Duration:</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.duration}</p>
+                        <p>👥 <span class="text-gray-300">Each 1 view =</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.eachView}</p>
+                        <p>🌍 <span class="text-gray-300">Targeting:</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.targeting}</p>
+                        <p>🛡️ <span class="text-gray-300">Quality:</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.quality}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.tiktokLive.views.speed}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.tiktokLive.likes.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.tiktokLive.likes.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.tiktokLive.likes.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.tiktokLive.likes.speed}</p>
+                        <p>🌍 <span class="text-gray-300">Targeting:</span> ${i18n[currentLang].serviceDetails.tiktokLive.likes.targeting}</p>
+                        <p>🛡️ <span class="text-gray-300">Quality:</span> ${i18n[currentLang].serviceDetails.tiktokLive.likes.quality}</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
+
+              ${p.id === 'tiktok-comments' ? `
+                <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+                  <details class="text-xs text-gray-400">
+                    <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">📋 Service Details</summary>
+                    <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.tiktokComments.title}</p>
+                        <p>🤖 <span class="text-gray-300">Generated with:</span> ${i18n[currentLang].serviceDetails.tiktokComments.generatedWith}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.tiktokComments.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.tiktokComments.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.tiktokComments.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.tiktokComments.guarantee}</p>
+                        <p>🎯 <span class="text-gray-300">Quality:</span> ${i18n[currentLang].serviceDetails.tiktokComments.quality}</p>
+                        <p>🌍 <span class="text-gray-300">Targeting:</span> ${i18n[currentLang].serviceDetails.tiktokComments.targeting}</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
+
+              ${p.id === 'youtube' ? `
+                <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+                  <details class="text-xs text-gray-400">
+                    <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">📋 Service Details</summary>
+                    <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.youtube.subscribers.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.youtube.subscribers.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.youtube.subscribers.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.youtube.subscribers.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.youtube.subscribers.guarantee}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.youtube.views.title}</p>
+                        <p>📌 <span class="text-gray-300">Format:</span> ${i18n[currentLang].serviceDetails.youtube.views.format}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.youtube.views.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.youtube.views.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.youtube.views.guarantee}</p>
+                        <p>🌍 <span class="text-gray-300">Targeting:</span> ${i18n[currentLang].serviceDetails.youtube.views.targeting}</p>
+                        <p>⏱️ <span class="text-gray-300">Retention:</span> ${i18n[currentLang].serviceDetails.youtube.views.retention}</p>
+                      </div>
+                      <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+                        <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">${i18n[currentLang].serviceDetails.youtube.likesShares.title}</p>
+                        <p>⏱️ <span class="text-gray-300">Start Time:</span> ${i18n[currentLang].serviceDetails.youtube.likesShares.startTime}</p>
+                        <p>⚡ <span class="text-gray-300">Speed:</span> ${i18n[currentLang].serviceDetails.youtube.likesShares.speed}</p>
+                        <p>🛡️ <span class="text-gray-300">Guarantee:</span> ${i18n[currentLang].serviceDetails.youtube.likesShares.guarantee}</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
+
+              ${p.id === 'tiktok-coins' ? `
+                <div class="mb-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
+                  <details class="text-xs text-gray-300" open>
+                    <summary class="cursor-pointer text-amber-400 font-bold hover:text-amber-300 transition-colors text-sm">⚠️ REQUIRED - Read Before Ordering</summary>
+                    <div class="mt-3 space-y-2 text-[11px] leading-relaxed">
+                      <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
+                        <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">📋 How It Works</p>
+                        <p>➤ Provide your TikTok linked Email / Username</p>
+                        <p>➤ Provide your TikTok Login details</p>
+                        <p>➤ Share 2FA / Verification code when prompted</p>
+                        <p>➤ Coins will be added after successful purchase</p>
+                      </div>
+                      <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
+                        <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">⚡ Service Details</p>
+                        <p>• <span class="text-gray-300">Fast Delivery:</span> Usually 5–30 Minutes</p>
+                        <p>• <span class="text-gray-300">Safe & Secure</span> Purchase</p>
+                        <p>• Account removed after service completion</p>
+                        <p>• Trusted Seller Support until order is completed</p>
+                      </div>
+                      <div class="p-2.5 bg-red-500/10 rounded-lg border border-red-500/30">
+                        <p class="text-red-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">⚠️ Important Note</p>
+                        <p>➤ Please make sure your login details are <span class="text-white font-semibold">correct</span>.</p>
+                        <p>➤ Verification code <span class="text-white font-semibold">may be required</span> during purchase.</p>
+                        <p>➤ Delivery time may take <span class="text-white font-semibold">5 minutes to 1 hour</span> depending on technical issues.</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              ` : ''}
             </div>
-            <div class="text-right">
-              <span class="text-[10px] text-gray-500 block uppercase">From</span>
-              <span class="text-base font-display font-extrabold text-emerald-400">${startingPrice}</span>
-            </div>
+            <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              <span data-i18n="btnChoose">Choose Plan</span>
+            </button>
           </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', cardHtml);
+      });
+      lucide.createIcons();
+      applyLanguage(currentLang);
+    }
 
-          <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4 font-light">${p.subtitle}</p>
-
-          <div class="flex flex-wrap gap-1.5 mb-6">
-            ${tagsHtml}
-          </div>
-          
-          <!-- DETAILS SECTION - Instagram -->
-          ${p.id === 'instagram' ? `
-            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
-              <details class="text-xs text-gray-400">
-                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                  📋 Service Details
-                </summary>
-                <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
-
-                  <!-- Followers Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👥 Followers</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-12 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 200-400 followers per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 Days manual refill</p>
-                    <p>🎯 <span class="text-gray-300">Quality:</span> Medium</p>
-                    <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> Username or full link</p>
-                  </div>
-
-                  <!-- Likes Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">❤️ Likes</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-60 minutes</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 15-150+ likes per minute (bigger order = faster speed)</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 45 days</p>
-                    <p>🎯 <span class="text-gray-300">Quality:</span> Medium - High</p>
-                    <p>📱 <span class="text-gray-300">Works on:</span> Posts, Reels & IGTV</p>
-                  </div>
-
-                  <!-- Views Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👁️ Views</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-60 minutes</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 50,000 - 100,000 per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> Lifetime</p>
-                    <p>📱 <span class="text-gray-300">Works on:</span> Reels, IGTV & regular videos (not photos)</p>
-                  </div>
-
-                </div>
-              </details>
-            </div>
-          ` : ''}
-
-          <!-- DETAILS SECTION - TikTok -->
-          ${p.id === 'tiktok' ? `
-            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
-              <details class="text-xs text-gray-400">
-                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                  📋 Service Details
-                </summary>
-                <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
-
-                  <!-- TikTok Followers Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👥 Followers</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@page1</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-24 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 100-1,000 per day (bigger order = faster speed)</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 days</p>
-                  </div>
-
-                  <!-- TikTok Views Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👁️ Views</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/video/317/</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-2 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 500,000 per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> Lifetime</p>
-                  </div>
-
-                  <!-- TikTok Likes & Shares Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">❤️ Likes & 🔄 Shares</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/video/617/</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-24 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 1,000-5,000 per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 days</p>
-                  </div>
-
-                </div>
-              </details>
-            </div>
-          ` : ''}
-
-          <!-- DETAILS SECTION - TikTok Live -->
-          ${p.id === 'tiktok-live' ? `
-            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
-              <details class="text-xs text-gray-400">
-                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                  📋 Service Details
-                </summary>
-                <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
-
-                  <!-- Live Views Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👁️ Live Views</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/live</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-15 minutes</p>
-                    <p>🕐 <span class="text-gray-300">Viewer Duration:</span> 15 minutes stay time</p>
-                    <p>👥 <span class="text-gray-300">Each 1 view =</span> 1 live-stream viewer</p>
-                    <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
-                    <p>🛡️ <span class="text-gray-300">Quality:</span> Stable Views for your Live Stream</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> Fast Start</p>
-                  </div>
-
-                  <!-- Live Likes Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">❤️ Live Likes</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/live</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-5 minutes</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 1,000-10,000 likes per hour</p>
-                    <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
-                    <p>🛡️ <span class="text-gray-300">Quality:</span> Real likes from active users</p>
-                  </div>
-
-                </div>
-              </details>
-            </div>
-          ` : ''}
-
-          <!-- DETAILS SECTION - TikTok Comments -->
-          ${p.id === 'tiktok-comments' ? `
-            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
-              <details class="text-xs text-gray-400">
-                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                  📋 Service Details
-                </summary>
-                <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
-
-                  <!-- Comments Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">💬 AI-Generated Comments</p>
-                    <p>🤖 <span class="text-gray-300">Generated with:</span> AI</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/live</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-24 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 50-250 comments per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 days</p>
-                    <p>🎯 <span class="text-gray-300">Quality:</span> Medium</p>
-                    <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
-                  </div>
-
-                </div>
-              </details>
-            </div>
-          ` : ''}
-
-          <!-- DETAILS SECTION - TikTok Coins -->
-${p.id === 'tiktok-coins' ? `
-  <div class="mb-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-    <details class="text-xs text-gray-300" open>
-      <summary class="cursor-pointer text-amber-400 font-bold hover:text-amber-300 transition-colors text-sm">
-        ⚠️ REQUIRED - Read Before Ordering
-      </summary>
-      
-      <div class="mt-3 space-y-2 text-[11px] leading-relaxed">
-
-        <!-- How It Works -->
-        <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
-          <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">📋 How It Works</p>
-          <p>➤ Provide your TikTok linked Email / Username</p>
-          <p>➤ Provide your TikTok Login details</p>
-          <p>➤ Share 2FA / Verification code when prompted</p>
-          <p>➤ Coins will be added after successful purchase</p>
-        </div>
-
-        <!-- Service Details -->
-        <div class="p-2.5 bg-amber-500/5 rounded-lg border border-amber-500/20">
-          <p class="text-amber-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">⚡ Service Details</p>
-          <p>• <span class="text-gray-300">Fast Delivery:</span> Usually 5–30 Minutes</p>
-          <p>• <span class="text-gray-300">Safe & Secure</span> Purchase</p>
-          <p>• Account removed after service completion</p>
-          <p>• Trusted Seller Support until order is completed</p>
-        </div>
-
-        <!-- Important Note -->
-        <div class="p-2.5 bg-red-500/10 rounded-lg border border-red-500/30">
-          <p class="text-red-400 font-bold text-[10px] uppercase tracking-wider mb-1.5">⚠️ Important Note</p>
-          <p>➤ Please make sure your login details are <span class="text-white font-semibold">correct</span>.</p>
-          <p>➤ Verification code <span class="text-white font-semibold">may be required</span> during purchase.</p>
-          <p>➤ Delivery time may take <span class="text-white font-semibold">5 minutes to 1 hour</span> depending on technical issues.</p>
-        </div>
-
-      </div>
-    </details>
-  </div>
-` : ''}
-
-          <!-- DETAILS SECTION - YouTube -->
-          ${p.id === 'youtube' ? `
-            <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
-              <details class="text-xs text-gray-400">
-                <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
-                  📋 Service Details
-                </summary>
-                <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
-
-                  <!-- YouTube Subscribers Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👥 Subscribers</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.youtube.com/@XXXXX</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> Up to 6 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 50-200 per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 days</p>
-                  </div>
-
-                  <!-- YouTube Views Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👁️ Views</p>
-                    <p>📌 <span class="text-gray-300">Format:</span> https://www.youtube.com/@XXXXX</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-1 hour</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 10,000 - 50,000 views per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> Lifetime</p>
-                    <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide (mix of countries or one random country)</p>
-                    <p>⏱️ <span class="text-gray-300">Retention:</span> 0-10 minutes</p>
-                  </div>
-
-                  <!-- YouTube Likes & Shares Details -->
-                  <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
-                    <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👍 Likes & 🔄 Shares</p>
-                    <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-12 hours</p>
-                    <p>⚡ <span class="text-gray-300">Speed:</span> 20-150 likes per day</p>
-                    <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 days</p>
-                  </div>
-
-                </div>
-              </details>
-            </div>
-          ` : ''}
-        </div>
-
-        <button onclick="openOrderModal('${p.id}')" class="w-full py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 ${isGrowth ? 'bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white shadow-lg shadow-purple-500/10' : p.featured ? 'bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-brandDark shadow-lg shadow-amber-500/10' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/10'} flex items-center justify-center gap-2">
-          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span data-i18n="btnChoose">Choose Plan</span>
-        </button>
-      </div>
-    `;
-    grid.insertAdjacentHTML('beforeend', cardHtml);
-  });
-
-  lucide.createIcons();
-  applyLanguage(currentLang);
-}
-    
-    // FAQs Accordion toggle
+    // FAQ TOGGLE
     function toggleFaq(id) {
       const ans = document.getElementById('faq-answer-' + id);
       const chev = document.getElementById('faq-chevron-' + id);
@@ -1466,45 +1046,29 @@ ${p.id === 'tiktok-coins' ? `
     function openOrderModal(productId) {
       let prod = null;
       let cat = '';
-
-      // Search in all databases
       const allProducts = [...db.dz, ...db.eu, ...db.growth];
       prod = allProducts.find(x => x.id === productId);
-
       if (!prod) return;
 
-      if (prod.id.includes('-dz')) {
-        cat = i18n[currentLang].secLabelDz;
-      } else if (prod.id.includes('-eu')) {
-        cat = i18n[currentLang].secLabelEu;
-      } else {
-        cat = i18n[currentLang].secLabelGrowth;
-      }
+      if (prod.id.includes('-dz')) cat = i18n[currentLang].secLabelDz;
+      else if (prod.id.includes('-eu')) cat = i18n[currentLang].secLabelEu;
+      else cat = i18n[currentLang].secLabelGrowth;
 
       selectedProduct = prod;
       selectedDurationIndex = prod.plans.length - 1;
 
-      // Set default payment method based on product type
-      if (prod.id.includes('-dz') || prod.category === 'social' || prod.category === 'coins') {
-        selectedPaymentMethod = 'baridimob';
-      } else if (prod.id.includes('-eu')) {
-        selectedPaymentMethod = 'paypal';
-      } else {
-        selectedPaymentMethod = 'paypal';
-      }
+      if (prod.id.includes('-dz') || prod.category === 'social' || prod.category === 'coins') selectedPaymentMethod = 'baridimob';
+      else if (prod.id.includes('-eu')) selectedPaymentMethod = 'paypal';
+      else selectedPaymentMethod = 'paypal';
 
-      document.getElementById('modalProductName').innerText = prod.name;
+      document.getElementById('modalProductName').innerText = prod.nameKey ? i18n[currentLang].growth[prod.nameKey]?.name || prod.nameKey : prod.name;
       document.getElementById('modalProductImg').src = prod.img;
       document.getElementById('modalProductCategory').innerText = cat;
 
       const selectLabel = document.getElementById('modalSelectDurationLabel');
-      if (prod.category === 'iptv') {
-        selectLabel.innerText = i18n[currentLang].modalSelectDuration;
-      } else if (prod.category === 'social') {
-        selectLabel.innerText = i18n[currentLang].modalSelectQuantity;
-      } else if (prod.category === 'coins') {
-        selectLabel.innerText = i18n[currentLang].modalSelectCoins;
-      }
+      if (prod.category === 'iptv') selectLabel.innerText = i18n[currentLang].modalSelectDuration;
+      else if (prod.category === 'social') selectLabel.innerText = i18n[currentLang].modalSelectQuantity;
+      else if (prod.category === 'coins') selectLabel.innerText = i18n[currentLang].modalSelectCoins;
 
       const durGrid = document.getElementById('modalDurationGrid');
       durGrid.innerHTML = '';
@@ -1522,16 +1086,12 @@ ${p.id === 'tiktok-coins' ? `
 
       const payList = document.getElementById('modalPaymentList');
       payList.innerHTML = '';
-
-      // Show all payment methods for Growth services (social & coins)
       const isGrowthService = prod.category === 'social' || prod.category === 'coins';
       const isDzProduct = prod.id.includes('-dz');
       const isEuProduct = prod.id.includes('-eu');
 
       let availablePayments = [];
-
       if (isGrowthService || isDzProduct) {
-        // Show all payment methods for Growth + DZ
         availablePayments = [
           { id: 'baridimob', name: i18n[currentLang].payBaridiMob, desc: 'التحويل السريع', logo: 'https://play-lh.googleusercontent.com/9hxHLjS9v301vyDOOOs0TMlSXA-38pzBn_Yd8IeUXfVVolSXwcfEPLEY5UwTwzdSRr4GEBXJ1470PLatTBqJ' },
           { id: 'ccp', name: i18n[currentLang].payCcp, desc: 'الدفع في مركز البريد', logo: 'https://logowik.com/content/uploads/images/algerie-poste9001.logowik.com.webp' },
@@ -1592,7 +1152,6 @@ ${p.id === 'tiktok-coins' ? `
       document.querySelectorAll('#modalPaymentList button').forEach(btn => {
         const id = btn.id.replace('payCard-', '');
         const isSelected = id === payId;
-
         if (isSelected) {
           btn.className = btn.className.replace('border-slate-800 bg-slate-950/80 text-gray-400', 'border-blue-500 bg-blue-500/10 text-white font-bold');
           btn.querySelector('.border-2').className = btn.querySelector('.border-2').className.replace('border-slate-800', 'border-blue-500 bg-blue-500');
@@ -1610,14 +1169,7 @@ ${p.id === 'tiktok-coins' ? `
       if (!selectedProduct) return;
       const plan = selectedProduct.plans[selectedDurationIndex];
       document.getElementById('modalDisplayPrice').innerText = plan.price;
-
-      const payNames = {
-        baridimob: 'BaridiMob',
-        ccp: 'CCP Post',
-        paypal: 'PayPal',
-        binance: 'Binance Pay',
-        redotpay: 'RedotPay'
-      };
+      const payNames = { baridimob: 'BaridiMob', ccp: 'CCP Post', paypal: 'PayPal', binance: 'Binance Pay', redotpay: 'RedotPay' };
       document.getElementById('modalDisplayPayment').innerText = payNames[selectedPaymentMethod] || 'WhatsApp';
     }
 
@@ -1628,53 +1180,31 @@ ${p.id === 'tiktok-coins' ? `
 
     function sendOrderWhatsApp() {
       if (!selectedProduct) return;
-
       const plan = selectedProduct.plans[selectedDurationIndex];
       const optionVal = plan.duration;
       const price = plan.price;
       const notes = document.getElementById('modalNotes').value.trim();
 
-      const payNames = {
-        baridimob: 'BaridiMob 🇩🇿',
-        ccp: 'CCP Post 🇩🇿',
-        paypal: 'PayPal 💳',
-        binance: 'Binance Pay 🪙',
-        redotpay: 'RedotPay 💳'
-      };
+      const payNames = { baridimob: 'BaridiMob 🇩🇿', ccp: 'CCP Post 🇩🇿', paypal: 'PayPal 💳', binance: 'Binance Pay 🪙', redotpay: 'RedotPay 💳' };
       const paymentName = payNames[selectedPaymentMethod] || selectedPaymentMethod;
+      const productName = selectedProduct.nameKey ? i18n[currentLang].growth[selectedProduct.nameKey]?.name || selectedProduct.nameKey : selectedProduct.name;
 
       let optionLabel = 'Duration';
-      if (selectedProduct.category === 'social') {
-        optionLabel = currentLang === 'ar' ? 'الكمية' : (currentLang === 'fr' ? 'Quantité' : 'Quantity');
-      } else if (selectedProduct.category === 'coins') {
-        optionLabel = currentLang === 'ar' ? 'كمية الشحن' : (currentLang === 'fr' ? 'Pièces' : 'Coins');
-      } else {
-        optionLabel = currentLang === 'ar' ? 'المدة' : (currentLang === 'fr' ? 'Durée' : 'Duration');
-      }
+      if (selectedProduct.category === 'social') optionLabel = currentLang === 'ar' ? 'الكمية' : (currentLang === 'fr' ? 'Quantité' : 'Quantity');
+      else if (selectedProduct.category === 'coins') optionLabel = currentLang === 'ar' ? 'كمية الشحن' : (currentLang === 'fr' ? 'Pièces' : 'Coins');
+      else optionLabel = currentLang === 'ar' ? 'المدة' : (currentLang === 'fr' ? 'Durée' : 'Duration');
 
       let text = '';
       if (currentLang === 'ar') {
-        text = `السلام عليكم، أريد طلب:
-- الخدمة: *${selectedProduct.name}*
-- ${optionLabel}: *${optionVal}*
-- السعر: *${price}*
-- الدفع: *${paymentName}*`;
+        text = `السلام عليكم، أريد طلب:\n- الخدمة: *${productName}*\n- ${optionLabel}: *${optionVal}*\n- السعر: *${price}*\n- الدفع: *${paymentName}*`;
         if (notes) text += `\n- ملاحظات: "${notes}"`;
         text += `\n\nأرجو إرسال معلومات الدفع. شكراً!`;
       } else if (currentLang === 'fr') {
-        text = `Bonjour ! Je souhaite commander :
-- Service : *${selectedProduct.name}*
-- ${optionLabel} : *${optionVal}*
-- Tarif : *${price}*
-- Paiement : *${paymentName}*`;
+        text = `Bonjour ! Je souhaite commander :\n- Service : *${productName}*\n- ${optionLabel} : *${optionVal}*\n- Tarif : *${price}*\n- Paiement : *${paymentName}*`;
         if (notes) text += `\n- Notes : "${notes}"`;
         text += `\n\nMerci de m'envoyer les coordonnées de paiement.`;
       } else {
-        text = `Hello! I would like to order:
-- Service: *${selectedProduct.name}*
-- ${optionLabel}: *${optionVal}*
-- Price: *${price}*
-- Payment: *${paymentName}*`;
+        text = `Hello! I would like to order:\n- Service: *${productName}*\n- ${optionLabel}: *${optionVal}*\n- Price: *${price}*\n- Payment: *${paymentName}*`;
         if (notes) text += `\n- Notes: "${notes}"`;
         text += `\n\nPlease send me the payment instructions. Thank you!`;
       }
