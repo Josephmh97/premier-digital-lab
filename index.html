@@ -775,7 +775,7 @@ growth: [
   {
     id: "tiktok-live",
     brand: "TikTok Live",
-    name: "TikTok Live Stream Views",
+    name: "TikTok Live Stream Views & likes",
     category: "social",
     img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png",
     imgPosition: "middle",
@@ -791,7 +791,7 @@ growth: [
   // TikTok Comments
   {
     id: "tiktok-comments",
-    brand: "TikTok Comments",
+    brand: "TikTok Video Comments",
     name: "TikTok Video Comments",
     category: "social",
     img: "https://images2.imgbox.com/ae/cd/kT0IxR2o_o.png",
@@ -1253,6 +1253,68 @@ growth: [
                   </details>
                 </div>
               ` : ''}
+
+              <!-- DETAILS SECTION - TikTok Live -->
+${p.id === 'tiktok-live' ? `
+  <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+    <details class="text-xs text-gray-400">
+      <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+        📋 Service Details
+      </summary>
+      <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+
+        <!-- Live Views Details -->
+        <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+          <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">👁️ Live Views</p>
+          <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/live</p>
+          <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-15 minutes</p>
+          <p>🕐 <span class="text-gray-300">Viewer Duration:</span> 15 minutes stay time</p>
+          <p>👥 <span class="text-gray-300">Each 1 view =</span> 1 live-stream viewer</p>
+          <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
+          <p>🛡️ <span class="text-gray-300">Quality:</span> Stable Views for your Live Stream</p>
+          <p>⚡ <span class="text-gray-300">Speed:</span> Fast Start</p>
+        </div>
+
+        <!-- Live Likes Details -->
+        <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+          <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">❤️ Live Likes</p>
+          <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/live</p>
+          <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-5 minutes</p>
+          <p>⚡ <span class="text-gray-300">Speed:</span> 1,000-10,000 likes per hour</p>
+          <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
+          <p>🛡️ <span class="text-gray-300">Quality:</span> Real likes from active users</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+` : ''}
+              
+              <!-- DETAILS SECTION - TikTok Comments -->
+             ${p.id === 'tiktok-comments' ? `
+  <div class="mb-4 p-3 bg-purple-500/5 border border-purple-500/10 rounded-xl">
+    <details class="text-xs text-gray-400">
+      <summary class="cursor-pointer text-purple-400 font-semibold hover:text-purple-300 transition-colors">
+        📋 Service Details
+      </summary>
+      <div class="mt-2 space-y-1.5 text-[11px] leading-relaxed">
+
+        <!-- AI Comments Details -->
+        <div class="p-2 bg-purple-500/5 rounded-lg border border-purple-500/10">
+          <p class="text-purple-400 font-semibold text-[10px] uppercase tracking-wider mb-1">💬 AI-Generated Comments</p>
+          <p>🤖 <span class="text-gray-300">Generated with:</span> AI</p>
+          <p>📌 <span class="text-gray-300">Format:</span> https://www.tiktok.com/@username/live</p>
+          <p>⏱️ <span class="text-gray-300">Start Time:</span> 0-24 hours</p>
+          <p>⚡ <span class="text-gray-300">Speed:</span> 50-250 comments per day</p>
+          <p>🛡️ <span class="text-gray-300">Guarantee:</span> 30 days</p>
+          <p>🎯 <span class="text-gray-300">Quality:</span> Medium</p>
+          <p>🌍 <span class="text-gray-300">Targeting:</span> Worldwide</p>
+        </div>
+
+      </div>
+    </details>
+  </div>
+` : ''}
 
               <!-- DETAILS SECTION - TikTok -->
               ${p.id === 'tiktok' ? `
